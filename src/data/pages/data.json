@@ -1,0 +1,100 @@
+{
+  "home": {
+    "heading": "An address of <span>true distinction</span>",
+    "links": [
+      { "slug": "/about", "label": "About" },
+      { "slug": "/#announcement", "label": "Announcements" },
+      { "slug": "/amenities#dine", "label": "Restaurants" },
+      { "slug": "/amenities#retail", "label": "Retail" },
+      { "slug": "/Leasing", "label": "Leasing" }
+    ],
+    "content": "The Crescent is a unique 1.3 million-square-foot luxury, mixed-use development combining iconic architecture with modern amenities in Dallas’ Uptown.  In this one prestigious location, the finest office spaces, hotel accommodations, restaurants, retail, and services are available.",
+    "concierge": {
+      "title": "Concierge",
+      "content": "The Crescent’s concierge service is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with ticket orders and requests via phone or email. For orders delivered to the building, please order no later than 2 p.m. on Thursday for delivery each Friday by noon. Tickets must be picked up in the management office, 200 Crescent Court, Suite 250, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks for more information call 972.770.4045.",
+      "ctaURL": "http://texasconciergeconnection.com/",
+      "ctaText": "Crescent Concierge"
+    },
+    "social": {
+      "title": "<span>Get social</span> with us",
+      "facebook": "https://www.facebook.com/McKinney-and-Olive-975767632559884/",
+      "vimeo": "https://vimeo.com/channels/mckinneyolive",
+      "instagram": "https://www.instagram.com/mckinneyandolive/"
+    },
+    "announcement": {
+      "title": "Announcements",
+      "content": "Stay up to date on our latest news and events by signing up for our weekly email. Email <a href=\"mailto:tc.customer@crescent.com\" style=\"color: white;\">tc.customer@crescent.com</a> or call <a href=\"tel:214.880.4500\" style=\"color: white;\">214.880.4500</a> to sign up."
+    },
+    "copyright": {
+      "text": "©The Crescent. All Rights Reserved"
+    },
+    "privacy": {
+      "slug": "/corporate-policy",
+      "text": "Corporate Policy"
+    },
+    "parking": {
+      "title": "PARKING AT THE CRESCENT",
+      "content": "The Crescent® is a unique, luxury, mixed-use development consisting of 1.1 million gross square feet of office space and 165,000 gross square feet in the atrium. In one prestigious location, the finest office spaces, hotel accommodations, restaurants, spa, retail shops and services are available."
+    }
+  },
+  "about": {
+    "links": [
+      { "slug": "#management", "label": "Management" },
+      { "slug": "#sustainability", "label": "Sustainability" },
+      { "slug": "#community", "label": "Community" }
+    ],
+    "theCrescent": {
+      "title": "The <span>Crescent</span>",
+      "content": "<p>The Crescent heralded as a celebration of art, history, and architecture, is the most iconic building in Dallas. Designed by world-renowned architect Philip Johnson along with John Burgee and Dallas-based Shepherd & Boyd, the facade creates a timeless design of quality and outstanding visibility from any point in the Dallas Central Business District. Known as the financial center of the southwest, the office and retail complex is the centerpiece of the Uptown Dallas/Turtle Creek Class AA office market and is the only Uptown office building with a dual-feed power supply.</p><p>The Crescent is set amongst quality amenities, including the Hotel Crescent Court, The Spa at The Crescent featuring a full-service fitness center, twelve restaurants, luxury shopping, an art gallery, and two salons.</p>",
+      "ctaText": "Download Brochure"
+    },
+    "customerService": {
+      "title": "CUSTOMER SERVICE <span>IS OUR PASSION, OUR CULTURE, AND OUR ADVANTAGE</span>",
+      "content": "The Crescent Real Estate management team is committed to providing exceptional customer service. As a result, we have been recognized ten times with the prestigious National Commercial Real Estate Customer Service Award for Excellence, or the “A List” Award, from CEL & Associates, Inc. The key to our success is our people, our relationships, and the interactions we have with our customers. It is this superior service, quality of assets, attention to detail and commitment to the customer experience that differentiates Crescent from our peers, giving us a competitive edge and making us the “Best in the Industry.”"
+    },
+    "team": {
+      "title": "Our <span>management</span> team"
+    },
+    "engTeam": {
+      "title": "Meet the <span>engineer</span> team"
+    },
+    "contentOne": {
+      "title": "Be responsible, <span>think sustainable</span>",
+      "content": "<p>The Crescent has been awarded LEED Silver certification from the U.S. Green Building Council (USGBC) under the Existing Buildings rating system. With a current score of 65, The Crescent has been an Energy Star labeled building since 2008. Factors such as building automation systems, lighting controls, and chilled water thermal storage have contributed to a significant decrease in overall energy consumption. The use of water-wise landscaping to conserve water and energy, coupled with the implementation of comprehensive green cleaning and recycling programs, are just a few examples of The Crescent’s leadership in sustainability practices.</p><p>The Crescent is focused on providing a green building environment for our customers to demonstrate our commitment to becoming better stewards of the environment within the commercial real estate market.</p>"
+    },
+    "contentTwo": {
+      "title": "Invested in <span>Our Community</span>",
+      "content": "<p>The Crescent recognizes the importance of promoting healthy communities in which to live and work. The heart of Crescent Real Estate’s commitment to the community is FACES of Change, a unique adopt-a-school program Crescent Real Estate began in 1997. Through this program, Crescent Real Estate managed properties are partnered with local elementary schools that serve at-risk students and families. FACES of Change partnerships bring Crescent employees, customers, and business partners together to provide volunteer time, monetary donations, and in-kind gifts to partner schools. Since its inception, FACES of Change has established more than 80 successful business-to-school partnerships that have impacted the lives of over 30,000 children nationwide.</p><p>To learn more about The Crescent’s FACES of Change partnership with Paul L. Dunbar Learning Center or to volunteer, please contact Kristine Lang at <a href=\"tel:214.880.4568\">214.880.4568</a> or <a href=\"mailto:klang@crescent.com\">klang@crescent.com</a>.</p>"
+    },
+    "address": "200 Crescent Court, Suite 250 Dallas, Texas 75201</br>214.880.4500"
+  },
+  "amenities": {
+    "content": "The Crescent is Dallas’ Premier office and retail complex. In one prestigious location, the finest office spaces, hotel accommodations, spa, restaurants, retail shops, and services are available. Unique indoor and outdoor gathering spaces can be found throughout The Courtyard for relaxing or meeting with friends and colleagues. Along with a walkable, neighborhood-friendly Uptown location, The Crescent provides convenient access to downtown Dallas, Klyde Warren Park, Dallas Arts District, and Katy Trail.",
+    "sliderOne": {
+      "title": "<span>Dine</span> With Us"
+    },
+    "sliderTwo": {
+      "title": "<span>Retail</span> and hospitality"
+    },
+    "bottomContent": {
+      "title": "CONCIERGE",
+      "content": "The Crescent’s concierge service is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with most ticket orders and requests via phone or email. For all orders that need to be delivered to the building, please order no later than 2 p.m. on Thursday for delivery each Friday by noon. Tickets must be picked up in the management office, 200 Crescent Court, Suite 250, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. For more information, call 972.770.4045.",
+      "ctaText": "The Crescent Concierge",
+      "ctaURL": "http://texasconciergeconnection.com/"
+    }
+  },
+  "leasing": {
+    "title": "THE <span>PERFECT PLACE</span> TO OFFICE",
+    "content": "Set in a crescent-shaped contour, The Crescent was designed to allow customers to travel from building to building while remaining within a unified complex. The three towers are contiguous and offer a standard 22,000 square foot floor plan with an elevator core in each tower. Customers can expand vertically, as in traditional buildings, or horizontally, using each building as a 22,000 square foot module. Standard bay depths are 43-44 feet from the outside wall to the interior core. The planning module is 10 feet allowing floors to be arranged to accommodate offices up to 20 feet deep. Finished ceiling heights are 9 feet on floors 2 through 15, and 12 feet on floors 16 through 19. The ground floor has a 12-foot finished ceiling.",
+    "address": "For leasing information, please contact:<br/>Tony Click 214.880.4766",
+    "ctaText": "Download Brochure"
+  },
+  "location": {
+    "contentOne": "The Crescent is the place to connect in Dallas' Uptown walkable environment that is filled with an abundance of high-rise residential living, world-class restaurants, nightlife, entertainment, luxury hotels, and trendsetting shops with convenient access to downtown Dallas, Klyde Warren Park, and the Dallas Arts District.",
+    "contentTwo": "The location provides convenient freeway access with proximity to the Dallas North Tollway and Woodall Rodgers Freeway, which allows quick access to I-35 and I-30 to the west and North Central Expressway and I-45 to the east.",
+    "address": "200 Crescent Court, Suite 250 Dallas, Texas 75201</br>214.880.4500"
+  },
+  "policy": {
+    "title": "Corporate <span>Policy</span>"
+  }
+}
