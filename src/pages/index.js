@@ -109,7 +109,7 @@ export default ({ data }) => {
         <div className="react-player-wrapper">
           <ReactPlayer
             className="react-player-video"
-            url="https://player.vimeo.com/video/366779391?title=0&byline=0&portrait=0"
+            url="https://player.vimeo.com/video/371457760?title=0&byline=0&portrait=0"
             controls
             width="100%"
             height="100%"
@@ -188,9 +188,9 @@ export const query = graphql`
         }
       }
     }
-    defaultImage: file(relativePath: { eq: "default-image.png" }) {
+    defaultImage: file(relativePath: { eq: "default-image.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid(maxWidth: 1500) {
           ...GatsbyImageSharpFluid
         }
       }

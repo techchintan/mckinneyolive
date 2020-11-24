@@ -60,19 +60,21 @@ export default ({ data }) => {
         </Box>
         <Box overflowY="auto" mt={[3, 4, 6]} mb={[5, 6]}>
           <Table width={1}>
-            <THead>
-              <TR>
-                {allContentfulBuildings.edges.map(item => {
-                  const { title, id } = item.node
-                  let color = id === active.node.id ? `primary` : `grays.0`
-                  return (
-                    <TH onClick={() => setActive(item)} bg={color} key={id}>
-                      {title}
-                    </TH>
-                  )
-                })}
-              </TR>
-            </THead>
+            {allContentfulBuildings.edges.length > 1 && (
+              <THead>
+                <TR>
+                  {allContentfulBuildings.edges.map(item => {
+                    const { title, id } = item.node
+                    let color = id === active.node.id ? `primary` : `grays.0`
+                    return (
+                      <TH onClick={() => setActive(item)} bg={color} key={id}>
+                        {title}
+                      </TH>
+                    )
+                  })}
+                </TR>
+              </THead>
+            )}
             <TBody>
               <TR bg="primary">
                 <TD style={{ fontWeight: 600, fontSize: '18px' }}>FLOOR</TD>

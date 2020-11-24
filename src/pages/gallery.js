@@ -13,6 +13,7 @@ import Heading from '../components/Heading'
 import GalleryV from '../views/Gallery'
 
 export default ({ data }) => {
+  console.log({ data })
   return (
     <Layout>
       <SEO title="Gallery" />
@@ -24,7 +25,7 @@ export default ({ data }) => {
           </Heading>
         </Box>
       </Container>
-      <GalleryV images={data.contentfulGallery.images} />
+      <GalleryV bigImages={data.bigImages} thumbnails={data.thumbnails} />
     </Layout>
   )
 }
@@ -38,18 +39,21 @@ export const query = graphql`
         }
       }
     }
-    contentfulGallery(title: { eq: "Photo Gallery" }) {
+    thumbnails: contentfulGallery(title: { eq: "Photo Gallery" }) {
       images {
         id
         title
-        fluid {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+        fluid(maxWidth: 400) {
+          ...GatsbyContentfulFluid_withWebp
+        }
+      }
+    }
+    bigImages: contentfulGallery(title: { eq: "Photo Gallery" }) {
+      images {
+        id
+        title
+        fluid(maxWidth: 1500) {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }

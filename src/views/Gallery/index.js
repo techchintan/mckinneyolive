@@ -6,23 +6,23 @@ import Modal, { ModalContent } from './Modal'
 
 import { Image, ImageWrap } from './styles'
 
-export default ({ images }) => {
+export default ({ bigImages, thumbnails }) => {
   const [active, setActive] = useState(null)
 
   return (
     <Box display="flex" flexWrap="wrap" p="5px">
-      {active && (
+      {active && active > -1 && (
         <Modal id="photo-gallery">
           <ModalContent onClick={() => setActive(null)}>
-            <FullImage fluid={active.fluid} />
+            <FullImage fluid={bigImages.images[active].fluid} />
           </ModalContent>
         </Modal>
       )}
-      {images.map(item => (
+      {thumbnails.images.map((item, index) => (
         <ImageWrap
           key={item.id}
           width={[1, 1 / 3, 1 / 5]}
-          onClick={() => setActive(item)}
+          onClick={() => setActive(index)}
         >
           <Image fluid={item.fluid} alt={item.title} />
         </ImageWrap>

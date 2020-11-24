@@ -169,9 +169,9 @@ export const query = graphql`
         }
       }
     }
-    defaultImage: file(relativePath: { eq: "default-image.png" }) {
+    defaultImage: file(relativePath: { eq: "default-image.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid(maxWidth: 1500) {
           ...GatsbyImageSharpFluid
         }
       }

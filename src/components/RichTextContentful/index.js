@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -14,4 +15,18 @@ const options = {
   },
 }
 
-export default ({ content }) => documentToReactComponents(content, options)
+export default ({ content }) => (
+  <Wrapper>{documentToReactComponents(content, options)}</Wrapper>
+)
+
+export const Wrapper = styled.div`
+  p span,
+  p a {
+    font-weight: bold;
+  }
+  blockquote {
+    margin: 20px auto 40px;
+    text-align: center;
+    max-width: 900px;
+  }
+`

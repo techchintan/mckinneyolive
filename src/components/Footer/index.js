@@ -13,7 +13,7 @@ import {
 } from './styles'
 
 import logoIconWhite from './logo_icon_type.svg'
-import logoWhite from './logo_white.svg'
+import logoWhite from '../../images/logo-white.png'
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -57,7 +57,7 @@ const Footer = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box width={[220, 220, 180]} mb={[4, null, 0]}>
+            <Box width={[220, 220, 220]} mb={[4, null, 0]}>
               <Link to="/" style={{ display: 'inline-block' }}>
                 <Box width={1} as="img" src={logoWhite} />
               </Link>
@@ -77,7 +77,12 @@ const Footer = () => {
               ))}
             </Box>
             <Box width={[210, 210, 180]} mt={[4, null, 0]}>
-              <a href="https://crescent.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <a
+                href="https://crescent.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'inline-block' }}
+              >
                 <Box width={1} as="img" src={logoIconWhite} />
               </a>
             </Box>

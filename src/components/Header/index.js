@@ -25,7 +25,9 @@ import {
   Privacy,
 } from './styles'
 
-import LogoPath from './LogoPath'
+// import LogoPath from './LogoPath'
+import logo from '../../images/logo.png'
+import logoWhite from '../../images/logo-white.png'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -100,7 +102,7 @@ export default () => {
                   <Button
                     width={[1, '300px']}
                     as="a"
-                    href="https://ev.smsvalet.com/Web/WebSite/UserPin.aspx"
+                    href="https://ev.smsvalet.com/Web/WebSite/Login.aspx"
                     target="_blank"
                   >
                     Validate Valet Parking
@@ -120,17 +122,24 @@ export default () => {
         left="0"
         zIndex={999}
         style={{ overflow: 'hidden', transition: 'all 0.5s' }}
+        pt="10px"
       >
         <Container>
           <Box
             display="flex"
             alignItems="center"
             justifyContent="space-between"
-            pt="30px"
           >
             <Link to="/" onClick={() => set(false)}>
-              <Box as="svg" width="240px" viewBox="0 0 471 55">
+              {/* <Box as="svg" width="240px" viewBox="0 0 471 55">
                 <LogoPath open={open} />
+              </Box> */}
+              <Box width="180px">
+                {open ? (
+                  <img src={logoWhite} alt="logo" />
+                ) : (
+                  <img src={logo} alt="logo" />
+                )}
               </Box>
             </Link>
             <Box display={['none', null, 'block']}>
@@ -151,7 +160,7 @@ export default () => {
                 <Box mr={[null, 0, 4]}>
                   <IconText
                     as="a"
-                    href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=69941&WebsiteName=Main"
+                    href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=250278&WebsiteName=Main"
                     target="_blank"
                   >
                     <Icon>
@@ -200,7 +209,7 @@ export default () => {
               <ANormal
                 as="a"
                 fontSize={[3, '36px']}
-                href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=69941&WebsiteName=Main"
+                href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=250278&WebsiteName=Main"
                 target="_blank"
               >
                 Customer Service

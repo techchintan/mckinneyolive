@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `The Crescent`,
+    title: `McKinney & Olive`,
     description: `An address of distinction`,
     author: `@leomanlapera`,
     nav: [

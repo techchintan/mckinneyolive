@@ -14,7 +14,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title={`${contentfulNews.title} - News`} />
       <Hero fluid={data.hero.childImageSharp.fluid} />
-      <Box py={[5, '100px']}>
+      <Box id="content-start" py={[5, '100px']}>
         <Container>
           <Box as="h1" mt="0" mb={5}>
             {contentfulNews.title}

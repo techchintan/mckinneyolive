@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
-import Img from 'gatsby-image'
+import ReactPlayer from 'react-player'
 
 // Components
 import Layout from '../components/Layout'
@@ -24,11 +24,12 @@ export default ({ data }) => {
     address,
     contentOne,
     contentTwo,
+    contentThree,
     customerService,
     links,
     team,
-    engTeam,
-    theCrescent,
+    mckinneyOlive,
+    theArchitect,
   } = data.pagesJson.about
 
   return (
@@ -63,12 +64,30 @@ export default ({ data }) => {
           <Image fluid={data.theCrescentImage.childImageSharp.fluid} />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
-              <div dangerouslySetInnerHTML={{ __html: theCrescent.title }} />
+              <div dangerouslySetInnerHTML={{ __html: mckinneyOlive.title }} />
             </Heading>
-            <Box dangerouslySetInnerHTML={{ __html: theCrescent.content }} />
+            <Box dangerouslySetInnerHTML={{ __html: mckinneyOlive.content }} />
             <Button mt={4} as="a" href={brochure}>
-              {theCrescent.ctaText}
+              {mckinneyOlive.ctaText}
             </Button>
+          </Content>
+        </ContentImage>
+      </Box>
+      <Box overflow="hidden">
+        <ContentImage flexDirection="row-reverse">
+          <Box flex="1 0 auto">
+            <ReactPlayer
+              url={`${theArchitect.videoUrl}?title=0&byline=0&portrait=0`}
+              controls
+              width="100%"
+              height="100%"
+            />
+          </Box>
+          <Content>
+            <Heading as="h2" fontSize={[4, '36px']}>
+              <div dangerouslySetInnerHTML={{ __html: theArchitect.title }} />
+            </Heading>
+            <Box dangerouslySetInnerHTML={{ __html: theArchitect.content }} />
           </Content>
         </ContentImage>
       </Box>
@@ -86,7 +105,8 @@ export default ({ data }) => {
           <Box>{customerService.content}</Box>
         </Box>
       </Container>
-      <Img fluid={data.teamHero.childImageSharp.fluid} />
+      {/* To be added at a later stage */}
+      {/* <Img fluid={data.teamHero.childImageSharp.fluid} /> */}
       <Container id="management">
         <Box py={5}>
           <Heading as="h2" mb={0} fontSize={[4, '36px']}>
@@ -95,27 +115,21 @@ export default ({ data }) => {
         </Box>
       </Container>
       <TeamList teams={data.management.edges} />
-      <Img fluid={data.engHero.childImageSharp.fluid} />
-      <Container>
-        <Box py={5}>
-          <Heading as="h2" mb={0} fontSize={[4, '36px']}>
-            <div dangerouslySetInnerHTML={{ __html: engTeam.title }} />
-          </Heading>
-        </Box>
-      </Container>
-      <TeamList teams={data.engineer.edges} />
-      <Box id="sustainability" overflow="hidden" mb={3}>
+      <Box id="sustainability" overflow="hidden">
         <ContentImage>
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentOne.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: contentOne.content }} />
+            <Button mt={4} as="a" href={contentOne.cta.url} target="_blank">
+              {contentOne.cta.text}
+            </Button>
           </Content>
           <Image fluid={data.contentOneImage.childImageSharp.fluid} />
         </ContentImage>
       </Box>
-      <Box id="community" overflow="hidden">
+      <Box id="bees" overflow="hidden">
         <ContentImage>
           <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
           <Content>
@@ -123,6 +137,19 @@ export default ({ data }) => {
               <div dangerouslySetInnerHTML={{ __html: contentTwo.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: contentTwo.content }} />
+            <Button mt={4} as="a" href={contentTwo.cta.url} target="_blank">
+              {contentTwo.cta.text}
+            </Button>
+          </Content>
+        </ContentImage>
+      </Box>
+      <Box id="community" overflow="hidden">
+        <ContentImage>
+          <Content>
+            <Heading as="h2" fontSize={[4, '36px']}>
+              <div dangerouslySetInnerHTML={{ __html: contentThree.title }} />
+            </Heading>
+            <Box dangerouslySetInnerHTML={{ __html: contentThree.content }} />
             <Box pt={4}>
               <form
                 action="https://www.paypal.com/cgi-bin/webscr"
@@ -153,6 +180,7 @@ export default ({ data }) => {
               </form>
             </Box>
           </Content>
+          <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
         </ContentImage>
       </Box>
       <Box
@@ -183,8 +211,20 @@ export const query = graphql`
         contentOne {
           content
           title
+          cta {
+            text
+            url
+          }
         }
         contentTwo {
+          title
+          content
+          cta {
+            text
+            url
+          }
+        }
+        contentThree {
           title
           content
         }
@@ -199,13 +239,15 @@ export const query = graphql`
         team {
           title
         }
-        engTeam {
-          title
-        }
-        theCrescent {
+        mckinneyOlive {
           content
           ctaText
           title
+        }
+        theArchitect {
+          content
+          title
+          videoUrl
         }
       }
     }
@@ -217,13 +259,6 @@ export const query = graphql`
       }
     }
     teamHero: file(relativePath: { eq: "the_team.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    engHero: file(relativePath: { eq: "eng_team.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
@@ -256,31 +291,6 @@ export const query = graphql`
     management: allContentfulTeams(
       sort: { order: ASC, fields: order }
       filter: { category: { title: { eq: "Management" } } }
-    ) {
-      edges {
-        node {
-          title
-          name
-          position
-          phone
-          email
-          image {
-            fluid(maxWidth: 970) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
-      }
-    }
-    engineer: allContentfulTeams(
-      sort: { order: ASC, fields: order }
-      filter: { category: { title: { eq: "Engineer" } } }
     ) {
       edges {
         node {

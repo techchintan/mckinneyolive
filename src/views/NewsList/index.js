@@ -14,7 +14,7 @@ function NewsList({ news, ...rest }) {
           <NewsItem key={id} mb={3}>
             <Date>{moment.parseZone(date).format('MMM DD')}</Date>
             <Title color="secondary">
-              <Link to={`/${slug}`}>{title}</Link>
+              <Link to={`/${slug}/#content-start`}>{title}</Link>
             </Title>
           </NewsItem>
         )

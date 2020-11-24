@@ -1,6 +1,6 @@
 {
   "home": {
-    "heading": "An address of <span>true distinction</span>",
+    "heading": "There’s <span>only one</span>",
     "links": [
       { "slug": "/about", "label": "About" },
       { "slug": "/#announcement", "label": "Announcements" },
@@ -8,12 +8,12 @@
       { "slug": "/amenities#retail", "label": "Retail" },
       { "slug": "/Leasing", "label": "Leasing" }
     ],
-    "content": "The Crescent is a unique 1.3 million-square-foot luxury, mixed-use development combining iconic architecture with modern amenities in Dallas’ Uptown.  In this one prestigious location, the finest office spaces, hotel accommodations, restaurants, retail, and services are available.",
+    "content": "McKinney & Olive is a one-of-a-kind, 20-story Class AA office building, designed by world-renowned architect Cesar Pelli offering world-class architecture, premier office space, and exclusive restaurant and retail in the vibrant, pedestrian-oriented neighborhood of Uptown Dallas.",
     "concierge": {
       "title": "Concierge",
-      "content": "The Crescent’s concierge service is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with ticket orders and requests via phone or email. For orders delivered to the building, please order no later than 2 p.m. on Thursday for delivery each Friday by noon. Tickets must be picked up in the management office, 200 Crescent Court, Suite 250, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks for more information call 972.770.4045.",
-      "ctaURL": "http://texasconciergeconnection.com/",
-      "ctaText": "Crescent Concierge"
+      "content": "The  Concierge Connection is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with ticket orders and requests via phone or email. Please order no later than 2 p.m. on Thursday for delivery each Friday by noon for orders delivered to the building. Tickets must be picked up in the management office on the 5th floor, Suite 575, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. Personal checks are not accepted. For more information, call 214.935.9700, ext. 1.",
+      "ctaURL": "https://files.constantcontact.com/cd62516b601/f4df452c-0c45-42fc-aca5-fecd194cca1d.pdf",
+      "ctaText": "Concierge Connection"
     },
     "social": {
       "title": "<span>Get social</span> with us",
@@ -23,53 +23,160 @@
     },
     "announcement": {
       "title": "Announcements",
-      "content": "Stay up to date on our latest news and events by signing up for our weekly email. Email <a href=\"mailto:tc.customer@crescent.com\" style=\"color: white;\">tc.customer@crescent.com</a> or call <a href=\"tel:214.880.4500\" style=\"color: white;\">214.880.4500</a> to sign up."
+      "content": "Stay up to date on our latest news and events by signing up for our weekly email. Email <a href=\"mailto:tc.customer@crescent.com\" style=\"color: white;\">tc.customer@crescent.com</a> or call <a href=\"tel:469.917.4300\" style=\"color: white;\">469.917.4300</a> to sign up."
     },
     "copyright": {
-      "text": "©The Crescent. All Rights Reserved"
+      "text": "©McKinney & Olive. All Rights Reserved"
     },
     "privacy": {
       "slug": "/corporate-policy",
       "text": "Corporate Policy"
     },
     "parking": {
-      "title": "PARKING AT THE CRESCENT",
-      "content": "The Crescent® is a unique, luxury, mixed-use development consisting of 1.1 million gross square feet of office space and 165,000 gross square feet in the atrium. In one prestigious location, the finest office spaces, hotel accommodations, restaurants, spa, retail shops and services are available."
+      "title": "PARKING AT MCKINNEY & OLIVE",
+      "content": "McKinney & Olive® is a unique, luxury, mixed-use development consisting of 1.1 million gross square feet of office space and 165,000 gross square feet in the atrium. In one prestigious location, the finest office spaces, hotel accommodations, restaurants, spa, retail shops and services are available."
     }
   },
   "about": {
     "links": [
       { "slug": "#management", "label": "Management" },
       { "slug": "#sustainability", "label": "Sustainability" },
+      { "slug": "#bees", "label": "The Bees" },
       { "slug": "#community", "label": "Community" }
     ],
-    "theCrescent": {
-      "title": "The <span>Crescent</span>",
-      "content": "<p>The Crescent heralded as a celebration of art, history, and architecture, is the most iconic building in Dallas. Designed by world-renowned architect Philip Johnson along with John Burgee and Dallas-based Shepherd & Boyd, the facade creates a timeless design of quality and outstanding visibility from any point in the Dallas Central Business District. Known as the financial center of the southwest, the office and retail complex is the centerpiece of the Uptown Dallas/Turtle Creek Class AA office market and is the only Uptown office building with a dual-feed power supply.</p><p>The Crescent is set amongst quality amenities, including the Hotel Crescent Court, The Spa at The Crescent featuring a full-service fitness center, twelve restaurants, luxury shopping, an art gallery, and two salons.</p>",
+    "mckinneyOlive": {
+      "title": "<span>MCKINNEY & OLIVE</span>",
+      "content": "<p>McKinney & Olive is a one-of-a-kind landmark office tower designed by world-renowned architect Cesar Pelli, offering world-class architecture, premier office space, and exclusive restaurant and retail in the vibrant, pedestrian-oriented neighborhood of Uptown Dallas.  Located at the prime intersection of McKinney Ave. and Olive St., the development is a short walk to Klyde Warren Park and the growing Dallas Arts District.</p><p>Adding to this elegant building's striking architecture, McKinney & Olive offers 486,000 square feet of Class A+ office space that includes the latest building innovation and technology. Customers enjoy high-efficiency floor plates, 10-foot ceiling heights with floor-to-ceiling clear glass, state-of-the-art security, destination elevators, and unmatched amenities, including an outdoor terrace, conference center, Canyon Ranch-designed fitness studio, Wi-Fi in all common areas, and the landscaped one-acre Piazza.</p>",
       "ctaText": "Download Brochure"
+    },
+    "theArchitect": {
+      "title": "About <span>The Architect</span>",
+      "content": "<p>McKinney & Olive was designed by world-renowned architect Cesar Pelli, Gregg Jones, and Rob Narracci of Pelli Clarke Pelli. The development was Pelli’s first design in Dallas and the first commercial building in Dallas, designed by an internationally acclaimed architect since the 1980s.</p><p>Founded in 1977, Pelli Clarke Pelli Architects has earned a reputation for designing buildings that express their clients' core values. They have designed some of the most recognizable and successful projects globally, from the World Financial Center in New York to the Petronas Towers in Malaysia and the International Finance Centre in Hong Kong.  They design contemporary, broadly resonant, and optimistic buildings and view architecture as a continually evolving art.</p><p>The work of Pelli Clarke Pelli has been internationally recognized with over 100 awards for design excellence, including over 40 design awards from National, Regional and local chapters of the American Institute of Architects (AIA). The late Cesar Pelli was selected as one of the ten most influential living architects by the AIA.</p>",
+      "videoUrl": "https://player.vimeo.com/video/114289506"
     },
     "customerService": {
       "title": "CUSTOMER SERVICE <span>IS OUR PASSION, OUR CULTURE, AND OUR ADVANTAGE</span>",
-      "content": "The Crescent Real Estate management team is committed to providing exceptional customer service. As a result, we have been recognized ten times with the prestigious National Commercial Real Estate Customer Service Award for Excellence, or the “A List” Award, from CEL & Associates, Inc. The key to our success is our people, our relationships, and the interactions we have with our customers. It is this superior service, quality of assets, attention to detail and commitment to the customer experience that differentiates Crescent from our peers, giving us a competitive edge and making us the “Best in the Industry.”"
+      "content": "Crescent Real Estate’s management team is committed to providing exceptional customer service. As a result, we have been recognized ten times with the prestigious National Commercial Real Estate Customer Service Award for Excellence, or the “A-List” Award, from CEL & Associates, Inc. The key to our success is our people, relationships, and interactions with our customers. This superior service, quality of assets, attention to detail, and commitment to the customer experience that differentiates Crescent from our peers, giving us a competitive edge and making us the “Best in the Industry.”"
     },
     "team": {
       "title": "Our <span>management</span> team"
     },
-    "engTeam": {
-      "title": "Meet the <span>engineer</span> team"
-    },
     "contentOne": {
       "title": "Be responsible, <span>think sustainable</span>",
-      "content": "<p>The Crescent has been awarded LEED Silver certification from the U.S. Green Building Council (USGBC) under the Existing Buildings rating system. With a current score of 65, The Crescent has been an Energy Star labeled building since 2008. Factors such as building automation systems, lighting controls, and chilled water thermal storage have contributed to a significant decrease in overall energy consumption. The use of water-wise landscaping to conserve water and energy, coupled with the implementation of comprehensive green cleaning and recycling programs, are just a few examples of The Crescent’s leadership in sustainability practices.</p><p>The Crescent is focused on providing a green building environment for our customers to demonstrate our commitment to becoming better stewards of the environment within the commercial real estate market.</p>"
+      "content": "<p>McKinney & Olive operates at the highest level of efficiency and sustainability.  We are focused on providing a green building environment for our customers and demonstrating our commitment as stewards of the environment within the commercial real estate market. Because of this, we are LEED v4 O+M: EB Gold certified, meaning we meet the strict guidelines set forth by the Environmental Protection Agency to achieve Energy Star Ratings as well as those set forth by the U.S. Green Building Council for Leadership in Energy and Environmental Design (LEED® ).</p><p>Factors such as building automation systems, lighting controls, comprehensive green cleaning, and recycling programs are just a few examples of McKinney & Olive’s sustainability practices that contribute to a significant decrease in the overall energy consumption of the earth's resources by reducing energy use, conserving water, minimizing waste, reducing CO2 emissions, recycling materials and improving indoor quality of property environments.</p>",
+      "cta": {
+        "text": "McKinney & Olive LEED Case Study",
+        "url": "http://www.mckinneyandolive.com/files/3215/4352/0131/MO_LEED_Case_Study.pdf"
+      }
     },
     "contentTwo": {
-      "title": "Invested in <span>Our Community</span>",
-      "content": "<p>The Crescent recognizes the importance of promoting healthy communities in which to live and work. The heart of Crescent Real Estate’s commitment to the community is FACES of Change, a unique adopt-a-school program Crescent Real Estate began in 1997. Through this program, Crescent Real Estate managed properties are partnered with local elementary schools that serve at-risk students and families. FACES of Change partnerships bring Crescent employees, customers, and business partners together to provide volunteer time, monetary donations, and in-kind gifts to partner schools. Since its inception, FACES of Change has established more than 80 successful business-to-school partnerships that have impacted the lives of over 30,000 children nationwide.</p><p>To learn more about The Crescent’s FACES of Change partnership with Paul L. Dunbar Learning Center or to volunteer, please contact Kristine Lang at <a href=\"tel:214.880.4568\">214.880.4568</a> or <a href=\"mailto:klang@crescent.com\">klang@crescent.com</a>.</p>"
+      "title": "The <span>Bees</span> of McKinney & Olive",
+      "content": "<p>McKinney & Olive is partnered with Alvéole, an international urban beekeeping company, to address the declining populations of urban pollinators, honey bees. Alvéole has partnered with more than 500 companies in North America to install beehives on urban properties to create ecological awareness of bees. Alvéole has assigned a beekeeping team manager at McKinney & Olive to provide educational and awareness workshops for customers and other bee-related events for customers, including harvesting honey once a year from honey-comb hives.</p><p>McKinney & Olive’s beehives are visible to customers from the conference room windows.  Bees are responsible for the pollination of more than 130 varieties of fruits and vegetables around the globe. The honey bees’ daily quest is to bring nectar, pollen, resin, or water to their colony to ensure its development. Honey bees are not motivated to sting. They have one goal, and one goal only: to collect nectar and pollen from flowers within a 3-mile radius of their hive and bring it back to ensure the colony’s development.</p>",
+      "cta": {
+        "text": "Learn more about our bees",
+        "url": "https://myhive.alveole.buzz/crescent-real-estate-mckinney-olive-2021-mckinney-avenue/"
+      }
     },
-    "address": "200 Crescent Court, Suite 250 Dallas, Texas 75201</br>214.880.4500"
+    "contentThree": {
+      "title": "Invested in <span>Our Community</span>",
+      "content": "<p>McKinney & Olive recognizes the importance of promoting healthy communities in which to live and work. The heart of Crescent Real Estate’s commitment to the community is FACES of Change, a unique adopt-a-school program Crescent Real Estate began in 1997. Through this program, Crescent Real Estate managed properties are partnered with local elementary schools that serve at-risk students and families. FACES of Change partnerships bring Crescent employees, customers, and business partners together to provide volunteer time, monetary donations, and in-kind gifts to partner schools. Since its inception, FACES of Change has established more than 80 successful business-to-school partnerships that have impacted the lives of over 30,000 children nationwide.</p><p>To learn more about McKinney & Olive’s FACES of Change partnership with Paul L. Dunbar Learning Center or to volunteer, please contact Tricia Wentz at <a href=\"tel:469.917.4300\">469.917.4300</a> or <a href=\"mailto:moinfo@crescent.com\">moinfo@crescent.com</a>.</p>"
+    },
+    "address": "2021 McKinney Avenue, Suite 575 Dallas, Texas 75201</br>469.917.4300"
   },
   "amenities": {
-    "content": "The Crescent is Dallas’ Premier office and retail complex. In one prestigious location, the finest office spaces, hotel accommodations, spa, restaurants, retail shops, and services are available. Unique indoor and outdoor gathering spaces can be found throughout The Courtyard for relaxing or meeting with friends and colleagues. Along with a walkable, neighborhood-friendly Uptown location, The Crescent provides convenient access to downtown Dallas, Klyde Warren Park, Dallas Arts District, and Katy Trail.",
+    "links": [
+      { "slug": "#conference-center", "label": "Conference Center" },
+      { "slug": "#outdoor-terrace", "label": "Outdoor Terrace" },
+      { "slug": "#fitness-studio", "label": "Fitness Studio" },
+      { "slug": "#dine-with-us", "label": "Dine with us" },
+      { "slug": "#retail", "label": "Retail" }
+    ],
+    "content": "McKinney & Olive offers 50,000 square feet of ground-level retail and dining, featuring Del Frisco’s Double Eagle Steakhouse, Doc B's Fresh Kitchen, Starbucks Reserve, Roti Modern Mediterranean, Malibu Poke, MIXT, CycleBar, Drybar, and Super All Day coming soon. One of the most notable and unique offerings at McKinney & Olive is the beautiful one-acre piazza designed and landscaped by James Burnett, featuring open outdoor space accented with umbrella-covered tables, water features, lawn games all framed with mature shade trees.  Other amenities including an outdoor terrace, conference center, Canyon Ranch-designed fitness studio, and Wi-Fi in all common areas.",
+    "contentOne": {
+      "title": "<span>Conference Center</span>",
+      "content": "<p>McKinney & Olive operates at the highest level of efficiency and sustainability.  We are focused on providing a green building environment for our customers and demonstrating our commitment as stewards of the environment within the commercial real estate market. Because of this, we are LEED v4 O+M: EB Gold certified, meaning we meet the strict guidelines set forth by the Environmental Protection Agency to achieve Energy Star Ratings as well as those set forth by the U.S. Green Building Council for Leadership in Energy and Environmental Design (LEED® ).</p><p>Factors such as building automation systems, lighting controls, comprehensive green cleaning, and recycling programs are just a few examples of McKinney & Olive’s sustainability practices that contribute to a significant decrease in the overall energy consumption of the earth's resources by reducing energy use, conserving water, minimizing waste, reducing CO2 emissions, recycling materials and improving indoor quality of property environments.</p><p>A galley kitchen is located adjacent to the conference center to provide easy access to food service or catering.</p><p>To schedule the conference center, please have your suite representative schedule on Angus.</p><p>The conference center rates are:</p><ul><li>$40 per hour, up to 3 hours</li><li>$150 for a half-day, 4 hours</li><li>$300 for a whole day, 8 hours</li><li>After-hour rates available upon request</li></ul>",
+      "capacity": [
+        {
+          "name": "standard",
+          "options": [
+            {
+              "name": "U Shape ",
+              "description": "U Shape encourages open discussion, up to 22 seats",
+              "options": [
+                {
+                  "name": "East End Open",
+                  "floor plan": "eastEndOpen"
+                },
+                {
+                  "name": "West End Open",
+                  "floor plan": "westEndOpen"
+                },
+                {
+                  "name": "North End Open",
+                  "floor plan": "northEndOpen"
+                },
+                {
+                  "name": "South End Open",
+                  "floor plan": "southEndOpen"
+                }
+              ]
+            },
+            {
+              "name": "Theater",
+              "description": "Theater for professional presentations, up to 80 seats",
+              "options": [
+                {
+                  "name": "Chairs Facing East",
+                  "floor plan": "chairsFacingEast"
+                },
+                {
+                  "name": "Chairs Facing South",
+                  "floor plan": "chairsFacingSouth"
+                }
+              ]
+            },
+            {
+              "name": "Classroom",
+              "description": "Classroom a comfortable education environment, up to 50 seats",
+              "options": [
+                {
+                  "name": "Tables Facing East",
+                  "floor plan": "tablesFacingEast"
+                },
+                {
+                  "name": "Tables Facing South",
+                  "floor plan": "tablesFacingSouth"
+                }
+              ]
+            },
+            {
+              "name": "Boardroom",
+              "description": "Boardroom ideal for formal meetings, up to 28 seats",
+              "options": [
+                {
+                  "name": "Small",
+                  "floor plan": "small"
+                },
+                {
+                  "name": "Large",
+                  "floor plan": "large"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "ctaText": "McKinney & Olive Conference Center Brochure"
+    },
+    "contentTwo": {
+      "title": "<span>Outdoor Terrace</span>",
+      "content": "<p>The outdoor terrace is available for outdoor meetings and events. Located outside of the 5th-floor lobby, the outdoor terrace is integrated with dual microphones and equipped with the 16 speaker Sonance surround system with dual in-ground subwoofers concealed throughout the landscaping. To reserve the terrace, please contact your company’s suite representative.</p><p>The Outdoor Terrace rates are:</p><ul><li>$250 for a half-day, 4 hours</li><li>Pricing for more than 4 hours or after-hour rates are available through the management office.</li></ul>"
+    },
+    "contentThree": {
+      "title": "<span>Fitness Studio</span>",
+      "content": "<p>McKinney & Olive’s state-of-the-art fitness studio is designed and equipped by Canyon Ranch®, the health and wellness leader. The cutting-edge equipment by TechnoGym includes a complete range of cardio, strength, and functional equipment.</p><p>In addition to the use of the facility, the following is included in the membership: a spa-like locker room, private shower rooms, and an array of amenities, including premium Canyon Ranch® products, blow dryers, bottled water, chilled hand towels, and complimentary towel service.</p><p>The fitness studio is managed by Trophy Fitness, known for the highest quality personal training and unparalleled customer service.  A personal trainer is on-site three days a week and offers weekly fitness classes to members.</p><p>The fitness studio is an exclusive amenity for McKinney & Olive Customers and is open 24 hours a day, seven days a week. Memberships are available for $50 per month, and personal training is available Mondays, Wednesdays, and Fridays from 6 a.m. to 2 p.m.</p><p>For more information or to set up a time to activate your membership, contact Trophy Fitness at <a href=\"mailto:bwelborn@trophyfitnessclub.com]\">bwelborn@trophyfitnessclub.com</a>.</p>",
+      "ctaText": "McKinney & Olive Fitness Studio Brochure"
+    },
     "sliderOne": {
       "title": "<span>Dine</span> With Us"
     },
@@ -78,21 +185,21 @@
     },
     "bottomContent": {
       "title": "CONCIERGE",
-      "content": "The Crescent’s concierge service is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with most ticket orders and requests via phone or email. For all orders that need to be delivered to the building, please order no later than 2 p.m. on Thursday for delivery each Friday by noon. Tickets must be picked up in the management office, 200 Crescent Court, Suite 250, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. For more information, call 972.770.4045.",
-      "ctaText": "The Crescent Concierge",
+      "content": "McKinney & Olive’s concierge service is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with most ticket orders and requests via phone or email. For all orders that need to be delivered to the building, please order no later than 2 p.m. on Thursday for delivery each Friday by noon. Tickets must be picked up in the management office, 200 Crescent Court, Suite 250, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. For more information, call 972.770.4045.",
+      "ctaText": "McKinney & Olive Concierge",
       "ctaURL": "http://texasconciergeconnection.com/"
     }
   },
   "leasing": {
-    "title": "THE <span>PERFECT PLACE</span> TO OFFICE",
-    "content": "Set in a crescent-shaped contour, The Crescent was designed to allow customers to travel from building to building while remaining within a unified complex. The three towers are contiguous and offer a standard 22,000 square foot floor plan with an elevator core in each tower. Customers can expand vertically, as in traditional buildings, or horizontally, using each building as a 22,000 square foot module. Standard bay depths are 43-44 feet from the outside wall to the interior core. The planning module is 10 feet allowing floors to be arranged to accommodate offices up to 20 feet deep. Finished ceiling heights are 9 feet on floors 2 through 15, and 12 feet on floors 16 through 19. The ground floor has a 12-foot finished ceiling.",
-    "address": "For leasing information, please contact:<br/>Tony Click 214.880.4766",
+    "title": "DESIGNED FOR THE <span>MODERN PROFESSIONAL</span>",
+    "content": "McKinney & Olive offers world-class architecture and amenities, including ultra-efficient floor plates, the latest building technology, state-of-the-art security, destination elevators, Canyon Ranch-designed fitness studio, conference center, and an outdoor terrace. These, combined with Crescent’s award-winning customer service, provide our customers with the ability to work effectively and efficiently and recruit and retain talent in today’s competitive market.",
+    "address": "For information on available office and retail lease opportunities, contact:<br/>John Zogg 214-880-4525",
     "ctaText": "Download Brochure"
   },
   "location": {
-    "contentOne": "The Crescent is the place to connect in Dallas' Uptown walkable environment that is filled with an abundance of high-rise residential living, world-class restaurants, nightlife, entertainment, luxury hotels, and trendsetting shops with convenient access to downtown Dallas, Klyde Warren Park, and the Dallas Arts District.",
-    "contentTwo": "The location provides convenient freeway access with proximity to the Dallas North Tollway and Woodall Rodgers Freeway, which allows quick access to I-35 and I-30 to the west and North Central Expressway and I-45 to the east.",
-    "address": "200 Crescent Court, Suite 250 Dallas, Texas 75201</br>214.880.4500"
+    "contentOne": "Located in vibrant Uptown Dallas, McKinney & Olive occupies 3.1 acres in the heart of Uptown Dallas. It sits directly across from The Ritz-Carlton Hotel and Residences, Dallas, near downtown’s Dallas Arts District, Klyde Warren Park, and close to the largest concentration of restaurants, trendsetting retail shops, upscale hotels, and high-end residential developments in DFW.",
+    "contentTwo": "McKinney Avenue and Olive Street provide convenient freeway access with proximity to The Dallas North Tollway, one of Dallas’ primary north-south arterial freeways, and Woodall Rodgers Freeway, which allows quick access to I-35 and I-30 to the west and North Central Expressway and I-45 to the east.",
+    "address": "2021 McKinney Avenue, Suite 575 Dallas, Texas 75201</br>469.917.4300"
   },
   "policy": {
     "title": "Corporate <span>Policy</span>"

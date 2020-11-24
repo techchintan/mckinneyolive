@@ -32,7 +32,7 @@ class MapForm extends Component {
   }
 
   codeAddress = (geocoder, map) => {
-    var address = '300 Crescent Ct, Dallas, TX 75201, USA'
+    var address = '2021 McKinney Avenue, Dallas, TX 75201, USA'
     geocoder.geocode({ address: address }, function(results, status) {
       if (status === 'OK') {
         map.setCenter(results[0].geometry.location)
