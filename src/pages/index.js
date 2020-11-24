@@ -223,7 +223,7 @@ export const query = graphql`
     }
     allInstaNode(
       sort: { order: DESC, fields: timestamp }
-      filter: { username: { eq: "3291087116" } }
+      filter: { username: { eq: "3291151658" } }
       limit: 12
     ) {
       edges {

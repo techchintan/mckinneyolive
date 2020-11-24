@@ -59,7 +59,6 @@ export default ({ data }) => {
   } = data.pagesJson.amenities
   const [activeCapacity, setActiveCapacity] = useState(0)
   const [activeOption, setActiveOption] = useState(0)
-  console.log(contentOne.capacity[activeCapacity].options[activeOption])
   return (
     <Layout>
       <SEO title="Amenities" />

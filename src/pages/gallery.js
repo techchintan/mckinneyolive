@@ -13,7 +13,6 @@ import Heading from '../components/Heading'
 import GalleryV from '../views/Gallery'
 
 export default ({ data }) => {
-  console.log({ data })
   return (
     <Layout>
       <SEO title="Gallery" />
