@@ -59,7 +59,7 @@ export default ({ data }) => {
           ))}
         </Box>
       </Container>
-      <Box overflow="hidden">
+      <Box overflow="hidden" mb={[4, 0]}>
         <ContentImage>
           <Image fluid={data.theCrescentImage.childImageSharp.fluid} />
           <Content>
@@ -74,14 +74,17 @@ export default ({ data }) => {
         </ContentImage>
       </Box>
       <Box overflow="hidden">
-        <ContentImage flexDirection="row-reverse">
-          <Box flex="1 0 auto">
-            <ReactPlayer
-              url={`${theArchitect.videoUrl}?title=0&byline=0&portrait=0`}
-              controls
-              width="100%"
-              height="100%"
-            />
+        <ContentImage flexDirection="row-reverse" alignItems={['center']}>
+          <Box flex="1 0 auto" width={['100%', '50%']}>
+            <Box className="react-player-wrapper">
+              <ReactPlayer
+                className="react-player-video"
+                url={`${theArchitect.videoUrl}?title=0&byline=0&portrait=0`}
+                controls
+                width="100%"
+                height="100%"
+              />
+            </Box>
           </Box>
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
@@ -115,8 +118,9 @@ export default ({ data }) => {
         </Box>
       </Container>
       <TeamList teams={data.management.edges} />
-      <Box id="sustainability" overflow="hidden">
-        <ContentImage>
+      <Box id="sustainability" overflow="hidden" mb={[4, 0]}>
+        <ContentImage flexDirection="row-reverse">
+          <Image fluid={data.contentOneImage.childImageSharp.fluid} />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentOne.title }} />
@@ -126,21 +130,23 @@ export default ({ data }) => {
               {contentOne.cta.text}
             </Button>
           </Content>
-          <Image fluid={data.contentOneImage.childImageSharp.fluid} />
         </ContentImage>
       </Box>
-      <Box id="bees" overflow="hidden">
-        <ContentImage>
-          <Box flex="1 0 auto">
-            <ReactPlayer
-              url={`${contentTwo.videoUrl}?title=0&byline=0&portrait=0`}
-              controls={false}
-              width="100%"
-              height="100%"
-              muted={true}
-              playing={true}
-              loop={true}
-            />
+      <Box id="bees" overflow="hidden" mb={[4, 0]}>
+        <ContentImage alignItems={['center']}>
+          <Box flex="1 0 auto" width={['100%', '50%']}>
+            <Box className="react-player-wrapper">
+              <ReactPlayer
+                className="react-player-video"
+                url={`${contentTwo.videoUrl}?title=0&byline=0&portrait=0`}
+                controls={false}
+                width="100%"
+                height="100%"
+                muted={true}
+                playing={true}
+                loop={true}
+              />
+            </Box>
           </Box>
           {/* <Image fluid={data.contentTwoImage.childImageSharp.fluid} /> */}
           <Content>
@@ -156,6 +162,7 @@ export default ({ data }) => {
       </Box>
       <Box id="community" overflow="hidden">
         <ContentImage>
+          <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentThree.title }} />
@@ -191,7 +198,6 @@ export default ({ data }) => {
               </form>
             </Box>
           </Content>
-          <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
         </ContentImage>
       </Box>
       <Box
