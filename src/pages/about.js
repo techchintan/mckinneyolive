@@ -17,7 +17,7 @@ import ContentImage, { Content, Image } from '../compound/ContentImage'
 // Views
 import TeamList from '../views/TeamList'
 
-import brochure from '../pdf/brochure.pdf'
+import brochure from '../pdf/brochure-about.pdf'
 
 export default ({ data }) => {
   const {
@@ -131,7 +131,18 @@ export default ({ data }) => {
       </Box>
       <Box id="bees" overflow="hidden">
         <ContentImage>
-          <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
+          <Box flex="1 0 auto">
+            <ReactPlayer
+              url={`${contentTwo.videoUrl}?title=0&byline=0&portrait=0`}
+              controls={false}
+              width="100%"
+              height="100%"
+              muted={true}
+              playing={true}
+              loop={true}
+            />
+          </Box>
+          {/* <Image fluid={data.contentTwoImage.childImageSharp.fluid} /> */}
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentTwo.title }} />
@@ -219,6 +230,7 @@ export const query = graphql`
         contentTwo {
           title
           content
+          videoUrl
           cta {
             text
             url

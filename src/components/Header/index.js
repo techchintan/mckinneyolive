@@ -26,8 +26,8 @@ import {
 } from './styles'
 
 // import LogoPath from './LogoPath'
-import logo from '../../images/logo.png'
-import logoWhite from '../../images/logo-white.png'
+import logo from '../../images/logo.svg'
+import logoWhite from '../../images/logo-white.svg'
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -134,7 +134,7 @@ export default () => {
               {/* <Box as="svg" width="240px" viewBox="0 0 471 55">
                 <LogoPath open={open} />
               </Box> */}
-              <Box width="180px">
+              <Box width={[180, 240]}>
                 {open ? (
                   <img src={logoWhite} alt="logo" />
                 ) : (

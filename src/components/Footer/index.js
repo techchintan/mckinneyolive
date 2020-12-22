@@ -13,7 +13,7 @@ import {
 } from './styles'
 
 import logoIconWhite from './logo_icon_type.svg'
-import logoWhite from '../../images/logo-white.png'
+import logoWhite from '../../images/logo-white.svg'
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -57,7 +57,7 @@ const Footer = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box width={[220, 220, 220]} mb={[4, null, 0]}>
+            <Box width={[220, 220, 240]} mb={[4, null, 0]}>
               <Link to="/" style={{ display: 'inline-block' }}>
                 <Box width={1} as="img" src={logoWhite} />
               </Link>

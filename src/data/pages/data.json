@@ -72,6 +72,7 @@
     "contentTwo": {
       "title": "The <span>Bees</span> of McKinney & Olive",
       "content": "<p>McKinney & Olive is partnered with Alvéole, an international urban beekeeping company, to address the declining populations of urban pollinators, honey bees. Alvéole has partnered with more than 500 companies in North America to install beehives on urban properties to create ecological awareness of bees. Alvéole has assigned a beekeeping team manager at McKinney & Olive to provide educational and awareness workshops for customers and other bee-related events for customers, including harvesting honey once a year from honey-comb hives.</p><p>McKinney & Olive’s beehives are visible to customers from the conference room windows.  Bees are responsible for the pollination of more than 130 varieties of fruits and vegetables around the globe. The honey bees’ daily quest is to bring nectar, pollen, resin, or water to their colony to ensure its development. Honey bees are not motivated to sting. They have one goal, and one goal only: to collect nectar and pollen from flowers within a 3-mile radius of their hive and bring it back to ensure the colony’s development.</p>",
+      "videoUrl": "https://player.vimeo.com/video/410649086",
       "cta": {
         "text": "Learn more about our bees",
         "url": "https://myhive.alveole.buzz/crescent-real-estate-mckinney-olive-2021-mckinney-avenue/"
@@ -185,9 +186,9 @@
     },
     "bottomContent": {
       "title": "CONCIERGE",
-      "content": "McKinney & Olive’s concierge service is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with most ticket orders and requests via phone or email. For all orders that need to be delivered to the building, please order no later than 2 p.m. on Thursday for delivery each Friday by noon. Tickets must be picked up in the management office, 200 Crescent Court, Suite 250, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. For more information, call 972.770.4045.",
-      "ctaText": "McKinney & Olive Concierge",
-      "ctaURL": "http://texasconciergeconnection.com/"
+      "content": "The  Concierge Connection is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with ticket orders and requests via phone or email. Please order no later than 2 p.m. on Thursday for delivery each Friday by noon for orders delivered to the building. Tickets must be picked up in the management office on the 5th floor, Suite 575, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. Personal checks are not accepted. For more information, call 214.935.9700, ext. 1.",
+      "ctaURL": "https://files.constantcontact.com/cd62516b601/f4df452c-0c45-42fc-aca5-fecd194cca1d.pdf",
+      "ctaText": "Concierge Connection"
     }
   },
   "leasing": {
