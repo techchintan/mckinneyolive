@@ -5,18 +5,20 @@ import mediaQuery from '../../utils/mediaQuery'
 import Box from '../Box'
 
 export const Menu = styled.ul`
+  overflow-y: auto;
   list-style: none;
   padding: 16px;
   margin: 0;
-  position: absolute;
   width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   transition: all 1.5s;
   opacity: 0;
   z-index: -1;
   ${({ open }) => open && `opacity: 1`};
+  height: calc(100vh - 150px);
+  ${mediaQuery.maxPhone} {
+    padding-top: 0;
+    height: calc(100vh - 170px);
+  }
 `
 
 export const Item = styled.li`

@@ -116,13 +116,13 @@ export default () => {
       <Box
         bg={open ? `primary` : `white`}
         width={1}
-        height={open ? `100vh` : `100px`}
+        height={open ? `100vh` : [`73.64px`, '98.19px']}
         position="fixed"
         top="0"
         left="0"
         zIndex={999}
+        pt={['15px', '20px']}
         style={{ overflow: 'hidden', transition: 'all 0.5s' }}
-        pt="10px"
       >
         <Container>
           <Box
@@ -234,9 +234,10 @@ export default () => {
           </MobileTabletOnly>
         </Menu>
         <Box
+          pt={[4]}
           px={2}
           width={1}
-          style={{ position: 'absolute', bottom: 32, zIndex: -1 }}
+          // style={{ position: 'absolute', bottom: 32, zIndex: -1 }}
         >
           <Container>
             <Box display="flex" flexWrap="wrap" justifyContent="space-between">
