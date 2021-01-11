@@ -67,7 +67,7 @@ export const body = css`
     padding: 30px;
     width: 50%;
   }
-  ${mediaQuery.minLarge} {
+  ${mediaQuery.minDesktop} {
     padding: 50px 40px;
   }
 `

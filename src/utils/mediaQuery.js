@@ -6,10 +6,9 @@ const max = width => `(max-width: ${width}em)`
 const mediaQuery = {
   screens: {
     // screen sizes in em units
-    phone: 40,
-    tablet: 52,
-    desktop: 64,
-    large: 75,
+    phone: 48,
+    tablet: 62,
+    desktop: 75,
   },
 }
 

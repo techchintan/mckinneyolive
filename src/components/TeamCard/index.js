@@ -1,12 +1,13 @@
 import React from 'react'
 import { isNull } from 'lodash'
-import { Envelope } from 'styled-icons/fa-solid/Envelope'
-import { PhoneAlt } from 'styled-icons/fa-solid/PhoneAlt'
+// import { Envelope } from 'styled-icons/fa-solid/Envelope'
+// import { PhoneAlt } from 'styled-icons/fa-solid/PhoneAlt'
 
 import Box from '../Box'
 import Heading from '../Heading'
 
-import { Image, Position, Email, Phone } from './styles'
+// import { Image, Position, Email, Phone } from './styles'
+import { Image, Position } from './styles'
 
 function TeamCard({ name, position, email, phone, image, noImage, ...rest }) {
   let fluid
@@ -25,12 +26,12 @@ function TeamCard({ name, position, email, phone, image, noImage, ...rest }) {
       <Position mb={3} color="grays.0">
         {position}
       </Position>
-      <Email mb={2} color="secondary" href={`mailto:${email}`}>
+      {/* <Email mb={2} color="secondary" href={`mailto:${email}`}>
         <Envelope /> {email}
       </Email>
       <Phone color="secondary" href={`tel:${phone}`}>
         <PhoneAlt /> {phone}
-      </Phone>
+      </Phone> */}
     </Box>
   )
 }

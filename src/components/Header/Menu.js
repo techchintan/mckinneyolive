@@ -4,9 +4,9 @@ import { typography } from 'styled-system'
 import mediaQuery from '../../utils/mediaQuery'
 import Box from '../Box'
 
-export const Menu = styled.ul`
+export const Menu = styled.div`
+  position: relative;
   overflow-y: auto;
-  list-style: none;
   padding: 16px;
   margin: 0;
   width: 100%;
@@ -19,6 +19,14 @@ export const Menu = styled.ul`
     padding-top: 0;
     height: calc(100vh - 170px);
   }
+`
+
+export const List = styled.ul`
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `
 
 export const Item = styled.li`

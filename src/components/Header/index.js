@@ -8,7 +8,7 @@ import Box from '../Box'
 import Button from '../Button'
 import { Social, SocialItem } from '../Social'
 import { IconText, Icon, Text } from './IconText'
-import { Menu, Item, A, ANormal, MobileTabletOnly } from './Menu'
+import { Menu, List, Item, A, ANormal, MobileTabletOnly } from './Menu'
 import Modal, {
   ModalContent,
   ModalImage,
@@ -197,41 +197,43 @@ export default () => {
           </Box>
         </Container>
         <Menu open={open}>
-          {nav.map(({ text, slug }) => (
-            <Item key={slug}>
-              <A fontSize={[3, '36px']} to={slug} onClick={() => set(false)}>
-                {text}
-              </A>
-            </Item>
-          ))}
-          <MobileTabletOnly>
-            <Item>
-              <ANormal
-                as="a"
-                fontSize={[3, '36px']}
-                href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=250278&WebsiteName=Main"
-                target="_blank"
-              >
-                Customer Service
-              </ANormal>
-            </Item>
-            <Item>
-              <ANormal fontSize={[3, '36px']} onClick={() => setModal(true)}>
-                Parking Validation
-              </ANormal>
-            </Item>
-            <Box display="flex" justifyContent="center">
-              <SocialItem href={social.facebook} target="_blank">
-                <StyledFacebookF color={open ? `white` : `primary`} />
-              </SocialItem>
-              <SocialItem href={social.instagram} target="_blank">
-                <StyledInstagram color={open ? `white` : `primary`} />
-              </SocialItem>
-              <SocialItem href={social.vimeo} target="_blank">
-                <StyledVimeoV color={open ? `white` : `primary`} />
-              </SocialItem>
-            </Box>
-          </MobileTabletOnly>
+          <List>
+            {nav.map(({ text, slug }) => (
+              <Item key={slug}>
+                <A fontSize={[3, '36px']} to={slug} onClick={() => set(false)}>
+                  {text}
+                </A>
+              </Item>
+            ))}
+            <MobileTabletOnly>
+              <Item>
+                <ANormal
+                  as="a"
+                  fontSize={[3, '36px']}
+                  href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=250278&WebsiteName=Main"
+                  target="_blank"
+                >
+                  Customer Service
+                </ANormal>
+              </Item>
+              <Item>
+                <ANormal fontSize={[3, '36px']} onClick={() => setModal(true)}>
+                  Parking Validation
+                </ANormal>
+              </Item>
+              <Box display="flex" justifyContent="center">
+                <SocialItem href={social.facebook} target="_blank">
+                  <StyledFacebookF color={open ? `white` : `primary`} />
+                </SocialItem>
+                <SocialItem href={social.instagram} target="_blank">
+                  <StyledInstagram color={open ? `white` : `primary`} />
+                </SocialItem>
+                <SocialItem href={social.vimeo} target="_blank">
+                  <StyledVimeoV color={open ? `white` : `primary`} />
+                </SocialItem>
+              </Box>
+            </MobileTabletOnly>
+          </List>
         </Menu>
         <Box
           pt={[4]}

@@ -16,7 +16,7 @@ export const Wrapper = styled(Box)`
   ${mediaQuery.minDesktop} {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  ${mediaQuery.minLarge} {
+  ${mediaQuery.minDesktop} {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 `

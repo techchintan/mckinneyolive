@@ -52,7 +52,7 @@ export const modalWrap = css`
     width: 90%;
     height: 90%;
   }
-  ${mediaQuery.minLarge} {
+  ${mediaQuery.minDesktop} {
     justify-content: space-between;
   }
 `
@@ -65,7 +65,7 @@ export const img = css`
     order: 1;
     width: 60%;
   }
-  ${mediaQuery.minLarge} {
+  ${mediaQuery.minDesktop} {
     width: 66%;
   }
 `
@@ -80,7 +80,7 @@ export const body = css`
     width: 40%;
     padding: 50px 40px;
   }
-  ${mediaQuery.minLarge} {
+  ${mediaQuery.minDesktop} {
     width: 34%;
   }
 `

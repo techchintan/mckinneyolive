@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
 import uuidv4 from 'uuid/v4'
+import { ArrowBack } from 'styled-icons/boxicons-regular/ArrowBack'
+import { ArrowForward } from 'styled-icons/material/ArrowForward'
 
 // Components
 import Layout from '../components/Layout'
@@ -103,89 +105,113 @@ export default ({ data }) => {
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentOne.title }} />
             </Heading>
-            <Box dangerouslySetInnerHTML={{ __html: contentOne.content }} />
-            <Table width={1} mt={4}>
-              {contentOne.capacity.length > 1 && (
-                <THead>
-                  <TR>
-                    {contentOne.capacity.map(({ name }, index) => {
-                      let color =
-                        index === activeCapacity ? `primary` : `grays.0`
-                      return (
-                        <TH
-                          onClick={() => setActiveCapacity(index)}
-                          bg={color}
-                          key={index}
-                        >
-                          {name}
-                        </TH>
-                      )
-                    })}
+            <Box
+              dangerouslySetInnerHTML={{ __html: contentOne.content }}
+              mb={[4]}
+            />
+            <Box
+              display={['flex', null, 'none']}
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <ArrowBack size="24" />
+              <Box color="grays.0" fontWeight={600}>
+                SWIPE
+              </Box>
+              <ArrowForward size="24" />
+            </Box>
+            <Box overflow="auto" mt={[3, 4, 3]} mb={[3]}>
+              <Table width={1}>
+                {contentOne.capacity.length > 1 && (
+                  <THead>
+                    <TR>
+                      {contentOne.capacity.map(({ name }, index) => {
+                        let color =
+                          index === activeCapacity ? `primary` : `grays.0`
+                        return (
+                          <TH
+                            onClick={() => setActiveCapacity(index)}
+                            bg={color}
+                            key={index}
+                          >
+                            {name}
+                          </TH>
+                        )
+                      })}
+                    </TR>
+                  </THead>
+                )}
+                <TBody>
+                  <TR bg="primary">
+                    {contentOne.capacity[activeCapacity].options.map(
+                      ({ name }, index) => {
+                        let color =
+                          index === activeOption ? `primary` : `grays.0`
+                        return (
+                          <TD
+                            style={{
+                              fontWeight: 600,
+                              fontSize: '18px',
+                              cursor: 'pointer',
+                            }}
+                            bg={color}
+                            key={index}
+                            onClick={() => setActiveOption(index)}
+                          >
+                            {name}
+                          </TD>
+                        )
+                      }
+                    )}
                   </TR>
-                </THead>
-              )}
-              <TBody>
-                <TR bg="primary">
-                  {contentOne.capacity[activeCapacity].options.map(
-                    ({ name }, index) => {
-                      let color = index === activeOption ? `primary` : `grays.0`
-                      return (
-                        <TD
-                          style={{
-                            fontWeight: 600,
-                            fontSize: '18px',
-                            cursor: 'pointer',
-                          }}
-                          bg={color}
-                          key={index}
-                          onClick={() => setActiveOption(index)}
-                        >
-                          {name}
-                        </TD>
-                      )
-                    }
-                  )}
-                </TR>
-                <TR bg="primary">
-                  <TD colSpan={4} textAlign="center">
-                    {
-                      contentOne.capacity[activeCapacity].options[activeOption]
-                        .description
-                    }
-                  </TD>
-                </TR>
-                <TR bg="primary">
-                  <TD colSpan={2} style={{ fontWeight: 600, fontSize: '18px' }}>
-                    OPTION
-                  </TD>
-
-                  <TD colSpan={2} style={{ fontWeight: 600, fontSize: '18px' }}>
-                    FLOOR PLAN
-                  </TD>
-                </TR>
-                {contentOne.capacity[activeCapacity].options[
-                  activeOption
-                ].options.map(({ name, floor_plan }) => (
-                  <TR key={uuidv4()} bg="primary">
-                    <TD colSpan={2} style={{ opacity: 0.8 }}>
-                      {name}
-                    </TD>
-
-                    <TD colSpan={2} style={{ opacity: 0.8 }}>
-                      <Box
-                        as="a"
-                        color="white"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={conferenceCentreImages[floor_plan]}
-                      >
-                        View
-                      </Box>
+                  <TR bg="primary">
+                    <TD colSpan={4} textAlign="center">
+                      {
+                        contentOne.capacity[activeCapacity].options[
+                          activeOption
+                        ].description
+                      }
                     </TD>
                   </TR>
-                ))}
-              </TBody>
-            </Table>
+                  <TR bg="primary">
+                    <TD
+                      colSpan={2}
+                      style={{ fontWeight: 600, fontSize: '18px' }}
+                    >
+                      OPTION
+                    </TD>
+
+                    <TD
+                      colSpan={2}
+                      style={{ fontWeight: 600, fontSize: '18px' }}
+                    >
+                      FLOOR PLAN
+                    </TD>
+                  </TR>
+                  {contentOne.capacity[activeCapacity].options[
+                    activeOption
+                  ].options.map(({ name, floor_plan }) => (
+                    <TR key={uuidv4()} bg="primary">
+                      <TD colSpan={2} style={{ opacity: 0.8 }}>
+                        {name}
+                      </TD>
+
+                      <TD colSpan={2} style={{ opacity: 0.8 }}>
+                        <Box
+                          as="a"
+                          color="white"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={conferenceCentreImages[floor_plan]}
+                        >
+                          View
+                        </Box>
+                      </TD>
+                    </TR>
+                  ))}
+                </TBody>
+              </Table>
+            </Box>
             <Button mt={4} as="a" href={conferenceCentrePDF} target="_blank">
               {contentOne.ctaText}
             </Button>

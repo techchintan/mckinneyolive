@@ -128,7 +128,7 @@ export default ({ data }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            #THECRESCENT on Instagram
+            #mckinneyandolive on Instagram
           </Box>
         </Box>
       </Container>

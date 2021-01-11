@@ -4,9 +4,9 @@
     "links": [
       { "slug": "/about", "label": "About" },
       { "slug": "/#announcement", "label": "Announcements" },
-      { "slug": "/amenities#dine", "label": "Restaurants" },
+      { "slug": "/amenities#dine-with-us", "label": "Restaurants" },
       { "slug": "/amenities#retail", "label": "Retail" },
-      { "slug": "/Leasing", "label": "Leasing" }
+      { "slug": "/leasing", "label": "Leasing" }
     ],
     "content": "McKinney & Olive is a one-of-a-kind, 20-story Class AA office building, designed by world-renowned architect Cesar Pelli offering world-class architecture, premier office space, and exclusive restaurant and retail in the vibrant, pedestrian-oriented neighborhood of Uptown Dallas.",
     "concierge": {
@@ -62,7 +62,7 @@
       "title": "Our <span>management</span> team"
     },
     "contentOne": {
-      "title": "Be responsible, <span>think sustainable</span>",
+      "title": "Be responsible,<br/><span>think sustainable</span>",
       "content": "<p>McKinney & Olive operates at the highest level of efficiency and sustainability.  We are focused on providing a green building environment for our customers and demonstrating our commitment as stewards of the environment within the commercial real estate market. Because of this, we are LEED v4 O+M: EB Gold certified, meaning we meet the strict guidelines set forth by the Environmental Protection Agency to achieve Energy Star Ratings as well as those set forth by the U.S. Green Building Council for Leadership in Energy and Environmental Design (LEED® ).</p><p>Factors such as building automation systems, lighting controls, comprehensive green cleaning, and recycling programs are just a few examples of McKinney & Olive’s sustainability practices that contribute to a significant decrease in the overall energy consumption of the earth's resources by reducing energy use, conserving water, minimizing waste, reducing CO2 emissions, recycling materials and improving indoor quality of property environments.</p>",
       "cta": {
         "text": "McKinney & Olive LEED Case Study",
@@ -82,7 +82,7 @@
       "title": "Invested in <span>Our Community</span>",
       "content": "<p>McKinney & Olive recognizes the importance of promoting healthy communities in which to live and work. The heart of Crescent Real Estate’s commitment to the community is FACES of Change, a unique adopt-a-school program Crescent Real Estate began in 1997. Through this program, Crescent Real Estate managed properties are partnered with local elementary schools that serve at-risk students and families. FACES of Change partnerships bring Crescent employees, customers, and business partners together to provide volunteer time, monetary donations, and in-kind gifts to partner schools. Since its inception, FACES of Change has established more than 80 successful business-to-school partnerships that have impacted the lives of over 30,000 children nationwide.</p><p>To learn more about McKinney & Olive’s FACES of Change partnership with Paul L. Dunbar Learning Center or to volunteer, please contact Tricia Wentz at <a href=\"tel:469.917.4300\">469.917.4300</a> or <a href=\"mailto:moinfo@crescent.com\">moinfo@crescent.com</a>.</p>"
     },
-    "address": "2021 McKinney Avenue, Suite 575 Dallas, Texas 75201</br>469.917.4300"
+    "address": "2021 McKinney Avenue, Suite 575 Dallas, Texas 75201</br>moinfo@crescent.com</br>469.917.4300"
   },
   "amenities": {
     "links": [
@@ -92,10 +92,10 @@
       { "slug": "#dine-with-us", "label": "Dine with us" },
       { "slug": "#retail", "label": "Retail" }
     ],
-    "content": "McKinney & Olive offers 50,000 square feet of ground-level retail and dining, featuring Del Frisco’s Double Eagle Steakhouse, Doc B's Fresh Kitchen, Starbucks Reserve, Roti Modern Mediterranean, Malibu Poke, MIXT, CycleBar, Drybar, and Super All Day coming soon. One of the most notable and unique offerings at McKinney & Olive is the beautiful one-acre piazza designed and landscaped by James Burnett, featuring open outdoor space accented with umbrella-covered tables, water features, lawn games all framed with mature shade trees.  Other amenities including an outdoor terrace, conference center, Canyon Ranch-designed fitness studio, and Wi-Fi in all common areas.",
+    "content": "McKinney & Olive offers 50,000 square feet of ground-level retail and dining, featuring Del Frisco’s Double Eagle Steakhouse, Doc B's Restaurant + Bar, Starbucks Reserve, Roti Modern Mediterranean, Malibu Poke, MIXT, CycleBar, Drybar, and Super All Day coming soon. One of the most notable and unique offerings at McKinney & Olive is the beautiful one-acre piazza designed and landscaped by James Burnett, featuring open outdoor space accented with umbrella-covered tables, water features, lawn games all framed with mature shade trees.  Other amenities including an outdoor terrace, conference center, Canyon Ranch-designed fitness studio, and Wi-Fi in all common areas.",
     "contentOne": {
       "title": "<span>Conference Center</span>",
-      "content": "<p>McKinney & Olive operates at the highest level of efficiency and sustainability.  We are focused on providing a green building environment for our customers and demonstrating our commitment as stewards of the environment within the commercial real estate market. Because of this, we are LEED v4 O+M: EB Gold certified, meaning we meet the strict guidelines set forth by the Environmental Protection Agency to achieve Energy Star Ratings as well as those set forth by the U.S. Green Building Council for Leadership in Energy and Environmental Design (LEED® ).</p><p>Factors such as building automation systems, lighting controls, comprehensive green cleaning, and recycling programs are just a few examples of McKinney & Olive’s sustainability practices that contribute to a significant decrease in the overall energy consumption of the earth's resources by reducing energy use, conserving water, minimizing waste, reducing CO2 emissions, recycling materials and improving indoor quality of property environments.</p><p>A galley kitchen is located adjacent to the conference center to provide easy access to food service or catering.</p><p>To schedule the conference center, please have your suite representative schedule on Angus.</p><p>The conference center rates are:</p><ul><li>$40 per hour, up to 3 hours</li><li>$150 for a half-day, 4 hours</li><li>$300 for a whole day, 8 hours</li><li>After-hour rates available upon request</li></ul>",
+      "content": "<p>McKinney & Olive’s conference center offers a bright and spacious meeting room with floor-to-ceiling windows and includes the latest business support and technology.  It can accommodate many types of gatherings and be configured to meet various needs and capacities. The conference center features two Samsung 85-inch 4K UHD resolution Ultra Smart LED monitors, ElectroVoice in-ceiling speakers, and a second dual microphone system. In addition to the state-of-the-art equipment is high-speed Internet access and presentation tools for visual and audio collaboration.</p><p>A galley kitchen is located adjacent to the conference center to provide easy access to food service or catering.</p><p>To schedule the conference center, please have your suite representative schedule on Angus.</p><p>The conference center rates are:</p><ul><li>$40 per hour, up to 3 hours</li><li>$150 for a half-day, 4 hours</li><li>$300 for a whole day, 8 hours</li><li>After-hour rates available upon request</li></ul>",
       "capacity": [
         {
           "name": "standard",
@@ -192,10 +192,10 @@
     }
   },
   "leasing": {
-    "title": "DESIGNED FOR THE <span>MODERN PROFESSIONAL</span>",
+    "title": "DESIGNED FOR THE<br/><span>MODERN PROFESSIONAL</span>",
     "content": "McKinney & Olive offers world-class architecture and amenities, including ultra-efficient floor plates, the latest building technology, state-of-the-art security, destination elevators, Canyon Ranch-designed fitness studio, conference center, and an outdoor terrace. These, combined with Crescent’s award-winning customer service, provide our customers with the ability to work effectively and efficiently and recruit and retain talent in today’s competitive market.",
-    "address": "For information on available office and retail lease opportunities, contact:<br/>John Zogg 214-880-4525",
-    "ctaText": "Download Brochure"
+    "address": "For information on available office and retail lease opportunities, contact:<br/>John Zogg<br/>214-880-4525",
+    "ctaText": "Download Leasing Brochure"
   },
   "location": {
     "contentOne": "Located in vibrant Uptown Dallas, McKinney & Olive occupies 3.1 acres in the heart of Uptown Dallas. It sits directly across from The Ritz-Carlton Hotel and Residences, Dallas, near downtown’s Dallas Arts District, Klyde Warren Park, and close to the largest concentration of restaurants, trendsetting retail shops, upscale hotels, and high-end residential developments in DFW.",

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
 import ReactPlayer from 'react-player'
@@ -20,6 +20,11 @@ import TeamList from '../views/TeamList'
 import brochure from '../pdf/brochure-about.pdf'
 
 export default ({ data }) => {
+  const [beesContentBoxDimensions, setBeesContentBoxDimensions] = useState({
+    width: 0,
+    height: 0,
+  })
+  console.log(beesContentBoxDimensions)
   const {
     address,
     contentOne,
@@ -75,7 +80,7 @@ export default ({ data }) => {
       </Box>
       <Box overflow="hidden">
         <ContentImage flexDirection="row-reverse" alignItems={['center']}>
-          <Box flex="1 0 auto" width={['100%', '50%']}>
+          <Box flex="1 0 auto" width={['100%', null, null, '50%']}>
             <Box className="react-player-wrapper">
               <ReactPlayer
                 className="react-player-video"
@@ -134,10 +139,38 @@ export default ({ data }) => {
       </Box>
       <Box id="bees" overflow="hidden" mb={[4, 0]}>
         <ContentImage alignItems={['center']}>
-          <Box flex="1 0 auto" width={['100%', '50%']}>
-            <Box className="react-player-wrapper">
+          <Box
+            position="relative"
+            width={['100%', null, null, '50%']}
+            alignSelf={['center', null, null, 'stretch']}
+            paddingTop={['56.25%', null, null, 'unset']}
+            overflow="hidden"
+          >
+            <Box
+              position="absolute"
+              top={0}
+              left={[
+                0,
+                null,
+                null,
+                `-${((beesContentBoxDimensions.height * 16) / 9 -
+                  beesContentBoxDimensions.width) /
+                  2}px`,
+              ]}
+              width={[
+                '100%',
+                null,
+                null,
+                `${(beesContentBoxDimensions.height * 16) / 9}px`,
+              ]}
+              height={[
+                '100%',
+                null,
+                null,
+                `${beesContentBoxDimensions.height}px`,
+              ]}
+            >
               <ReactPlayer
-                className="react-player-video"
                 url={`${contentTwo.videoUrl}?title=0&byline=0&portrait=0`}
                 controls={false}
                 width="100%"
@@ -148,8 +181,19 @@ export default ({ data }) => {
               />
             </Box>
           </Box>
-          {/* <Image fluid={data.contentTwoImage.childImageSharp.fluid} /> */}
-          <Content>
+          <Content
+            ref={div =>
+              div &&
+              ((div.clientHeight &&
+                div.clientHeight > beesContentBoxDimensions.height) ||
+                (div.clientWidth &&
+                  div.clientWidth > beesContentBoxDimensions.width)) &&
+              setBeesContentBoxDimensions({
+                width: div.clientWidth,
+                height: div.clientHeight,
+              })
+            }
+          >
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentTwo.title }} />
             </Heading>
@@ -161,7 +205,7 @@ export default ({ data }) => {
         </ContentImage>
       </Box>
       <Box id="community" overflow="hidden">
-        <ContentImage>
+        <ContentImage flexDirection="row-reverse">
           <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>

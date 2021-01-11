@@ -4,7 +4,12 @@ import Img from 'gatsby-image'
 import mediaQuery from '../../utils/mediaQuery'
 import Box from '../../components/Box'
 
-export const Content = styled(Box)``
+export const Content = styled(Box)`
+  flex: 1;
+  ${mediaQuery.minDesktop} {
+    flex: unset;
+  }
+`
 
 export const Image = styled(Img)`
   object-fit: cover;
@@ -20,6 +25,6 @@ export const Image = styled(Img)`
 `
 
 Content.defaultProps = {
-  p: [4, 5, 6],
+  p: [4, 5, 5, 6],
   width: [1, null, 1 / 2],
 }
