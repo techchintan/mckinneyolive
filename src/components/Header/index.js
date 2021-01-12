@@ -25,6 +25,8 @@ import {
   Privacy,
 } from './styles'
 
+import valetParkingValidationInstructions from '../../pdf/valet-parking-validation-instructions.pdf'
+
 // import LogoPath from './LogoPath'
 import logo from '../../images/logo.svg'
 import logoWhite from '../../images/logo-white.svg'
@@ -60,9 +62,9 @@ export default () => {
           }
         }
       }
-      sitemap: file(relativePath: { eq: "sitemap.png" }) {
+      sitemap: file(relativePath: { eq: "sitemap.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 2050) {
+          fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -90,17 +92,7 @@ export default () => {
               <Box mt={4}>
                 <Box mt={3}>
                   <Button
-                    width={[1, '300px']}
-                    as="a"
-                    href="http://24.173.70.190/WebValidationManager/(S(0lgrnzueea1moxq5le0hfvru))/Login.aspx?ReturnUrl=%2fWebValidationManager%2fDefault.aspx"
-                    target="_blank"
-                  >
-                    Validate Office Parking
-                  </Button>
-                </Box>
-                <Box mt={3}>
-                  <Button
-                    width={[1, '300px']}
+                    width={[1, '400px']}
                     as="a"
                     href="https://ev.smsvalet.com/Web/WebSite/Login.aspx"
                     target="_blank"
@@ -108,6 +100,20 @@ export default () => {
                     Validate Valet Parking
                   </Button>
                 </Box>
+                <Box mt={3}>
+                  <Button
+                    width={[1, '400px']}
+                    as="a"
+                    href={valetParkingValidationInstructions}
+                    target="_blank"
+                  >
+                    Valet Parking Validation Instructions
+                  </Button>
+                </Box>
+                <Box
+                  mt={4}
+                  dangerouslySetInnerHTML={{ __html: parking.content }}
+                />
               </Box>
             </ModalBody>
           </ModalContent>

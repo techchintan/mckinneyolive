@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import { Container } from 'styled-bootstrap-grid'
 import ReactPlayer from 'react-player'
 
@@ -24,7 +25,6 @@ export default ({ data }) => {
     width: 0,
     height: 0,
   })
-  console.log(beesContentBoxDimensions)
   const {
     address,
     contentOne,
@@ -113,8 +113,7 @@ export default ({ data }) => {
           <Box>{customerService.content}</Box>
         </Box>
       </Container>
-      {/* To be added at a later stage */}
-      {/* <Img fluid={data.teamHero.childImageSharp.fluid} /> */}
+      <Img fluid={data.teamHero.childImageSharp.fluid} />
       <Container id="management">
         <Box py={5}>
           <Heading as="h2" mb={0} fontSize={[4, '36px']}>

@@ -23,6 +23,13 @@ export const Image = styled(Img)`
     width: 50%;
   }
 `
+export const SliderWrapper = styled(Box)`
+  width: 100%;
+  ${mediaQuery.minDesktop} {
+    height: auto;
+    width: 50%;
+  }
+`
 
 Content.defaultProps = {
   p: [4, 5, 5, 6],

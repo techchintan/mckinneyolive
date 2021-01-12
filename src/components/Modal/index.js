@@ -15,7 +15,8 @@ const StyledModalContent = styled(Box)`
 `
 
 const StyledModalWrap = styled(Box)`
-  ${modalWrap}
+  ${modalWrap};
+  background: ${({ background }) => background};
 `
 
 const StyledClose = styled(Close)`
@@ -30,11 +31,11 @@ const StyledModalImage = styled(Box)`
   ${img}
 `
 
-function ModalContent({ children, onClick, ...rest }) {
+function ModalContent({ children, onClick, background = '#ffffff', ...rest }) {
   return (
     <StyledModalContent {...rest}>
       <StyledClose onClick={onClick} />
-      <StyledModalWrap>{children}</StyledModalWrap>
+      <StyledModalWrap background={background}>{children}</StyledModalWrap>
     </StyledModalContent>
   )
 }

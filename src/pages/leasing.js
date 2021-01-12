@@ -13,9 +13,10 @@ import Box from '../components/Box'
 import Hero from '../components/Hero'
 import Heading from '../components/Heading'
 import Button from '../components/Button'
+import ImageSlider from '../views/ImageSlider'
 
 // Compound
-import ContentImage, { Content, Image } from '../compound/ContentImage'
+import ContentImage, { Content, SliderWrapper } from '../compound/ContentImage'
 import Table, { THead, TBody, TH, TR, TD } from '../compound/Table'
 
 import leasing from '../pdf/brochure.pdf'
@@ -31,8 +32,19 @@ export default ({ data }) => {
       <SEO title="Leasing" />
       <Hero fluid={data.hero.childImageSharp.fluid} />
       <Box mt="10px">
-        <ContentImage>
-          <Image fluid={data.contentImage.childImageSharp.fluid} />
+        <ContentImage alignItems="center">
+          <SliderWrapper>
+            <ImageSlider
+              data={[
+                data.leasing1,
+                data.leasing2,
+                data.leasing3,
+                data.leasing4,
+                data.leasing5,
+                data.leasing6,
+              ]}
+            />
+          </SliderWrapper>
           <Content>
             <Box maxWidth={680}>
               <Heading fontSize={[4, '36px']} mb={[3, '40px']}>
@@ -151,6 +163,78 @@ export const query = graphql`
     }
     hero: file(relativePath: { eq: "hero_leasing.jpg" }) {
       childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    leasing1: file(relativePath: { eq: "leasing-1.jpg" }) {
+      id
+      childImageSharp {
+        original {
+          width
+          height
+        }
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    leasing2: file(relativePath: { eq: "leasing-2.jpg" }) {
+      id
+      childImageSharp {
+        original {
+          width
+          height
+        }
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    leasing3: file(relativePath: { eq: "leasing-3.jpg" }) {
+      id
+      childImageSharp {
+        original {
+          width
+          height
+        }
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    leasing4: file(relativePath: { eq: "leasing-4.jpg" }) {
+      id
+      childImageSharp {
+        original {
+          width
+          height
+        }
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    leasing5: file(relativePath: { eq: "leasing-5.jpg" }) {
+      id
+      childImageSharp {
+        original {
+          width
+          height
+        }
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    leasing6: file(relativePath: { eq: "leasing-6.jpg" }) {
+      id
+      childImageSharp {
+        original {
+          width
+          height
+        }
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
         }

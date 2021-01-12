@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Box from '../../components/Box'
-import { Content, Image } from './styles'
+import { Content, Image, SliderWrapper } from './styles'
 
 function ContentImage({ children, ...rest }) {
   return (
@@ -11,5 +11,5 @@ function ContentImage({ children, ...rest }) {
   )
 }
 
-export { Content, Image }
+export { Content, Image, SliderWrapper }
 export default ContentImage
