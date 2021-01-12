@@ -122,7 +122,7 @@ function ImageSlider({ onClick, data, ...rest }) {
         </Modal>
       )}
       <SliderContext.Provider value={{ slider, dispatch }}>
-        <Box {...rest} mr="50px" ml="50px">
+        <Box {...rest} mr="50px" ml="50px" style={{ cursor: 'pointer' }}>
           <Slider {...settings}>
             {data.map(image => (
               <Box key={image.id} onClick={() => handleOpen(image)}>
