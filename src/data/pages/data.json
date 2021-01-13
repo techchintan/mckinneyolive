@@ -2,11 +2,26 @@
   "home": {
     "heading": "There’s <span>only one</span>",
     "links": [
-      { "slug": "/about", "label": "About" },
-      { "slug": "/#announcement", "label": "Announcements" },
-      { "slug": "/amenities#dine-with-us", "label": "Restaurants" },
-      { "slug": "/amenities#retail", "label": "Retail" },
-      { "slug": "/leasing", "label": "Leasing" }
+      {
+        "slug": "/about",
+        "label": "About"
+      },
+      {
+        "slug": "/#announcement",
+        "label": "Announcements"
+      },
+      {
+        "slug": "/amenities#dine-with-us",
+        "label": "Restaurants"
+      },
+      {
+        "slug": "/amenities#retail",
+        "label": "Retail"
+      },
+      {
+        "slug": "/leasing",
+        "label": "Leasing"
+      }
     ],
     "content": "McKinney & Olive is a one-of-a-kind, 20-story Class AA office building, designed by world-renowned architect Cesar Pelli offering world-class architecture, premier office space, and exclusive restaurant and retail in the vibrant, pedestrian-oriented neighborhood of Uptown Dallas.",
     "concierge": {
@@ -39,10 +54,22 @@
   },
   "about": {
     "links": [
-      { "slug": "#management", "label": "Management" },
-      { "slug": "#sustainability", "label": "Sustainability" },
-      { "slug": "#bees", "label": "The Bees" },
-      { "slug": "#community", "label": "Community" }
+      {
+        "slug": "#management",
+        "label": "Management"
+      },
+      {
+        "slug": "#sustainability",
+        "label": "Sustainability"
+      },
+      {
+        "slug": "#bees",
+        "label": "The Bees"
+      },
+      {
+        "slug": "#community",
+        "label": "Community"
+      }
     ],
     "mckinneyOlive": {
       "title": "<span>MCKINNEY & OLIVE</span>",
@@ -86,11 +113,26 @@
   },
   "amenities": {
     "links": [
-      { "slug": "#conference-center", "label": "Conference Center" },
-      { "slug": "#outdoor-terrace", "label": "Outdoor Terrace" },
-      { "slug": "#fitness-studio", "label": "Fitness Studio" },
-      { "slug": "#dine-with-us", "label": "Dine with us" },
-      { "slug": "#retail", "label": "Retail" }
+      {
+        "slug": "#conference-center",
+        "label": "Conference Center"
+      },
+      {
+        "slug": "#outdoor-terrace",
+        "label": "Outdoor Terrace"
+      },
+      {
+        "slug": "#fitness-studio",
+        "label": "Fitness Studio"
+      },
+      {
+        "slug": "#dine-with-us",
+        "label": "Dine with us"
+      },
+      {
+        "slug": "#retail",
+        "label": "Retail"
+      }
     ],
     "content": "McKinney & Olive offers 50,000 square feet of ground-level retail and dining, featuring Del Frisco’s Double Eagle Steakhouse, Doc B's Restaurant + Bar, Starbucks Reserve, Roti Modern Mediterranean, Malibu Poke, MIXT, CycleBar, Drybar, and Super All Day coming soon. One of the most notable and unique offerings at McKinney & Olive is the beautiful one-acre piazza designed and landscaped by James Burnett, featuring open outdoor space accented with umbrella-covered tables, water features, lawn games all framed with mature shade trees.  Other amenities including an outdoor terrace, conference center, Canyon Ranch-designed fitness studio, and Wi-Fi in all common areas.",
     "contentOne": {
@@ -194,7 +236,7 @@
   "leasing": {
     "title": "DESIGNED FOR THE<br/><span>MODERN PROFESSIONAL</span>",
     "content": "McKinney & Olive offers world-class architecture and amenities, including ultra-efficient floor plates, the latest building technology, state-of-the-art security, destination elevators, Canyon Ranch-designed fitness studio, conference center, and an outdoor terrace. These, combined with Crescent’s award-winning customer service, provide our customers with the ability to work effectively and efficiently and recruit and retain talent in today’s competitive market.",
-    "address": "For information on available office and retail lease opportunities, contact:<br/>John Zogg<br/>214-880-4525",
+    "address": "For information on available office and retail lease opportunities, contact:<br/>John Zogg<br/>214.880.4525",
     "ctaText": "Download Leasing Brochure"
   },
   "location": {
