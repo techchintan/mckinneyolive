@@ -25,7 +25,8 @@ function MediaCard({ context, node, onClick, cardHeight, cardRef, ...rest }) {
     >
       <Img fluid={fluid} />
       <Title style={cardHeight ? { marginBottom: `auto` } : {}} color="primary">
-        {truncate(node.title, 41)}
+        {/* {truncate(node.title, 41)} */}
+        {node.title}
       </Title>
       <Icon
         href={`https://www.google.com/maps/place/${node.address}`}
