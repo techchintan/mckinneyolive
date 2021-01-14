@@ -132,9 +132,7 @@ export default ({ data }) => {
           </Box>
         </Box>
       </Container>
-      {!isEmpty(allInstaNode.edges) ? (
-        <InstagramGallery allInstaNode={allInstaNode} />
-      ) : null}
+      {allInstaNode && <InstagramGallery allInstaNode={allInstaNode} />}
     </Layout>
   )
 }

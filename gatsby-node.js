@@ -51,29 +51,51 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   const typeDefs = `
-   type contentfulAnnouncementsContentRichTextNode implements Node{
-     json: JSON
-   }
+      type ContentfulTeams implements Node @infer {
+        image: ContentfulAsset
+      }
 
-    type ContentfulAnnouncements implements Node {
-      title: String
-      date: Date
-      image: ContentfulAsset
-      location: String
-      time: String
-      content: contentfulAnnouncementsContentRichTextNode
-    }
+      type contentfulAnnouncementsContentRichTextNode implements Node {
+        json: JSON
+      }
+  
+      type ContentfulAnnouncements implements Node {
+        title: String
+        date: Date
+        image: ContentfulAsset
+        location: String
+        time: String
+        content: contentfulAnnouncementsContentRichTextNode
 
-    type ContentfulAnnouncementsEdge {
-      node: ContentfulAnnouncements
-    }
-    type ContentfulAnnouncementsConnection {
-      edges: [ContentfulAnnouncementsEdge]
-    }
+      }
 
-    type Query {
-      allContentfulAnnouncements: ContentfulAnnouncementsConnection
-    }
+      type ContentfulAnnouncementsEdge {
+        node: ContentfulAnnouncements
+      }
+
+      type ContentfulAnnouncementsConnection {
+        edges: [ContentfulAnnouncementsEdge]
+      }
+
+      type InstaNode implements Node {
+        timestamp: Int
+        username: String
+        caption: String
+        localFile: File
+      }
+
+      type InstaNodeEdge {
+        node: InstaNode
+      }
+
+      type InstaNodeConnection {
+        edges: [InstaNodeEdge]
+      }
+
+      type Query {
+        allContentfulAnnouncements: ContentfulAnnouncementsConnection
+        allInstaNode: InstaNodeConnection
+      }
    `
   createTypes(typeDefs)
 }
