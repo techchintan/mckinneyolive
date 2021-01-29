@@ -285,7 +285,7 @@ export default ({ data }) => {
             mt={[3, 4]}
             as="a"
             target="_blank"
-            href={bottomContent.ctaURL}
+            href={data.conciergeNewsletter.file.url}
           >
             {bottomContent.ctaText}
           </Button>
@@ -332,7 +332,6 @@ export const query = graphql`
         bottomContent {
           content
           ctaText
-          ctaURL
           title
         }
         sliderOne {
@@ -440,6 +439,13 @@ export const query = graphql`
     }
     fitnessStudioBrochure: contentfulAsset(
       title: { eq: "Fitness Studio Brochure" }
+    ) {
+      file {
+        url
+      }
+    }
+    conciergeNewsletter: contentfulAsset(
+      title: { eq: "Concierge Newsletter" }
     ) {
       file {
         url
