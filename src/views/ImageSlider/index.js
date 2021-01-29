@@ -96,7 +96,6 @@ function reducer(state, action) {
 }
 
 function ImageSlider({ onClick, data, ...rest }) {
-  console.log({ data })
   const [slider, dispatch] = useReducer(reducer, initialState)
 
   function handleClose() {
@@ -104,7 +103,6 @@ function ImageSlider({ onClick, data, ...rest }) {
   }
 
   function handleOpen(image) {
-    console.log('clicked!')
     dispatch({ type: 'SET_SLIDE', active: image })
   }
   return (

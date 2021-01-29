@@ -18,8 +18,6 @@ import ContentImage, { Content, Image } from '../compound/ContentImage'
 // Views
 import TeamList from '../views/TeamList'
 
-import brochure from '../pdf/brochure-about.pdf'
-
 export default ({ data }) => {
   const [beesContentBoxDimensions, setBeesContentBoxDimensions] = useState({
     width: 0,
@@ -36,7 +34,6 @@ export default ({ data }) => {
     mckinneyOlive,
     theArchitect,
   } = data.pagesJson.about
-
   return (
     <Layout>
       <SEO title="About" />
@@ -72,7 +69,7 @@ export default ({ data }) => {
               <div dangerouslySetInnerHTML={{ __html: mckinneyOlive.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: mckinneyOlive.content }} />
-            <Button mt={4} as="a" href={brochure}>
+            <Button mt={4} as="a" href={data.aboutBrochure.file.url}>
               {mckinneyOlive.ctaText}
             </Button>
           </Content>
@@ -130,7 +127,12 @@ export default ({ data }) => {
               <div dangerouslySetInnerHTML={{ __html: contentOne.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: contentOne.content }} />
-            <Button mt={4} as="a" href={contentOne.cta.url} target="_blank">
+            <Button
+              mt={4}
+              as="a"
+              href={data.leedCaseStudy.file.url}
+              target="_blank"
+            >
               {contentOne.cta.text}
             </Button>
           </Content>
@@ -273,7 +275,6 @@ export const query = graphql`
           title
           cta {
             text
-            url
           }
         }
         contentTwo {
@@ -372,6 +373,19 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    aboutBrochure: contentfulAsset(title: { eq: "About Brochure" }) {
+      file {
+        url
+      }
+    }
+
+    leedCaseStudy: contentfulAsset(
+      title: { eq: "McKinney & Olive LEED Case Study" }
+    ) {
+      file {
+        url
       }
     }
   }

@@ -23,9 +23,8 @@ import {
   StyledUserTie,
   Hamburger,
   Privacy,
+  ParkingButtonsWrapper,
 } from './styles'
-
-import valetParkingValidationInstructions from '../../pdf/valet-parking-validation-instructions.pdf'
 
 // import LogoPath from './LogoPath'
 import logo from '../../images/logo.svg'
@@ -59,6 +58,7 @@ export default () => {
           parking {
             title
             content
+            tenantsTitle
           }
         }
       }
@@ -67,6 +67,20 @@ export default () => {
           fluid(maxWidth: 1024) {
             ...GatsbyImageSharpFluid
           }
+        }
+      }
+      validateOfficeTowerGarageParking: contentfulAsset(
+        title: { eq: "Validate Office Tower Garage Parking" }
+      ) {
+        file {
+          url
+        }
+      }
+      valetParkingValidationInstructions: contentfulAsset(
+        title: { eq: "Valet Parking Validation Instructions" }
+      ) {
+        file {
+          url
         }
       }
     }
@@ -90,9 +104,18 @@ export default () => {
                 {parking.title}
               </Box>
               <Box mt={4}>
+                <Box
+                  mt={4}
+                  dangerouslySetInnerHTML={{ __html: parking.content }}
+                />
+              </Box>
+              <Box as="h3" mt={4} color="primary" textAlign="center">
+                {parking.tenantsTitle}
+              </Box>
+              <ParkingButtonsWrapper>
                 <Box mt={3}>
                   <Button
-                    width={[1, '400px']}
+                    width={[250, 400]}
                     as="a"
                     href="https://ev.smsvalet.com/Web/WebSite/Login.aspx"
                     target="_blank"
@@ -102,19 +125,25 @@ export default () => {
                 </Box>
                 <Box mt={3}>
                   <Button
-                    width={[1, '400px']}
+                    width={[250, 400]}
                     as="a"
-                    href={valetParkingValidationInstructions}
+                    href={data.valetParkingValidationInstructions.file.url}
                     target="_blank"
                   >
                     Valet Parking Validation Instructions
                   </Button>
                 </Box>
-                <Box
-                  mt={4}
-                  dangerouslySetInnerHTML={{ __html: parking.content }}
-                />
-              </Box>
+                <Box mt={3}>
+                  <Button
+                    width={[250, 400]}
+                    as="a"
+                    href={data.validateOfficeTowerGarageParking.file.url}
+                    target="_blank"
+                  >
+                    Validate Office Tower Garage Parking
+                  </Button>
+                </Box>
+              </ParkingButtonsWrapper>
             </ModalBody>
           </ModalContent>
         </Modal>
