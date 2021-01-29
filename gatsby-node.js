@@ -51,7 +51,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
   const typeDefs = `
-      type ContentfulTeams implements Node @infer {
+      type ContentfulTeams implements Node {
         image: ContentfulAsset
       }
 

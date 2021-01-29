@@ -19,8 +19,6 @@ import ImageSlider from '../views/ImageSlider'
 import ContentImage, { Content, SliderWrapper } from '../compound/ContentImage'
 import Table, { THead, TBody, TH, TR, TD } from '../compound/Table'
 
-import leasing from '../pdf/brochure.pdf'
-
 export default ({ data }) => {
   const { title, content, address, ctaText } = data.pagesJson.leasing
   const { allContentfulBuildings } = data
@@ -51,7 +49,11 @@ export default ({ data }) => {
                 <div dangerouslySetInnerHTML={{ __html: title }} />
               </Heading>
               <Box mb={[3, '40px']}>{content}</Box>
-              <Button as="a" href={leasing} target="_blank">
+              <Button
+                as="a"
+                href={data.leasingBrochure.file.url}
+                target="_blank"
+              >
                 {ctaText}
               </Button>
             </Box>
@@ -256,6 +258,11 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    leasingBrochure: contentfulAsset(title: { eq: "Leasing Brochure" }) {
+      file {
+        url
       }
     }
   }

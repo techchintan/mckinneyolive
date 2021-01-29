@@ -27,7 +27,6 @@
     "concierge": {
       "title": "Concierge",
       "content": "The  Concierge Connection is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with ticket orders and requests via phone or email. Please order no later than 2 p.m. on Thursday for delivery each Friday by noon for orders delivered to the building. Tickets must be picked up in the management office on the 5th floor, Suite 575, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. Personal checks are not accepted. For more information, call 214.935.9700, ext. 1.",
-      "ctaURL": "https://files.constantcontact.com/cd62516b601/f4df452c-0c45-42fc-aca5-fecd194cca1d.pdf",
       "ctaText": "Concierge Connection"
     },
     "social": {
@@ -49,7 +48,8 @@
     },
     "parking": {
       "title": "PARKING AT MCKINNEY & OLIVE",
-      "content": "<p>OFFICE TOWER GARAGE</p><ul><li>Located off of Harwood Road</li><li>Hourly Rate - $4 per hour</li><li>Maximum Daily Rate - $16 per day</li><li>Evening Rate, after 6 p.m. - $5 flat fee</li><li>Weekend Rate - $10 flat rate</li></ul><p>RETAIL GARAGE</p><ul><li>Located off of Olive Street and Cedar Springs Road</li><li>First 3 hours free with validation</li><li>$10 flat rate after 3 hours with validation</li><li>$25 without validation</li></ul><p>OFFICE TOWER VALET</p><ul><li>Located off of McKinney Avenue</li><li>Valet Rate - $5 plus hourly garage rate</li></ul><p>RETAIL VALET</p><ul><li>Located off of Olive Street</li><li>Valet Rate - $5 plus hourly rate after 3 hours</li></ul><p>ELECTRIC CAR CHARGING STATION</p><ul><li>Four stations located on Level L1 of the Retail Garage</li><li>Enter on Olive Street</li><li>Provided by ChargePoint - <a href='http://chargepoint.com/' target='_blank'>CLICK HERE</a></li><li>Contact the management office to set up your complimentary access code at <a href='mailto:MOinfo@crescent.com'>MOinfo@crescent.com</a></li></ul>"
+      "content": "<p>OFFICE TOWER GARAGE</p><ul><li>Located off of Harwood Road</li><li>Hourly Rate - $4 per hour</li><li>Maximum Daily Rate - $16 per day</li><li>Evening Rate, after 6 p.m. - $5 flat fee</li><li>Weekend Rate - $10 flat rate</li></ul><p>RETAIL GARAGE</p><ul><li>Located off of Olive Street and Cedar Springs Road</li><li>First 3 hours free with validation</li><li>$10 flat rate after 3 hours with validation</li><li>$25 without validation</li></ul><p>OFFICE TOWER VALET</p><ul><li>Located off of McKinney Avenue</li><li>Valet Rate - $5 plus hourly garage rate</li></ul><p>RETAIL VALET</p><ul><li>Located off of Olive Street</li><li>Valet Rate - $5 plus hourly rate after 3 hours</li></ul><p>ELECTRIC CAR CHARGING STATION</p><ul><li>Four stations located on Level L1 of the Retail Garage</li><li>Enter on Olive Street</li><li>Provided by ChargePoint - <a href='http://chargepoint.com/' target='_blank'>CLICK HERE</a></li><li>Contact the management office to set up your complimentary access code at <a href='mailto:MOinfo@crescent.com'>MOinfo@crescent.com</a></li></ul>",
+      "tenantsTitle": "Parking Validation for Tenants of McKinney & Olive"
     }
   },
   "about": {
@@ -92,8 +92,7 @@
       "title": "Be responsible,<br/><span>think sustainable</span>",
       "content": "<p>McKinney & Olive operates at the highest level of efficiency and sustainability.  We are focused on providing a green building environment for our customers and demonstrating our commitment as stewards of the environment within the commercial real estate market. Because of this, we are LEED v4 O+M: EB Gold certified, meaning we meet the strict guidelines set forth by the Environmental Protection Agency to achieve Energy Star Ratings as well as those set forth by the U.S. Green Building Council for Leadership in Energy and Environmental Design (LEED® ).</p><p>Factors such as building automation systems, lighting controls, comprehensive green cleaning, and recycling programs are just a few examples of McKinney & Olive’s sustainability practices that contribute to a significant decrease in the overall energy consumption of the earth's resources by reducing energy use, conserving water, minimizing waste, reducing CO2 emissions, recycling materials and improving indoor quality of property environments.</p>",
       "cta": {
-        "text": "McKinney & Olive LEED Case Study",
-        "url": "http://www.mckinneyandolive.com/files/3215/4352/0131/MO_LEED_Case_Study.pdf"
+        "text": "McKinney & Olive LEED Case Study"
       }
     },
     "contentTwo": {
@@ -137,7 +136,7 @@
     "content": "McKinney & Olive offers 50,000 square feet of ground-level retail and dining, featuring Del Frisco’s Double Eagle Steakhouse, Doc B's Restaurant + Bar, Starbucks Reserve, Roti Modern Mediterranean, Malibu Poke, MIXT, CycleBar, Drybar, and Super All Day coming soon. One of the most notable and unique offerings at McKinney & Olive is the beautiful one-acre piazza designed and landscaped by James Burnett, featuring open outdoor space accented with umbrella-covered tables, water features, lawn games all framed with mature shade trees.  Other amenities including an outdoor terrace, conference center, Canyon Ranch-designed fitness studio, and Wi-Fi in all common areas.",
     "contentOne": {
       "title": "<span>Conference Center</span>",
-      "content": "<p>McKinney & Olive’s conference center offers a bright and spacious meeting room with floor-to-ceiling windows and includes the latest business support and technology.  It can accommodate many types of gatherings and be configured to meet various needs and capacities. The conference center features two Samsung 85-inch 4K UHD resolution Ultra Smart LED monitors, ElectroVoice in-ceiling speakers, and a second dual microphone system. In addition to the state-of-the-art equipment is high-speed Internet access and presentation tools for visual and audio collaboration.</p><p>A galley kitchen is located adjacent to the conference center to provide easy access to food service or catering.</p><p>To schedule the conference center, please have your suite representative schedule on Angus.</p><p>The conference center rates are:</p><ul><li>$40 per hour, up to 3 hours</li><li>$150 for a half-day, 4 hours</li><li>$300 for a whole day, 8 hours</li><li>After-hour rates available upon request</li></ul>",
+      "content": "<p>McKinney & Olive’s conference center offers a bright and spacious meeting room with floor-to-ceiling windows and includes the latest business support and technology.  It can accommodate many types of gatherings and be configured to meet various needs and capacities including social distancing. The conference center features two Samsung 85-inch 4K UHD resolution Ultra Smart LED monitors, ElectroVoice in-ceiling speakers, and a second dual microphone system. In addition to the state-of-the-art equipment is high-speed Internet access and presentation tools for visual and audio collaboration.</p><p>A galley kitchen is located adjacent to the conference center to provide easy access to food service or catering.</p><p>To schedule the conference center, please have your suite representative schedule on Angus.</p><p>The conference center rates are:</p><ul><li>$40 per hour, up to 3 hours</li><li>$150 for a half-day, 4 hours</li><li>$300 for a whole day, 8 hours</li><li>After-hour rates available upon request</li></ul>",
       "capacity": [
         {
           "name": "standard",
@@ -229,7 +228,6 @@
     "bottomContent": {
       "title": "CONCIERGE",
       "content": "The  Concierge Connection is pleased to assist you with information regarding hotels, restaurants, and entertainment. They can assist you with ticket orders and requests via phone or email. Please order no later than 2 p.m. on Thursday for delivery each Friday by noon for orders delivered to the building. Tickets must be picked up in the management office on the 5th floor, Suite 575, by 4 p.m. on Friday. The concierge accepts all major credit cards, debit cards, and company checks. Personal checks are not accepted. For more information, call 214.935.9700, ext. 1.",
-      "ctaURL": "https://files.constantcontact.com/cd62516b601/f4df452c-0c45-42fc-aca5-fecd194cca1d.pdf",
       "ctaText": "Concierge Connection"
     }
   },

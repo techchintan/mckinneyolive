@@ -83,3 +83,8 @@ export const Hamburger = styled.div`
 export const Privacy = styled(Link)`
   ${color};
 `
+export const ParkingButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`

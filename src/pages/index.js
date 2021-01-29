@@ -148,7 +148,6 @@ export const query = graphql`
         concierge {
           content
           ctaText
-          ctaURL
           title
         }
         content

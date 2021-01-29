@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import BGImage from 'gatsby-background-image'
-import { Link } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { isEmpty } from 'lodash'
 import moment from 'moment'
@@ -29,6 +29,17 @@ export default ({
   announcementContent,
   onClick,
 }) => {
+  const { conciergeNewsletter } = useStaticQuery(graphql`
+    {
+      conciergeNewsletter: contentfulAsset(
+        title: { eq: "Concierge Newsletter" }
+      ) {
+        file {
+          url
+        }
+      }
+    }
+  `)
   return (
     <Box position="relative">
       <Box position="absolute" top="0" left="0" height="100%" width={1}>
@@ -165,7 +176,7 @@ export default ({
                       mt={4}
                       as="a"
                       target="_blank"
-                      href={home.concierge.ctaURL}
+                      href={conciergeNewsletter.file.url}
                     >
                       {home.concierge.ctaText}
                     </Button>

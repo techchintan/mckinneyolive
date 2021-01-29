@@ -13,7 +13,6 @@ function TeamCard({ name, position, email, phone, image, noImage, ...rest }) {
   let fluid
   if (!isNull(image)) fluid = image.fluid
   else fluid = noImage.childImageSharp.fluid
-
   return (
     <Box {...rest}>
       <Image fluid={fluid} />

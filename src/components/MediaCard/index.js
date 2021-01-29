@@ -10,8 +10,8 @@ import Button from '../Button'
 import { Wrapper, Img, Title, Icon } from './styles'
 
 function MediaCard({ context, node, onClick, cardHeight, cardRef, ...rest }) {
-  const truncate = (str, limit) =>
-    str.length > limit ? `${str.substring(0, limit)}...` : str
+  // const truncate = (str, limit) =>
+  //   str.length > limit ? `${str.substring(0, limit)}...` : str
 
   let fluid
   if (!isNull(node.image)) fluid = node.image.fluid

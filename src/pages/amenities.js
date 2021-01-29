@@ -20,9 +20,6 @@ import Table, { THead, TBody, TH, TR, TD } from '../compound/Table'
 // Views
 import CardSlider from '../views/CardSlider'
 
-import conferenceCentrePDF from '../pdf/conference-centre-brochure.pdf'
-import fitnessStudioPDF from '../pdf/fitness-studio-brochure.pdf'
-
 import eastEndOpen from '../images/cc-ushape-east-end-open.jpg'
 import westEndOpen from '../images/cc-ushape-west-end-open.jpg'
 import northEndOpen from '../images/cc-ushape-north-end-open.jpg'
@@ -212,7 +209,12 @@ export default ({ data }) => {
                 </TBody>
               </Table>
             </Box>
-            <Button mt={4} as="a" href={conferenceCentrePDF} target="_blank">
+            <Button
+              mt={4}
+              as="a"
+              href={data.conferenceCenterBrochure.file.url}
+              target="_blank"
+            >
               {contentOne.ctaText}
             </Button>
           </Content>
@@ -237,7 +239,12 @@ export default ({ data }) => {
               <div dangerouslySetInnerHTML={{ __html: contentThree.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: contentThree.content }} />
-            <Button mt={4} as="a" href={fitnessStudioPDF} target="_blank">
+            <Button
+              mt={4}
+              as="a"
+              href={data.fitnessStudioBrochure.file.url}
+              target="_blank"
+            >
               {contentThree.ctaText}
             </Button>
           </Content>
@@ -278,7 +285,7 @@ export default ({ data }) => {
             mt={[3, 4]}
             as="a"
             target="_blank"
-            href={bottomContent.ctaURL}
+            href={data.conciergeNewsletter.file.url}
           >
             {bottomContent.ctaText}
           </Button>
@@ -325,7 +332,6 @@ export const query = graphql`
         bottomContent {
           content
           ctaText
-          ctaURL
           title
         }
         sliderOne {
@@ -422,6 +428,27 @@ export const query = graphql`
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp
         }
+      }
+    }
+    conferenceCenterBrochure: contentfulAsset(
+      title: { eq: "Conference Center Brochure" }
+    ) {
+      file {
+        url
+      }
+    }
+    fitnessStudioBrochure: contentfulAsset(
+      title: { eq: "Fitness Studio Brochure" }
+    ) {
+      file {
+        url
+      }
+    }
+    conciergeNewsletter: contentfulAsset(
+      title: { eq: "Concierge Newsletter" }
+    ) {
+      file {
+        url
       }
     }
   }
