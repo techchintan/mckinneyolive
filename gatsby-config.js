@@ -80,6 +80,8 @@ module.exports = {
         username: `3291151658`,
         access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
         instagram_id: `17841403349761393`,
+        paginate: 1,
+        maxPosts: 12,
       },
     },
   ],

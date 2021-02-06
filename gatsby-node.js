@@ -52,7 +52,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   const typeDefs = `
       type ContentfulTeams implements Node {
-        image: ContentfulAsset
+        image: ContentfulAsset @link(by: "id", from: "image___NODE")
       }
 
       type contentfulAnnouncementsContentRichTextNode implements Node {
@@ -62,10 +62,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       type ContentfulAnnouncements implements Node {
         title: String
         date: Date
-        image: ContentfulAsset
+        image: ContentfulAsset @link(by: "id", from: "image___NODE")
         location: String
         time: String
-        content: contentfulAnnouncementsContentRichTextNode
+        content: contentfulAnnouncementsContentRichTextNode @link(by: "id", from: "content___NODE")
 
       }
 
@@ -81,7 +81,7 @@ exports.createSchemaCustomization = ({ actions }) => {
         timestamp: Int
         username: String
         caption: String
-        localFile: File
+        localFile: File @link(by: "id", from: "localFile___NODE")
       }
 
       type InstaNodeEdge {
