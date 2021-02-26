@@ -68,7 +68,7 @@ module.exports = {
         host:
           process.env.NODE_ENV === 'development'
             ? 'preview.contentful.com'
-            : 'cdm/contentful.com',
+            : 'cdn.contentful.com',
       },
     },
     {
