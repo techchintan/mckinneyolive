@@ -31,8 +31,10 @@ export default ({ data }) => {
   useEffect(() => {
     const filteredAnnounce = allContentfulAnnouncements.edges
       .filter(item => {
-        // return item.node.announcementDateTimestamp >= new Date().getTime();
-        return true
+        return (
+          !item.node.announcementDateTimestamp ||
+          item.node.announcementDateTimestamp >= new Date().getTime()
+        )
       })
       .sort(
         (a, b) =>

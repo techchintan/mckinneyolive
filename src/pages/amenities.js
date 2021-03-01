@@ -50,6 +50,7 @@ export default ({ data }) => {
     links,
     bottomContent,
     content,
+    contentFeatured,
     contentOne,
     contentTwo,
     contentThree,
@@ -95,6 +96,21 @@ export default ({ data }) => {
           {content}
         </Box>
       </Container>
+      <Box id="outdoor-piazza" overflow="hidden">
+        <ContentImage>
+          <Content>
+            <Heading as="h2" fontSize={[4, '36px']}>
+              <div
+                dangerouslySetInnerHTML={{ __html: contentFeatured.title }}
+              />
+            </Heading>
+            <Box
+              dangerouslySetInnerHTML={{ __html: contentFeatured.content }}
+            />
+          </Content>
+          <Image fluid={data.contentFeaturedImage.childImageSharp.fluid} />
+        </ContentImage>
+      </Box>
       <Box id="conference-center" overflow="hidden">
         <ContentImage>
           <Image fluid={data.contentOneImage.childImageSharp.fluid} />
@@ -304,6 +320,10 @@ export const query = graphql`
           slug
         }
         content
+        contentFeatured {
+          title
+          content
+        }
         contentOne {
           title
           content
@@ -406,6 +426,13 @@ export const query = graphql`
               sizes
             }
           }
+        }
+      }
+    }
+    contentFeaturedImage: file(relativePath: { eq: "outdoor-piazza.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
