@@ -61,7 +61,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   
       type ContentfulAnnouncements implements Node {
         title: String
-        date: Date
+        date: Date @dateformat
         image: ContentfulAsset @link(by: "id", from: "image___NODE")
         location: String
         time: String
