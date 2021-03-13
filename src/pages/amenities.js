@@ -255,14 +255,26 @@ export default ({ data }) => {
               <div dangerouslySetInnerHTML={{ __html: contentThree.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: contentThree.content }} />
-            <Button
-              mt={4}
-              as="a"
-              href={data.fitnessStudioBrochure.file.url}
-              target="_blank"
-            >
-              {contentThree.ctaText}
-            </Button>
+            <Box>
+              <Button
+                mt={4}
+                as="a"
+                href={contentThree.cta.link}
+                target="_blank"
+              >
+                {contentThree.cta.text}
+              </Button>
+            </Box>
+            <Box>
+              <Button
+                mt={3}
+                as="a"
+                href={data.fitnessStudioBrochure.file.url}
+                target="_blank"
+              >
+                {contentThree.ctaText2}
+              </Button>
+            </Box>
           </Content>
         </ContentImage>
       </Box>
@@ -347,7 +359,11 @@ export const query = graphql`
         contentThree {
           title
           content
-          ctaText
+          cta {
+            text
+            link
+          }
+          ctaText2
         }
         bottomContent {
           content
