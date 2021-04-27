@@ -31,11 +31,13 @@ export default ({
 }) => {
   const { conciergeNewsletter } = useStaticQuery(graphql`
     {
-      conciergeNewsletter: contentfulAsset(
-        title: { eq: "Concierge Newsletter" }
+      conciergeNewsletter: contentfulPdf(
+        pdfId: { eq: "concierge-newsletter" }
       ) {
-        file {
-          url
+        pdf {
+          file {
+            url
+          }
         }
       }
     }
@@ -176,7 +178,7 @@ export default ({
                       mt={4}
                       as="a"
                       target="_blank"
-                      href={conciergeNewsletter.file.url}
+                      href={conciergeNewsletter.pdf.file.url}
                     >
                       {home.concierge.ctaText}
                     </Button>

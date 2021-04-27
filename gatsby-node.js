@@ -96,6 +96,10 @@ exports.createSchemaCustomization = ({ actions }) => {
         allContentfulAnnouncements: ContentfulAnnouncementsConnection
         allInstaNode: InstaNodeConnection
       }
+
+      type ContentfulPdf implements Node {
+        pdf: ContentfulAsset @link(by: "id", from: "pdf___NODE")
+      }
    `
   createTypes(typeDefs)
 }
