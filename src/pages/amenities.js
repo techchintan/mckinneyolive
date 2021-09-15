@@ -313,7 +313,7 @@ export default ({ data }) => {
             mt={[3, 4]}
             as="a"
             target="_blank"
-            href={data.conciergeNewsletter.file.url}
+            href={data.conciergeNewsletter.pdf.file.url}
           >
             {bottomContent.ctaText}
           </Button>
@@ -487,11 +487,13 @@ export const query = graphql`
         url
       }
     }
-    conciergeNewsletter: contentfulAsset(
-      title: { eq: "Concierge Newsletter" }
+    conciergeNewsletter: contentfulPdf(
+      pdfId: { eq: "concierge-newsletter" }
     ) {
-      file {
-        url
+      pdf {
+        file {
+          url
+        }
       }
     }
   }
