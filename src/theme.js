@@ -1,4 +1,4 @@
-export default {
+const theme = {
   colors: {
     logo: '#0A2240',
     primary: '#005586',
@@ -9,3 +9,5 @@ export default {
   },
   breakpoints: ['768px', '992px', '1200px'],
 }
+
+export default theme

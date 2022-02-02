@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { color } from 'styled-system'
-import { FacebookF, VimeoV, Instagram } from 'styled-icons/fa-brands'
+import { FacebookF, VimeoV, Instagram } from '@styled-icons/fa-brands'
 
 export const StyledLink = styled(Link)`
   ${color};

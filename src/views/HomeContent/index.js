@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import BGImage from 'gatsby-background-image'
+import { convertToBgImage } from 'gbimage-bridge'
+import { getImage } from 'gatsby-plugin-image'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { isEmpty } from 'lodash'
 import moment from 'moment'
-import { Map } from 'styled-icons/boxicons-solid/Map'
-import { Time } from 'styled-icons/boxicons-regular/Time'
-
+import { Map } from '@styled-icons/boxicons-solid/Map'
+import { Time } from '@styled-icons/boxicons-regular/Time'
 import Box from '../../components/Box'
 import Heading from '../../components/Heading'
 import Button from '../../components/Button'
@@ -21,7 +22,7 @@ const BackgroundImage = styled(BGImage)`
 
 const StyledLink = styled(Link)``
 
-export default ({
+const HomeContent = ({
   home,
   bg,
   announcement,
@@ -29,6 +30,9 @@ export default ({
   announcementContent,
   onClick,
 }) => {
+  const image = getImage(bg)
+  const bgImage = convertToBgImage(image)
+
   const { conciergeNewsletter } = useStaticQuery(graphql`
     {
       conciergeNewsletter: contentfulPdf(
@@ -45,7 +49,7 @@ export default ({
   return (
     <Box position="relative">
       <Box position="absolute" top="0" left="0" height="100%" width={1}>
-        <BackgroundImage fluid={bg} />
+        <BackgroundImage {...bgImage} preserveStackingContext />
       </Box>
       <Box backgroundColor="rgba(0,0,0,0.6)" position="relative" zIndex={10}>
         <Container>
@@ -192,3 +196,5 @@ export default ({
     </Box>
   )
 }
+
+export default HomeContent

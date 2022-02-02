@@ -1,24 +1,25 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
 import { Container } from 'styled-bootstrap-grid'
-
+import { getImage } from 'gatsby-plugin-image'
 // Components
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Hero from '../components/Hero'
 import Box from '../components/Box'
-
 // Views
 import MapForm from '../views/MapForm'
 
-export default ({ data }) => {
+const Location = ({ data }) => {
   const { contentOne, contentTwo, address } = data.pagesJson.location
 
   return (
     <Layout>
-      <SEO title="Location" />
-      <Hero fluid={data.hero.childImageSharp.fluid} />
+      <Seo title="Location" />
+      <Hero
+        image={getImage(data.hero.childImageSharp)}
+        alt="McKinney and Olive"
+      />
       <Container>
         <Box
           pt={[5, 6]}
@@ -67,9 +68,7 @@ export const query = graphql`
   {
     hero: file(relativePath: { eq: "hero_locations.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     pagesJson {
@@ -81,3 +80,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Location

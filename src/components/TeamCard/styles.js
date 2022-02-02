@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Box from '../Box'
 
@@ -15,7 +15,7 @@ const emailPhone = css`
   }
 `
 
-export const Image = styled(Img)`
+export const Image = styled(GatsbyImage)`
   margin-bottom: 20px;
   height: 370px;
   width: 100%;

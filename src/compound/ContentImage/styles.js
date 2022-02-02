@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import mediaQuery from '../../utils/mediaQuery'
 import Box from '../../components/Box'
@@ -11,7 +11,7 @@ export const Content = styled(Box)`
   }
 `
 
-export const Image = styled(Img)`
+export const Image = styled(GatsbyImage)`
   object-fit: cover;
   width: 100%;
   height: 320px;

@@ -1,6 +1,5 @@
 const path = require(`path`)
 const { GraphQLFloat } = require(`gatsby/graphql`)
-
 const newsTemplate = path.resolve(`./src/templates/single-news.js`)
 
 const query = `

@@ -32,6 +32,7 @@ module.exports = {
         path: `${__dirname}/src/data/`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -65,7 +66,7 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: 'cdn.contentful.com',
+        host: process.env.CONTENTFUL_HOST,
       },
     },
     {
@@ -74,7 +75,6 @@ module.exports = {
         trackingId: `UA-152900182-1`,
       },
     },
-    // username: `thecrescentdallas`,
     {
       resolve: `gatsby-source-instagram`,
       options: {

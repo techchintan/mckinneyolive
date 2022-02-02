@@ -1,20 +1,16 @@
 import React from 'react'
 import { isNull } from 'lodash'
-import { Map } from 'styled-icons/boxicons-solid/Map'
-import { Web } from 'styled-icons/material/Web'
-import { MobileAlt } from 'styled-icons/boxicons-regular/MobileAlt'
-
+import { Map } from '@styled-icons/boxicons-solid/Map'
+import { Web } from '@styled-icons/material/Web'
+import { MobileAlt } from '@styled-icons/boxicons-regular/MobileAlt'
 import Box from '../Box'
 import Button from '../Button'
-
 import { Wrapper, Img, Title, Icon } from './styles'
+import { getImage } from 'gatsby-plugin-image'
 
 function MediaCard({ context, node, onClick, cardHeight, cardRef, ...rest }) {
-  // const truncate = (str, limit) =>
-  //   str.length > limit ? `${str.substring(0, limit)}...` : str
-
   let fluid
-  if (!isNull(node.image)) fluid = node.image.fluid
+  if (!isNull(node.image)) fluid = node.image
   else fluid = ''
 
   return (
@@ -23,9 +19,8 @@ function MediaCard({ context, node, onClick, cardHeight, cardRef, ...rest }) {
       {...rest}
       style={cardHeight ? { height: `${cardHeight}px` } : {}}
     >
-      <Img fluid={fluid} />
+      <Img image={getImage(fluid)} alt={node.title} />
       <Title style={cardHeight ? { marginBottom: `auto` } : {}} color="primary">
-        {/* {truncate(node.title, 41)} */}
         {node.title}
       </Title>
       <Icon

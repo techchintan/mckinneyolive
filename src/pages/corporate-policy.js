@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
-
 // Components
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Box from '../components/Box'
 import Heading from '../components/Heading'
 import Button from '../components/Button'
 import RichTextContentful from '../components/RichTextContentful'
 
-export default ({ data }) => {
+const Policy = ({ data }) => {
   const { legal, privacy } = data
   const { policy } = data.pagesJson
   const [active, setActive] = useState('Legal')
@@ -18,7 +17,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Corporate Policy" />
+      <Seo title="Corporate Policy" />
       <Container>
         <Box pt={[5, 6]} pb={5}>
           <Heading as="h2" mb={0} pt={5} fontSize={[5, '36px']}>
@@ -40,10 +39,10 @@ export default ({ data }) => {
         </Box>
         <Box pb={[5, 6]}>
           {active === `Legal` && (
-            <RichTextContentful content={legal.description.json} />
+            <RichTextContentful content={legal.description} />
           )}
           {active === `Privacy` && (
-            <RichTextContentful content={privacy.description.json} />
+            <RichTextContentful content={privacy.description} />
           )}
         </Box>
       </Container>
@@ -61,14 +60,16 @@ export const query = graphql`
     legal: contentfulPages(title: { eq: "Legal" }) {
       title
       description {
-        json
+        raw
       }
     }
     privacy: contentfulPages(title: { eq: "Privacy" }) {
       title
       description {
-        json
+        raw
       }
     }
   }
 `
+
+export default Policy

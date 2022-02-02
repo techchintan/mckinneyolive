@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-const StyledImage = styled(Img)`
+const StyledImage = styled(GatsbyImage)`
   width: 100%;
   height: 100vh;
   object-fit: cover;
 `
 
-export default ({ fluid }) => <StyledImage fluid={fluid} />
+const Hero = ({ image, alt }) => (
+  <StyledImage image={getImage(image)} alt={alt} />
+)
+export default Hero

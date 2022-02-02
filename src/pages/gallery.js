@@ -1,22 +1,24 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
-
 // Components
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Hero from '../components/Hero'
 import Box from '../components/Box'
 import Heading from '../components/Heading'
-
 // Views
 import GalleryV from '../views/Gallery'
+import { getImage } from 'gatsby-plugin-image'
 
-export default ({ data }) => {
+const Gallery = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Gallery" />
-      <Hero fluid={data.hero.childImageSharp.fluid} />
+      <Seo title="Gallery" />
+      <Hero
+        image={getImage(data.hero.childImageSharp)}
+        alt="McKinney and Olive"
+      />
       <Container>
         <Box py={[5, '100px']}>
           <Heading fontSize={[4, '36px']}>
@@ -24,7 +26,7 @@ export default ({ data }) => {
           </Heading>
         </Box>
       </Container>
-      <GalleryV bigImages={data.bigImages} thumbnails={data.thumbnails} />
+      <GalleryV images={data.gallery.images} />
     </Layout>
   )
 }
@@ -33,28 +35,15 @@ export const query = graphql`
   {
     hero: file(relativePath: { eq: "hero_gallery.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
-    thumbnails: contentfulGallery(title: { eq: "Photo Gallery" }) {
+    gallery: contentfulGallery(title: { eq: "Photo Gallery" }) {
       images {
-        id
-        title
-        fluid(maxWidth: 400) {
-          ...GatsbyContentfulFluid_withWebp
-        }
-      }
-    }
-    bigImages: contentfulGallery(title: { eq: "Photo Gallery" }) {
-      images {
-        id
-        title
-        fluid(maxWidth: 1500) {
-          ...GatsbyContentfulFluid_withWebp
-        }
+        ...Image
       }
     }
   }
 `
+
+export default Gallery

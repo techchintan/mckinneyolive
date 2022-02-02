@@ -9,7 +9,7 @@ import Heading from '../../components/Heading'
 
 const StyledLink = styled(Link)``
 
-export default ({ home }) => (
+const HeaderLinks = ({ home }) => (
   <Container>
     <Box py={[5, '100px']}>
       <Heading
@@ -39,3 +39,5 @@ export default ({ home }) => (
     </Box>
   </Container>
 )
+
+export default HeaderLinks

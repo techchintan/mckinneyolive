@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 const Bold = ({ children }) => <span>{children}</span>
 const Text = ({ children }) => <p>{children}</p>
@@ -15,8 +15,8 @@ const options = {
   },
 }
 
-export default ({ content }) => (
-  <Wrapper>{documentToReactComponents(content, options)}</Wrapper>
+const RichText = ({ content }) => (
+  <Wrapper>{renderRichText(content, options)}</Wrapper>
 )
 
 export const Wrapper = styled.div`
@@ -30,3 +30,5 @@ export const Wrapper = styled.div`
     max-width: 900px;
   }
 `
+
+export default RichText

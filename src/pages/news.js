@@ -2,28 +2,26 @@ import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
 import moment from 'moment'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
-import { Map } from 'styled-icons/boxicons-solid/Map'
-import { Time } from 'styled-icons/boxicons-regular/Time'
-import { CalendarAlt } from 'styled-icons/boxicons-regular/CalendarAlt'
-
+import { Map } from '@styled-icons/boxicons-solid/Map'
+import { Time } from '@styled-icons/boxicons-regular/Time'
+import { CalendarAlt } from '@styled-icons/boxicons-regular/CalendarAlt'
 // Components
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Hero from '../components/Hero'
 import Box from '../components/Box'
 import Heading from '../components/Heading'
 import NavList from '../components/NavList'
 import RichTextContentful from '../components/RichTextContentful'
 import Modal, { ModalContent, ModalBody, ModalImage } from '../components/Modal'
-
 // Views
 import NewsList from '../views/NewsList'
 import AnnouncementList from '../views/AnnouncementsList'
 import AwardsList from '../views/AwardsList'
 
-export default ({ data }) => {
+const News = ({ data }) => {
   const {
     allContentfulNews,
     allContentfulYearCategories,
@@ -55,18 +53,27 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="News" />
-      <Hero fluid={data.hero.childImageSharp.fluid} />
+      <Seo title="News" />
+      <Hero
+        image={getImage(data.hero.childImageSharp)}
+        alt="McKinney and Olive"
+      />
       {openNounce && (
         <Modal id="announcement-modal">
           <ModalContent onClick={() => setOpenNounce(null)}>
             {openNounce.image ? (
               <ModalImage>
-                <Img fluid={openNounce.image.fluid} />
+                <GatsbyImage
+                  image={getImage(openNounce.image)}
+                  alt={openNounce.image.title}
+                />
               </ModalImage>
             ) : (
               <ModalImage bg="primary">
-                <Img fluid={data.defaultImage.childImageSharp.fluid} />
+                <GatsbyImage
+                  image={getImage(data.defaultImage.childImageSharp)}
+                  alt="McKinney and Olive"
+                />
               </ModalImage>
             )}
             <ModalBody>
@@ -74,7 +81,7 @@ export default ({ data }) => {
                 {openNounce.title}
               </Box>
               <Box mb={4}>
-                <RichTextContentful content={openNounce.content.json} />
+                <RichTextContentful content={openNounce.content} />
               </Box>
               {!_.isEmpty(openNounce.location) && (
                 <Box display="flex" color="primary" mb={2}>
@@ -164,16 +171,12 @@ export const query = graphql`
   {
     hero: file(relativePath: { eq: "hero_news.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     defaultImage: file(relativePath: { eq: "default-image.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     allContentfulYearCategories(sort: { order: DESC, fields: title }) {
@@ -192,7 +195,7 @@ export const query = graphql`
           date
           slug
           content {
-            json
+            raw
           }
           category {
             title
@@ -206,22 +209,14 @@ export const query = graphql`
           id
           title
           content {
-            json
+            raw
           }
           time
           location
           date
           announcementDateTimestamp
           image {
-            fluid(maxWidth: 1920) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+            ...Image
           }
         }
       }
@@ -232,7 +227,7 @@ export const query = graphql`
           id
           date
           content {
-            json
+            raw
           }
           title
         }
@@ -240,3 +235,5 @@ export const query = graphql`
     }
   }
 `
+
+export default News
