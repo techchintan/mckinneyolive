@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 
-import { Search } from 'styled-icons/boxicons-regular/Search'
-import { Dollar } from 'styled-icons/boxicons-regular/Dollar'
-import { Building } from 'styled-icons/fa-regular/Building'
-import { Parking } from 'styled-icons/fa-solid/Parking'
-import { Restaurant } from 'styled-icons/boxicons-regular/Restaurant'
-import { Coffee } from 'styled-icons/fa-solid/Coffee'
+import { Search } from '@styled-icons/boxicons-regular/Search'
+import { Dollar } from '@styled-icons/boxicons-regular/Dollar'
+import { Building } from '@styled-icons/fa-regular/Building'
+import { Parking } from '@styled-icons/fa-solid/Parking'
+import { Restaurant } from '@styled-icons/boxicons-regular/Restaurant'
+import { Coffee } from '@styled-icons/fa-solid/Coffee'
 
 export const Input = styled.input`
   border: 3px solid ${props => props.theme.colors.grays[2]};

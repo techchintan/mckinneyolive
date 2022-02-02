@@ -9,7 +9,7 @@ export const THead = styled(Box)`
 `
 export const TBody = styled(Box)``
 export const TFoot = styled(Box)``
-export const TH = styled(Box)`
+export const Th = styled(Box)`
   color: ${props => props.theme.colors.white};
   cursor: pointer;
   line-height: normal;
@@ -18,8 +18,8 @@ export const TH = styled(Box)`
     background-color: ${props => props.theme.colors.primary};
   }
 `
-export const TR = styled(Box)``
-export const TD = styled(Box)`
+export const Tr = styled(Box)``
+export const Td = styled(Box)`
   color: ${props => props.theme.colors.white};
 `
 
@@ -39,7 +39,7 @@ TFoot.defaultProps = {
   as: 'tfoot',
 }
 
-TH.defaultProps = {
+Th.defaultProps = {
   as: 'th',
   py: '24px',
   px: '30px',
@@ -48,11 +48,11 @@ TH.defaultProps = {
   fontSize: 4,
 }
 
-TR.defaultProps = {
+Tr.defaultProps = {
   as: 'tr',
 }
 
-TD.defaultProps = {
+Td.defaultProps = {
   as: 'td',
   px: '30px',
   py: 3,

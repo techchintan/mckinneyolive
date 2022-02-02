@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import Box from '../Box'
 
 const StyledBox = styled(Box)`
@@ -20,4 +19,5 @@ StyledBox.defaultProps = {
   borderColor: 'grays.1',
 }
 
-export default props => <StyledBox {...props}>{props.children}</StyledBox>
+const Button = props => <StyledBox {...props}>{props.children}</StyledBox>
+export default Button

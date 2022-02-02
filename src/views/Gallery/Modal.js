@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { createPortal } from 'react-dom'
-import { Close } from 'styled-icons/material/Close'
+import { Close } from '@styled-icons/material/Close'
 
 import usePortal from '../../utils/usePortal'
 import Box from '../../components/Box'

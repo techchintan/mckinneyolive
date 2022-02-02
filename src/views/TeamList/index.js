@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
 import Box from '../../components/Box'
 import TeamCard from '../../components/TeamCard'
 
@@ -9,9 +8,7 @@ function TeamList({ teams, ...rest }) {
     {
       noImage: file(relativePath: { eq: "no_image.png" }) {
         childImageSharp {
-          fluid(maxWidth: 970) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(placeholder: BLURRED)
         }
       }
     }

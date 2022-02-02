@@ -2,24 +2,22 @@ import React, { useState } from 'react'
 import isNull from 'lodash/isNull'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
-import uuidv4 from 'uuid/v4'
-import { ArrowBack } from 'styled-icons/boxicons-regular/ArrowBack'
-import { ArrowForward } from 'styled-icons/material/ArrowForward'
-
+import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
+import { ArrowForward } from '@styled-icons/material/ArrowForward'
 // Components
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Box from '../components/Box'
 import Hero from '../components/Hero'
 import Heading from '../components/Heading'
 import Button from '../components/Button'
 import ImageSlider from '../views/ImageSlider'
-
 // Compound
 import ContentImage, { Content, SliderWrapper } from '../compound/ContentImage'
-import Table, { THead, TBody, TH, TR, TD } from '../compound/Table'
+import Table, { THead, TBody, Th, Tr, Td } from '../compound/Table'
+import { getImage } from 'gatsby-plugin-image'
 
-export default ({ data }) => {
+const Leasing = ({ data }) => {
   const { title, content, address, ctaText } = data.pagesJson.leasing
   const { allContentfulBuildings } = data
   const firstItem = allContentfulBuildings.edges[0]
@@ -27,8 +25,11 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Leasing" />
-      <Hero fluid={data.hero.childImageSharp.fluid} />
+      <Seo title="Leasing" />
+      <Hero
+        image={getImage(data.hero.childImageSharp)}
+        alt="McKinney and Olive"
+      />
       <Box mt="10px">
         <ContentImage alignItems="center">
           <SliderWrapper>
@@ -76,36 +77,36 @@ export default ({ data }) => {
           <Table width={1}>
             {allContentfulBuildings.edges.length > 1 && (
               <THead>
-                <TR>
+                <Tr>
                   {allContentfulBuildings.edges.map(item => {
                     const { title, id } = item.node
                     let color = id === active.node.id ? `primary` : `grays.0`
                     return (
-                      <TH onClick={() => setActive(item)} bg={color} key={id}>
+                      <Th onClick={() => setActive(item)} bg={color} key={id}>
                         {title}
-                      </TH>
+                      </Th>
                     )
                   })}
-                </TR>
+                </Tr>
               </THead>
             )}
             <TBody>
-              <TR bg="primary">
-                <TD style={{ fontWeight: 600, fontSize: '18px' }}>FLOOR</TD>
-                <TD style={{ fontWeight: 600, fontSize: '18px' }}>RSF</TD>
-                <TD style={{ fontWeight: 600, fontSize: '18px' }}>SUITE</TD>
-                <TD style={{ fontWeight: 600, fontSize: '18px' }}>
+              <Tr bg="primary">
+                <Td style={{ fontWeight: 600, fontSize: '18px' }}>FLOOR</Td>
+                <Td style={{ fontWeight: 600, fontSize: '18px' }}>RSF</Td>
+                <Td style={{ fontWeight: 600, fontSize: '18px' }}>SUITE</Td>
+                <Td style={{ fontWeight: 600, fontSize: '18px' }}>
                   FLOOR PLAN
-                </TD>
-              </TR>
+                </Td>
+              </Tr>
               {active.node.specifications.map(
-                ({ floor, rsf, suite, floorPlan }) => {
+                ({ floor, rsf, suite, floorPlan }, index) => {
                   return (
-                    <TR key={uuidv4()} bg="primary">
-                      <TD style={{ opacity: 0.8 }}>{floor}</TD>
-                      <TD style={{ opacity: 0.8 }}>{rsf}</TD>
-                      <TD style={{ opacity: 0.8 }}>{suite}</TD>
-                      <TD style={{ opacity: 0.8 }}>
+                    <Tr key={index} bg="primary">
+                      <Td style={{ opacity: 0.8 }}>{floor}</Td>
+                      <Td style={{ opacity: 0.8 }}>{rsf}</Td>
+                      <Td style={{ opacity: 0.8 }}>{suite}</Td>
+                      <Td style={{ opacity: 0.8 }}>
                         {isNull(floorPlan) ? null : (
                           <Box
                             as="a"
@@ -117,8 +118,8 @@ export default ({ data }) => {
                             Download
                           </Box>
                         )}
-                      </TD>
-                    </TR>
+                      </Td>
+                    </Tr>
                   )
                 }
               )}
@@ -158,16 +159,12 @@ export const query = graphql`
     }
     contentImage: file(relativePath: { eq: "content_image.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1024) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     hero: file(relativePath: { eq: "hero_leasing.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     leasing1: file(relativePath: { eq: "leasing-1.jpg" }) {
@@ -177,9 +174,7 @@ export const query = graphql`
           width
           height
         }
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     leasing2: file(relativePath: { eq: "leasing-2.jpg" }) {
@@ -189,9 +184,7 @@ export const query = graphql`
           width
           height
         }
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     leasing3: file(relativePath: { eq: "leasing-3.jpg" }) {
@@ -201,9 +194,7 @@ export const query = graphql`
           width
           height
         }
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     leasing4: file(relativePath: { eq: "leasing-4.jpg" }) {
@@ -213,9 +204,7 @@ export const query = graphql`
           width
           height
         }
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     leasing5: file(relativePath: { eq: "leasing-5.jpg" }) {
@@ -225,9 +214,7 @@ export const query = graphql`
           width
           height
         }
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     leasing6: file(relativePath: { eq: "leasing-6.jpg" }) {
@@ -237,9 +224,7 @@ export const query = graphql`
           width
           height
         }
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     allContentfulBuildings(sort: { fields: createdAt }) {
@@ -267,3 +252,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Leasing

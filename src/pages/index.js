@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { isEmpty } from 'lodash'
 import moment from 'moment'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
-import { Map } from 'styled-icons/boxicons-solid/Map'
-import { Time } from 'styled-icons/boxicons-regular/Time'
-import { CalendarAlt } from 'styled-icons/boxicons-regular/CalendarAlt'
+import { Map } from '@styled-icons/boxicons-solid/Map'
+import { Time } from '@styled-icons/boxicons-regular/Time'
+import { CalendarAlt } from '@styled-icons/boxicons-regular/CalendarAlt'
 import ReactPlayer from 'react-player'
-
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Box from '../components/Box'
 import Hero from '../components/Hero'
 import Heading from '../components/Heading'
-
 import InstagramGallery from '../views/InstagramGallery'
 import HeaderLinks from '../views/HeaderLinks'
 import HomeContent from '../views/HomeContent'
 import RichTextContentful from '../components/RichTextContentful'
 import Modal, { ModalContent, ModalBody, ModalImage } from '../components/Modal'
 
-export default ({ data }) => {
+const Index = ({ data }) => {
   const { home } = data.pagesJson
   const [activeAnnouncement, setAnnouncement] = useState(null)
   const { allContentfulAnnouncements } = data
@@ -45,18 +43,24 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
-      <Hero fluid={data.hero.childImageSharp.fluid} />
+      <Seo title="Home" />
+      <Hero image={data.hero.childImageSharp} alt="McKinney and Olive" />
       {activeAnnouncement && (
         <Modal id="announcement-modal">
           <ModalContent onClick={() => setAnnouncement(null)}>
             {activeAnnouncement.image ? (
               <ModalImage>
-                <Img fluid={activeAnnouncement.image.fluid} />
+                <GatsbyImage
+                  image={getImage(activeAnnouncement.image)}
+                  alt={activeAnnouncement.image.title}
+                />
               </ModalImage>
             ) : (
               <ModalImage bg="primary">
-                <Img fluid={data.defaultImage.childImageSharp.fluid} />
+                <GatsbyImage
+                  image={getImage(data.defaultImage.childImageSharp)}
+                  alt="McKinney and Olive"
+                />
               </ModalImage>
             )}
             <ModalBody>
@@ -101,7 +105,7 @@ export default ({ data }) => {
         <HomeContent
           onClick={setAnnouncement}
           home={home}
-          bg={data.bg.childImageSharp.fluid}
+          bg={data.bg.childImageSharp}
           announcement={announcements}
           title={home.announcement.title}
           announcementContent={home.announcement.content}
@@ -175,23 +179,17 @@ export const query = graphql`
     }
     hero: file(relativePath: { eq: "home_hero.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     bg: file(relativePath: { eq: "bg_place.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     defaultImage: file(relativePath: { eq: "default-image.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1500) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     allContentfulAnnouncements(sort: { order: ASC, fields: date }) {
@@ -207,15 +205,7 @@ export const query = graphql`
           date
           announcementDateTimestamp
           image {
-            fluid(maxWidth: 1920) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+            ...Image
           }
         }
       }
@@ -232,9 +222,7 @@ export const query = graphql`
           caption
           localFile {
             childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
         }
@@ -242,3 +230,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Index

@@ -1,12 +1,10 @@
 import React, { useReducer } from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Slider from 'react-slick'
 import styled from 'styled-components'
-import { ChevronLeft, ChevronRight } from 'styled-icons/boxicons-regular'
-
+import { ChevronLeft, ChevronRight } from '@styled-icons/boxicons-regular'
 import Box from '../../components/Box'
 import Modal, { ModalContent } from '../../components/Modal'
-
 import mediaQuery from '../../utils/mediaQuery'
 import { icons, dots, ul } from './styles'
 
@@ -30,7 +28,7 @@ const Dots = styled.div`
   ${dots}
 `
 
-const UL = styled.ul`
+const Ul = styled.ul`
   ${ul}
 `
 
@@ -38,7 +36,7 @@ const ImageWrapper = styled(Box)`
   width: 100%;
 `
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   margin: 0 auto;
   max-height: 100%;
   max-width: 100%;
@@ -55,7 +53,7 @@ const settings = {
   nextArrow: <StyledNext />,
   appendDots: dots => (
     <Dots>
-      <UL>{dots}</UL>
+      <Ul>{dots}</Ul>
     </Dots>
   ),
 }
@@ -112,7 +110,8 @@ function ImageSlider({ onClick, data, ...rest }) {
           <ModalContent onClick={handleClose} background="transparent">
             <ImageWrapper>
               <Image
-                fluid={slider.active.childImageSharp.fluid}
+                image={getImage(slider.active.childImageSharp)}
+                alt="McKinney and Olive"
                 imgStyle={{ objectFit: 'contain' }}
               />
             </ImageWrapper>
@@ -124,7 +123,10 @@ function ImageSlider({ onClick, data, ...rest }) {
           <Slider {...settings}>
             {data.map(image => (
               <Box key={image.id} onClick={() => handleOpen(image)}>
-                <Img fluid={image.childImageSharp.fluid} />
+                <GatsbyImage
+                  image={getImage(image.childImageSharp)}
+                  alt="McKinney and Olive"
+                />
               </Box>
             ))}
           </Slider>

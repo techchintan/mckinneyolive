@@ -1,14 +1,13 @@
 import React, { useReducer, useState, useEffect } from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Slider from 'react-slick'
 import styled from 'styled-components'
-import { Map } from 'styled-icons/boxicons-solid/Map'
-import { Web } from 'styled-icons/material/Web'
-import { Schedule } from 'styled-icons/material/Schedule'
-import { MobileAlt } from 'styled-icons/boxicons-regular/MobileAlt'
-import { ChevronLeft } from 'styled-icons/boxicons-regular/ChevronLeft'
-import { ChevronRight } from 'styled-icons/boxicons-regular/ChevronRight'
-
+import { Map } from '@styled-icons/boxicons-solid/Map'
+import { Web } from '@styled-icons/material/Web'
+import { Schedule } from '@styled-icons/material/Schedule'
+import { MobileAlt } from '@styled-icons/boxicons-regular/MobileAlt'
+import { ChevronLeft } from '@styled-icons/boxicons-regular/ChevronLeft'
+import { ChevronRight } from '@styled-icons/boxicons-regular/ChevronRight'
 import Box from '../../components/Box'
 import MediaCard from '../../components/MediaCard'
 import RichTextContentful from '../../components/RichTextContentful'
@@ -41,7 +40,7 @@ const Dots = styled.div`
   ${dots}
 `
 
-const UL = styled.ul`
+const Ul = styled.ul`
   ${ul}
 `
 
@@ -49,7 +48,7 @@ const Icon = styled(Box)`
   ${icon}
 `
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   object-fit: cover;
   height: 100%;
 `
@@ -64,7 +63,7 @@ const settings = {
   nextArrow: <StyledNext />,
   appendDots: dots => (
     <Dots>
-      <UL>{dots}</UL>
+      <Ul>{dots}</Ul>
     </Dots>
   ),
   responsive: [
@@ -154,7 +153,10 @@ function CardSlider({ onClick, data, ...rest }) {
         <Modal id="slider-modal" context={SliderContext}>
           <ModalContent onClick={handleClose}>
             <ModalImage>
-              <Image fluid={slider.active.image.fluid} />
+              <Image
+                image={getImage(slider.active.image)}
+                alt={slider.active.title}
+              />
             </ModalImage>
             <ModalBody>
               <Box as="h2" mt={0} color="primary">

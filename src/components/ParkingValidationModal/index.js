@@ -1,7 +1,7 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 import styled from 'styled-components'
-import { Close } from 'styled-icons/material/Close'
+import { Close } from '@styled-icons/material/Close'
 
 // Hooks
 import usePortal from '../../utils/usePortal'

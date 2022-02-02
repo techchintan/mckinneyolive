@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { Link } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
 import Img from 'gatsby-image'
-
 import Box from '../Box'
 import Button from '../Button'
 import { Social, SocialItem } from '../Social'
@@ -14,7 +13,6 @@ import Modal, {
   ModalImage,
   ModalBody,
 } from '../ParkingValidationModal'
-
 import {
   StyledFacebookF,
   StyledVimeoV,
@@ -25,12 +23,11 @@ import {
   Privacy,
   ParkingButtonsWrapper,
 } from './styles'
-
 // import LogoPath from './LogoPath'
 import logo from '../../images/logo.svg'
 import logoWhite from '../../images/logo-white.svg'
 
-export default () => {
+const Header = () => {
   const data = useStaticQuery(graphql`
     {
       site {
@@ -270,12 +267,7 @@ export default () => {
             </MobileTabletOnly>
           </List>
         </Menu>
-        <Box
-          pt={[4]}
-          px={2}
-          width={1}
-          // style={{ position: 'absolute', bottom: 32, zIndex: -1 }}
-        >
+        <Box pt={[4]} px={2} width={1}>
           <Container>
             <Box display="flex" flexWrap="wrap" justifyContent="space-between">
               <Privacy to={privacy.slug} color="white">
@@ -291,3 +283,5 @@ export default () => {
     </>
   )
 }
+
+export default Header

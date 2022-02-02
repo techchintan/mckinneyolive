@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Box from '../Box'
 
-export const Img = styled(Image)`
+export const Img = styled(GatsbyImage)`
   object-fit: cover;
   margin-bottom: 40px;
   width: 100%;

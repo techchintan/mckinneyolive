@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-
 import Box from '../../components/Box'
 import AccordionItem from '../../components/AccordionItem'
 
@@ -15,7 +14,7 @@ function AwardsList({ awards, ...rest }) {
             mb={3}
             date={moment.parseZone(date).format('YYYY')}
             title={title}
-            content={content.json}
+            content={content}
           />
         )
       })}

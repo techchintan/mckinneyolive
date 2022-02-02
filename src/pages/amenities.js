@@ -1,25 +1,22 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
-import uuidv4 from 'uuid/v4'
-import { ArrowBack } from 'styled-icons/boxicons-regular/ArrowBack'
-import { ArrowForward } from 'styled-icons/material/ArrowForward'
-
+import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
+import { ArrowForward } from '@styled-icons/material/ArrowForward'
+import { getImage } from 'gatsby-plugin-image'
 // Components
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Box from '../components/Box'
 import Hero from '../components/Hero'
 import Heading from '../components/Heading'
 import Button from '../components/Button'
-
 // Compound
 import ContentImage, { Content, Image } from '../compound/ContentImage'
-import Table, { THead, TBody, TH, TR, TD } from '../compound/Table'
-
+import Table, { THead, TBody, Th, Tr, Td } from '../compound/Table'
 // Views
 import CardSlider from '../views/CardSlider'
-
+// Assets
 import eastEndOpen from '../images/cc-ushape-east-end-open.jpg'
 import westEndOpen from '../images/cc-ushape-west-end-open.jpg'
 import northEndOpen from '../images/cc-ushape-north-end-open.jpg'
@@ -44,7 +41,7 @@ const conferenceCentreImages = {
   large,
 }
 
-export default ({ data }) => {
+const Amenities = ({ data }) => {
   const { restaurant, hotel } = data
   const {
     links,
@@ -61,8 +58,8 @@ export default ({ data }) => {
   const [activeOption, setActiveOption] = useState(0)
   return (
     <Layout>
-      <SEO title="Amenities" />
-      <Hero fluid={data.hero.childImageSharp.fluid} />
+      <Seo title="Amenities" />
+      <Hero image={data.hero.childImageSharp} alt="McKinney and Olive" />
       <Box
         display="flex"
         flexWrap="wrap"
@@ -108,12 +105,18 @@ export default ({ data }) => {
               dangerouslySetInnerHTML={{ __html: contentFeatured.content }}
             />
           </Content>
-          <Image fluid={data.contentFeaturedImage.childImageSharp.fluid} />
+          <Image
+            image={getImage(data.contentFeaturedImage.childImageSharp)}
+            alt="McKinney and Olive"
+          />
         </ContentImage>
       </Box>
       <Box id="conference-center" overflow="hidden">
         <ContentImage>
-          <Image fluid={data.contentOneImage.childImageSharp.fluid} />
+          <Image
+            image={getImage(data.contentOneImage.childImageSharp)}
+            alt="McKinney and Olive"
+          />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentOne.title }} />
@@ -137,31 +140,31 @@ export default ({ data }) => {
               <Table width={1}>
                 {contentOne.capacity.length > 1 && (
                   <THead>
-                    <TR>
+                    <Tr>
                       {contentOne.capacity.map(({ name }, index) => {
                         let color =
                           index === activeCapacity ? `primary` : `grays.0`
                         return (
-                          <TH
+                          <Th
                             onClick={() => setActiveCapacity(index)}
                             bg={color}
                             key={index}
                           >
                             {name}
-                          </TH>
+                          </Th>
                         )
                       })}
-                    </TR>
+                    </Tr>
                   </THead>
                 )}
                 <TBody>
-                  <TR bg="primary">
+                  <Tr bg="primary">
                     {contentOne.capacity[activeCapacity].options.map(
                       ({ name }, index) => {
                         let color =
                           index === activeOption ? `primary` : `grays.0`
                         return (
-                          <TD
+                          <Td
                             style={{
                               fontWeight: 600,
                               fontSize: '18px',
@@ -172,44 +175,44 @@ export default ({ data }) => {
                             onClick={() => setActiveOption(index)}
                           >
                             {name}
-                          </TD>
+                          </Td>
                         )
                       }
                     )}
-                  </TR>
-                  <TR bg="primary">
-                    <TD colSpan={4} textAlign="center">
+                  </Tr>
+                  <Tr bg="primary">
+                    <Td colSpan={4} textAlign="center">
                       {
                         contentOne.capacity[activeCapacity].options[
                           activeOption
                         ].description
                       }
-                    </TD>
-                  </TR>
-                  <TR bg="primary">
-                    <TD
+                    </Td>
+                  </Tr>
+                  <Tr bg="primary">
+                    <Td
                       colSpan={2}
                       style={{ fontWeight: 600, fontSize: '18px' }}
                     >
                       OPTION
-                    </TD>
+                    </Td>
 
-                    <TD
+                    <Td
                       colSpan={2}
                       style={{ fontWeight: 600, fontSize: '18px' }}
                     >
                       FLOOR PLAN
-                    </TD>
-                  </TR>
+                    </Td>
+                  </Tr>
                   {contentOne.capacity[activeCapacity].options[
                     activeOption
-                  ].options.map(({ name, floor_plan }) => (
-                    <TR key={uuidv4()} bg="primary">
-                      <TD colSpan={2} style={{ opacity: 0.8 }}>
+                  ].options.map(({ name, floor_plan }, index) => (
+                    <Tr key={index} bg="primary">
+                      <Td colSpan={2} style={{ opacity: 0.8 }}>
                         {name}
-                      </TD>
+                      </Td>
 
-                      <TD colSpan={2} style={{ opacity: 0.8 }}>
+                      <Td colSpan={2} style={{ opacity: 0.8 }}>
                         <Box
                           as="a"
                           color="white"
@@ -219,8 +222,8 @@ export default ({ data }) => {
                         >
                           View
                         </Box>
-                      </TD>
-                    </TR>
+                      </Td>
+                    </Tr>
                   ))}
                 </TBody>
               </Table>
@@ -244,12 +247,18 @@ export default ({ data }) => {
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: contentTwo.content }} />
           </Content>
-          <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
+          <Image
+            image={getImage(data.contentTwoImage.childImageSharp)}
+            alt="McKinney and Olive"
+          />
         </ContentImage>
       </Box>
       <Box id="fitness-studio" overflow="hidden" mb={[5, 6]}>
         <ContentImage>
-          <Image fluid={data.contentThreeImage.childImageSharp.fluid} />
+          <Image
+            image={getImage(data.contentThreeImage.childImageSharp)}
+            alt="McKinney and Olive"
+          />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentThree.title }} />
@@ -380,9 +389,7 @@ export const query = graphql`
     }
     hero: file(relativePath: { eq: "amenities_hero.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     restaurant: allContentfulAmenities(
@@ -399,18 +406,10 @@ export const query = graphql`
           url
           website
           content {
-            json
+            raw
           }
           image {
-            fluid(maxWidth: 970) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+            ...Image
           }
         }
       }
@@ -429,48 +428,32 @@ export const query = graphql`
           url
           website
           content {
-            json
+            raw
           }
           image {
-            fluid(maxWidth: 970) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+            ...Image
           }
         }
       }
     }
     contentFeaturedImage: file(relativePath: { eq: "outdoor-piazza.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     contentOneImage: file(relativePath: { eq: "conference-centre.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     contentTwoImage: file(relativePath: { eq: "outdoor-terrace.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     contentThreeImage: file(relativePath: { eq: "fitness-studio.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     conferenceCenterBrochure: contentfulAsset(
@@ -487,9 +470,7 @@ export const query = graphql`
         url
       }
     }
-    conciergeNewsletter: contentfulPdf(
-      pdfId: { eq: "concierge-newsletter" }
-    ) {
+    conciergeNewsletter: contentfulPdf(pdfId: { eq: "concierge-newsletter" }) {
       pdf {
         file {
           url
@@ -498,3 +479,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Amenities

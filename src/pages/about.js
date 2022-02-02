@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Container } from 'styled-bootstrap-grid'
 import ReactPlayer from 'react-player'
-
 // Components
 import Layout from '../components/Layout'
-import SEO from '../components/SEO'
+import Seo from '../components/seo'
 import Hero from '../components/Hero'
 import Button from '../components/Button'
 import Box from '../components/Box'
 import Heading from '../components/Heading'
-
 // Compound
 import ContentImage, { Content, Image } from '../compound/ContentImage'
-
 // Views
 import TeamList from '../views/TeamList'
 
-export default ({ data }) => {
+const About = ({ data }) => {
   const [beesContentBoxDimensions, setBeesContentBoxDimensions] = useState({
     width: 0,
     height: 0,
@@ -34,10 +31,11 @@ export default ({ data }) => {
     mckinneyOlive,
     theArchitect,
   } = data.pagesJson.about
+
   return (
     <Layout>
-      <SEO title="About" />
-      <Hero fluid={data.hero.childImageSharp.fluid} />
+      <Seo title="About" />
+      <Hero image={data.hero.childImageSharp} alt="Mckinney and Olive" />
       <Container>
         <Box
           display="flex"
@@ -63,7 +61,10 @@ export default ({ data }) => {
       </Container>
       <Box overflow="hidden" mb={[4, 0]}>
         <ContentImage>
-          <Image fluid={data.theCrescentImage.childImageSharp.fluid} />
+          <Image
+            image={getImage(data.theCrescentImage.childImageSharp)}
+            alt="McKinney and Olive"
+          />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: mckinneyOlive.title }} />
@@ -110,7 +111,10 @@ export default ({ data }) => {
           <Box>{customerService.content}</Box>
         </Box>
       </Container>
-      <Img fluid={data.teamHero.childImageSharp.fluid} />
+      <GatsbyImage
+        image={getImage(data.teamHero.childImageSharp)}
+        alt="McKinney and Olive"
+      />
       <Container id="management">
         <Box py={5}>
           <Heading as="h2" mb={0} fontSize={[4, '36px']}>
@@ -121,7 +125,10 @@ export default ({ data }) => {
       <TeamList teams={data.management.edges} />
       <Box id="sustainability" overflow="hidden" mb={[4, 0]}>
         <ContentImage flexDirection="row-reverse">
-          <Image fluid={data.contentOneImage.childImageSharp.fluid} />
+          <Image
+            image={getImage(data.contentOneImage.childImageSharp)}
+            alt="McKinney and Olive"
+          />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentOne.title }} />
@@ -207,7 +214,10 @@ export default ({ data }) => {
       </Box>
       <Box id="community" overflow="hidden">
         <ContentImage flexDirection="row-reverse">
-          <Image fluid={data.contentTwoImage.childImageSharp.fluid} />
+          <Image
+            image={getImage(data.contentTwoImage.childImageSharp)}
+            alt="McKinney and Olive"
+          />
           <Content>
             <Heading as="h2" fontSize={[4, '36px']}>
               <div dangerouslySetInnerHTML={{ __html: contentThree.title }} />
@@ -315,39 +325,29 @@ export const query = graphql`
     }
     hero: file(relativePath: { eq: "about_hero.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     teamHero: file(relativePath: { eq: "the_team.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     contentOneImage: file(relativePath: { eq: "think_sustainable.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     contentTwoImage: file(relativePath: { eq: "thank_you.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     theCrescentImage: file(
       relativePath: { eq: "image_content_placeholder.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
     management: allContentfulTeams(
@@ -362,15 +362,7 @@ export const query = graphql`
           phone
           email
           image {
-            fluid(maxWidth: 970) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
+            ...Image
           }
         }
       }
@@ -390,3 +382,5 @@ export const query = graphql`
     }
   }
 `
+
+export default About

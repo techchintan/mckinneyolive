@@ -1,6 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
-
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Wrapper } from './styles'
 
 const InstagramGallery = ({ allInstaNode }) => (
@@ -13,9 +12,10 @@ const InstagramGallery = ({ allInstaNode }) => (
         key={node.id}
         style={{ display: 'block' }}
       >
-        <Img
+        <GatsbyImage
           style={{ height: '240px' }}
-          fluid={node.localFile.childImageSharp.fluid}
+          image={getImage(node.localFile.childImageSharp)}
+          alt={node.caption}
         />
       </a>
     ))}
