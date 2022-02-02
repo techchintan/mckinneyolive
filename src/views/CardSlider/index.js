@@ -163,7 +163,7 @@ function CardSlider({ onClick, data, ...rest }) {
                 {slider.active.title}
               </Box>
               <Box mb={4}>
-                <RichTextContentful content={slider.active.content.json} />
+                <RichTextContentful content={slider.active.content} />
               </Box>
               <Icon
                 href={`https://www.google.com/maps/place/${slider.active.address}`}
