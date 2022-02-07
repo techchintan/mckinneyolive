@@ -1,9 +1,6 @@
 [[plugins]]
 package = "@netlify/plugin-sitemap"
 
-[[plugins]]
-package = "@netlify/plugin-gatsby"
-
 [build.environment]
 AWS_LAMBDA_JS_RUNTIME = "nodejs14.x"
 GATSBY_CPU_COUNT = "2"
