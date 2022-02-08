@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Link } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Box from '../Box'
 import Button from '../Button'
 import { Social, SocialItem } from '../Social'
@@ -61,9 +61,7 @@ const Header = () => {
       }
       sitemap: file(relativePath: { eq: "sitemap.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1024) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(placeholder: BLURRED)
         }
       }
       validateOfficeTowerGarageParking: contentfulAsset(
@@ -94,7 +92,10 @@ const Header = () => {
         <Modal id="header-modal">
           <ModalContent onClick={() => setModal(false)}>
             <ModalImage>
-              <Img fluid={data.sitemap.childImageSharp.fluid} />
+              <GatsbyImage
+                image={getImage(data.sitemap.childImageSharp)}
+                alt="McKinney and Olive"
+              />
             </ModalImage>
             <ModalBody>
               <Box as="h2" mt={0} color="primary">
