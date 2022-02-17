@@ -28,7 +28,7 @@ const Index = ({ data }) => {
 
   useEffect(() => {
     const filteredAnnounce = allContentfulAnnouncements.edges
-      .filter(item => {
+      .filter((item) => {
         return (
           !item.node.announcementDateTimestamp ||
           item.node.announcementDateTimestamp >= new Date().getTime()
@@ -68,7 +68,7 @@ const Index = ({ data }) => {
                 {activeAnnouncement.title}
               </Box>
               <Box mb={4}>
-                <RichTextContentful content={activeAnnouncement.content.json} />
+                <RichTextContentful content={activeAnnouncement.content} />
               </Box>
               {!isEmpty(activeAnnouncement.location) && (
                 <Box display="flex" color="primary" mb={2}>
@@ -198,7 +198,7 @@ export const query = graphql`
           id
           title
           content {
-            json
+            raw
           }
           time
           location

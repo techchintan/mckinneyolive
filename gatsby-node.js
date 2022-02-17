@@ -35,70 +35,11 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
     return {
       announcementDateTimestamp: {
         type: GraphQLFloat,
-        resolve: source => {
+        resolve: (source) => {
           return new Date(source.date).getTime()
         },
       },
     }
   }
   return {}
-}
-
-// Customise Graphql Schema
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-
-  const typeDefs = `
-      type ContentfulTeams implements Node {
-        image: ContentfulAsset @link(by: "id", from: "image___NODE")
-      }
-
-      type contentfulAnnouncementsContentRichTextNode implements Node {
-        json: JSON
-      }
-  
-      type ContentfulAnnouncements implements Node {
-        title: String
-        date: Date @dateformat
-        image: ContentfulAsset @link(by: "id", from: "image___NODE")
-        location: String
-        time: String
-        content: contentfulAnnouncementsContentRichTextNode @link(by: "id", from: "content___NODE")
-
-      }
-
-      type ContentfulAnnouncementsEdge {
-        node: ContentfulAnnouncements
-      }
-
-      type ContentfulAnnouncementsConnection {
-        edges: [ContentfulAnnouncementsEdge]
-      }
-
-      type InstaNode implements Node {
-        timestamp: Int
-        username: String
-        caption: String
-        localFile: File @link(by: "id", from: "localFile___NODE")
-      }
-
-      type InstaNodeEdge {
-        node: InstaNode
-      }
-
-      type InstaNodeConnection {
-        edges: [InstaNodeEdge]
-      }
-
-      type Query {
-        allContentfulAnnouncements: ContentfulAnnouncementsConnection
-        allInstaNode: InstaNodeConnection
-      }
-
-      type ContentfulPdf implements Node {
-        pdf: ContentfulAsset @link(by: "id", from: "pdf___NODE")
-      }
-   `
-  createTypes(typeDefs)
 }

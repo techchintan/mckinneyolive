@@ -90,5 +90,12 @@ module.exports = {
         maxPosts: 12,
       },
     },
+    {
+      resolve: `gatsby-plugin-schema-snapshot`,
+      options: {
+        path: `schema.gql`,
+        update: false,
+      },
+    },
   ],
 }
