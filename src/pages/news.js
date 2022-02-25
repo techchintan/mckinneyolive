@@ -39,7 +39,7 @@ const News = ({ data }) => {
   const [filteredAnnouncements, setFilteredAnnounce] = useState(null)
   useEffect(() => {
     function getActiveItems(arr) {
-      return _.filter(arr, ({ node }) => node.category.title === activeYear)
+      return _.filter(arr, ({ node }) => node.category?.title === activeYear)
     }
 
     const _resNews = getActiveItems(allContentfulNews.edges)

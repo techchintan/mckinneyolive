@@ -1058,6 +1058,7 @@ type PagesJsonAmenitiesContentOne @derivedTypes {
   content: String
   capacity: [PagesJsonAmenitiesContentOneCapacity]
   ctaText: String
+  ctaTextSocialDistancing: String
 }
 
 type PagesJsonAmenitiesContentOneCapacity @derivedTypes {
