@@ -161,21 +161,27 @@ export const query = graphql`
       gatsbyImageData(placeholder: BLURRED)
     }
     leasing1: contentfulAsset(title: { eq: "leasing_1" }) {
+      id
       gatsbyImageData(placeholder: BLURRED)
     }
     leasing2: contentfulAsset(title: { eq: "leasing_2" }) {
+      id
       gatsbyImageData(placeholder: BLURRED)
     }
     leasing3: contentfulAsset(title: { eq: "leasing_3" }) {
+      id
       gatsbyImageData(placeholder: BLURRED)
     }
     leasing4: contentfulAsset(title: { eq: "leasing_4" }) {
+      id
       gatsbyImageData(placeholder: BLURRED)
     }
     leasing5: contentfulAsset(title: { eq: "leasing_5" }) {
+      id
       gatsbyImageData(placeholder: BLURRED)
     }
     leasing6: contentfulAsset(title: { eq: "leasing_6" }) {
+      id
       gatsbyImageData(placeholder: BLURRED)
     }
     allContentfulBuildings(sort: { fields: createdAt }) {

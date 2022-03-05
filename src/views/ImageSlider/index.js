@@ -121,8 +121,8 @@ function ImageSlider({ onClick, data, ...rest }) {
       <SliderContext.Provider value={{ slider, dispatch }}>
         <Box {...rest} mr="50px" ml="50px" style={{ cursor: 'pointer' }}>
           <Slider {...settings}>
-            {data.map((image) => (
-              <Box key={image.id} onClick={() => handleOpen(image)}>
+            {data.map((image, index) => (
+              <Box key={index} onClick={() => handleOpen(image)}>
                 <GatsbyImage image={getImage(image)} alt="McKinney and Olive" />
               </Box>
             ))}
