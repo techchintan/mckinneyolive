@@ -4,6 +4,7 @@ import { Container } from 'styled-bootstrap-grid'
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
 import { ArrowForward } from '@styled-icons/material/ArrowForward'
 import { getImage } from 'gatsby-plugin-image'
+import { get } from 'lodash'
 // Components
 import Layout from '../components/Layout'
 import Seo from '../components/seo'
@@ -16,33 +17,22 @@ import ContentImage, { Content, Image } from '../compound/ContentImage'
 import Table, { THead, TBody, Th, Tr, Td } from '../compound/Table'
 // Views
 import CardSlider from '../views/CardSlider'
-// Assets
-import eastEndOpen from '../images/cc-ushape-east-end-open.jpg'
-import westEndOpen from '../images/cc-ushape-west-end-open.jpg'
-import northEndOpen from '../images/cc-ushape-north-end-open.jpg'
-import southEndOpen from '../images/cc-ushape-south-end-open.jpg'
-import chairsFacingEast from '../images/cc-theater-chairs-facing-east.jpg'
-import chairsFacingSouth from '../images/cc-theater-chairs-facing-south.jpg'
-import tablesFacingEast from '../images/cc-classroom-tables-facing-east.jpg'
-import tablesFacingSouth from '../images/cc-classroom-tables-facing-south.jpg'
-import small from '../images/cc-boardroom-small.jpg'
-import large from '../images/cc-boardroom-large.jpg'
-
-const conferenceCentreImages = {
-  eastEndOpen,
-  westEndOpen,
-  northEndOpen,
-  southEndOpen,
-  chairsFacingEast,
-  chairsFacingSouth,
-  tablesFacingEast,
-  tablesFacingSouth,
-  small,
-  large,
-}
 
 const Amenities = ({ data }) => {
-  const { restaurant, hotel } = data
+  const {
+    restaurant,
+    hotel,
+    eastEndOpen,
+    westEndOpen,
+    northEndOpen,
+    southEndOpen,
+    chairsFacingEast,
+    chairsFacingSouth,
+    tablesFacingEast,
+    tablesFacingSouth,
+    small,
+    large,
+  } = data
   const {
     links,
     bottomContent,
@@ -56,10 +46,22 @@ const Amenities = ({ data }) => {
   } = data.pagesJson.amenities
   const [activeCapacity, setActiveCapacity] = useState(0)
   const [activeOption, setActiveOption] = useState(0)
+  const conferenceCentreImages = {
+    eastEndOpen: eastEndOpen,
+    westEndOpen: westEndOpen,
+    northEndOpen: northEndOpen,
+    southEndOpen: southEndOpen,
+    chairsFacingEast: chairsFacingEast,
+    chairsFacingSouth: chairsFacingSouth,
+    tablesFacingEast: tablesFacingEast,
+    tablesFacingSouth: tablesFacingSouth,
+    small: small,
+    large: large,
+  }
   return (
     <Layout>
       <Seo title="Amenities" />
-      <Hero image={data.hero.childImageSharp} alt="McKinney and Olive" />
+      <Hero image={data.hero} alt="McKinney and Olive" />
       <Box
         display="flex"
         flexWrap="wrap"
@@ -106,7 +108,7 @@ const Amenities = ({ data }) => {
             />
           </Content>
           <Image
-            image={getImage(data.contentFeaturedImage.childImageSharp)}
+            image={getImage(data.contentFeaturedImage)}
             alt="McKinney and Olive"
           />
         </ContentImage>
@@ -114,7 +116,7 @@ const Amenities = ({ data }) => {
       <Box id="conference-center" overflow="hidden">
         <ContentImage>
           <Image
-            image={getImage(data.contentOneImage.childImageSharp)}
+            image={getImage(data.contentOneImage)}
             alt="McKinney and Olive"
           />
           <Content>
@@ -206,48 +208,41 @@ const Amenities = ({ data }) => {
                   </Tr>
                   {contentOne.capacity[activeCapacity].options[
                     activeOption
-                  ].options.map(({ name, floor_plan }, index) => (
-                    <Tr key={index} bg="primary">
-                      <Td colSpan={2} style={{ opacity: 0.8 }}>
-                        {name}
-                      </Td>
-
-                      <Td colSpan={2} style={{ opacity: 0.8 }}>
-                        <Box
-                          as="a"
-                          color="white"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href={conferenceCentreImages[floor_plan]}
-                        >
-                          View
-                        </Box>
-                      </Td>
-                    </Tr>
-                  ))}
+                  ].options.map(({ name, floor_plan }, index) => {
+                    let fileUrl = `https://${get(
+                      conferenceCentreImages[floor_plan],
+                      'file.url'
+                    )}`
+                    return (
+                      <Tr key={index} bg="primary">
+                        <Td colSpan={2} style={{ opacity: 0.8 }}>
+                          {name}
+                        </Td>
+                        <Td colSpan={2} style={{ opacity: 0.8 }}>
+                          <Box
+                            as="a"
+                            color="white"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={fileUrl}
+                          >
+                            View
+                          </Box>
+                        </Td>
+                      </Tr>
+                    )
+                  })}
                 </TBody>
               </Table>
             </Box>
-            <div>
-              <Button
-                mt={4}
-                as="a"
-                href={data.conferenceCenterBrochure.file.url}
-                target="_blank"
-              >
-                {contentOne.ctaText}
-              </Button>
-            </div>
-            <div>
-              <Button
-                mt={4}
-                as="a"
-                href={data.conferenceCenterBrochureSocialDistancing.file.url}
-                target="_blank"
-              >
-                {contentOne.ctaTextSocialDistancing}
-              </Button>
-            </div>
+            <Button
+              mt={4}
+              as="a"
+              href={`https://${data.conferenceCenterBrochure.file.url}`}
+              target="_blank"
+            >
+              {contentOne.ctaText}
+            </Button>
           </Content>
         </ContentImage>
       </Box>
@@ -260,7 +255,7 @@ const Amenities = ({ data }) => {
             <Box dangerouslySetInnerHTML={{ __html: contentTwo.content }} />
           </Content>
           <Image
-            image={getImage(data.contentTwoImage.childImageSharp)}
+            image={getImage(data.contentTwoImage)}
             alt="McKinney and Olive"
           />
         </ContentImage>
@@ -268,7 +263,7 @@ const Amenities = ({ data }) => {
       <Box id="fitness-studio" overflow="hidden" mb={[5, 6]}>
         <ContentImage>
           <Image
-            image={getImage(data.contentThreeImage.childImageSharp)}
+            image={getImage(data.contentThreeImage)}
             alt="McKinney and Olive"
           />
           <Content>
@@ -290,7 +285,7 @@ const Amenities = ({ data }) => {
               <Button
                 mt={3}
                 as="a"
-                href={data.fitnessStudioBrochure.file.url}
+                href={`https://${data.fitnessStudioBrochure.file.url}`}
                 target="_blank"
               >
                 {contentThree.ctaText2}
@@ -334,7 +329,7 @@ const Amenities = ({ data }) => {
             mt={[3, 4]}
             as="a"
             target="_blank"
-            href={data.conciergeNewsletter.pdf.file.url}
+            href={`https://${data.conciergeNewsletter.pdf.file.url}`}
           >
             {bottomContent.ctaText}
           </Button>
@@ -400,10 +395,8 @@ export const query = graphql`
         }
       }
     }
-    hero: file(relativePath: { eq: "amenities_hero.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "amenities_hero" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
     restaurant: allContentfulAmenities(
       filter: { category: { elemMatch: { name: { eq: "Restaurant" } } } }
@@ -449,25 +442,17 @@ export const query = graphql`
         }
       }
     }
-    contentFeaturedImage: file(relativePath: { eq: "outdoor-piazza.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    contentFeaturedImage: contentfulAsset(title: { eq: "outdoor_piazza" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    contentOneImage: file(relativePath: { eq: "conference-centre.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    contentOneImage: contentfulAsset(title: { eq: "conference_centre" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    contentTwoImage: file(relativePath: { eq: "outdoor-terrace.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    contentTwoImage: contentfulAsset(title: { eq: "outdoor_terrace" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    contentThreeImage: file(relativePath: { eq: "fitness-studio.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    contentThreeImage: contentfulAsset(title: { eq: "fitness_studio" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
     conferenceCenterBrochure: contentfulAsset(
       title: { eq: "Conference Center Brochure" }
@@ -495,6 +480,74 @@ export const query = graphql`
         file {
           url
         }
+      }
+    }
+    eastEndOpen: contentfulAsset(title: { eq: "cc-ushape-east-end-open" }) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    westEndOpen: contentfulAsset(title: { eq: "cc-ushape-west-end-open" }) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    northEndOpen: contentfulAsset(title: { eq: "cc-ushape-north-end-open" }) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    southEndOpen: contentfulAsset(title: { eq: "cc-ushape-south-end-open" }) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    chairsFacingEast: contentfulAsset(
+      title: { eq: "cc-theater-chairs-facing-east" }
+    ) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    chairsFacingSouth: contentfulAsset(
+      title: { eq: "cc-theater-chairs-facing-south" }
+    ) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    tablesFacingEast: contentfulAsset(
+      title: { eq: "cc-classroom-tables-facing-east" }
+    ) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    tablesFacingSouth: contentfulAsset(
+      title: { eq: "cc-classroom-tables-facing-south" }
+    ) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    small: contentfulAsset(title: { eq: "cc-boardroom-small" }) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
+      }
+    }
+    large: contentfulAsset(title: { eq: "cc-boardroom-large" }) {
+      gatsbyImageData(placeholder: BLURRED)
+      file {
+        url
       }
     }
   }

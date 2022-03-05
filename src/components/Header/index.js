@@ -59,11 +59,10 @@ const Header = () => {
           }
         }
       }
-      sitemap: file(relativePath: { eq: "sitemap.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: BLURRED)
-        }
+      sitemap: contentfulAsset(title: { eq: "sitemap" }) {
+        gatsbyImageData(placeholder: BLURRED)
       }
+
       validateOfficeTowerGarageParking: contentfulAsset(
         title: { eq: "Validate Office Tower Garage Parking" }
       ) {
@@ -93,7 +92,7 @@ const Header = () => {
           <ModalContent onClick={() => setModal(false)}>
             <ModalImage>
               <GatsbyImage
-                image={getImage(data.sitemap.childImageSharp)}
+                image={getImage(data.sitemap)}
                 alt="McKinney and Olive"
               />
             </ModalImage>

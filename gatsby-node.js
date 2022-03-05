@@ -36,10 +36,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
       announcementDateTimestamp: {
         type: GraphQLFloat,
         resolve: (source) => {
-          if (source.date) {
-            return new Date(source.date).getTime()
-          }
-          return null
+          return source.date ? new Date(source.date).getTime() : null
         },
       },
     }

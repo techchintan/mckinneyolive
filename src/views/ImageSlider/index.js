@@ -51,7 +51,7 @@ const settings = {
   slidesToScroll: 1,
   prevArrow: <StyledLeft />,
   nextArrow: <StyledNext />,
-  appendDots: dots => (
+  appendDots: (dots) => (
     <Dots>
       <Ul>{dots}</Ul>
     </Dots>
@@ -110,7 +110,7 @@ function ImageSlider({ onClick, data, ...rest }) {
           <ModalContent onClick={handleClose} background="transparent">
             <ImageWrapper>
               <Image
-                image={getImage(slider.active.childImageSharp)}
+                image={getImage(slider.active)}
                 alt="McKinney and Olive"
                 imgStyle={{ objectFit: 'contain' }}
               />
@@ -121,12 +121,9 @@ function ImageSlider({ onClick, data, ...rest }) {
       <SliderContext.Provider value={{ slider, dispatch }}>
         <Box {...rest} mr="50px" ml="50px" style={{ cursor: 'pointer' }}>
           <Slider {...settings}>
-            {data.map(image => (
-              <Box key={image.id} onClick={() => handleOpen(image)}>
-                <GatsbyImage
-                  image={getImage(image.childImageSharp)}
-                  alt="McKinney and Olive"
-                />
+            {data.map((image, index) => (
+              <Box key={index} onClick={() => handleOpen(image)}>
+                <GatsbyImage image={getImage(image)} alt="McKinney and Olive" />
               </Box>
             ))}
           </Slider>

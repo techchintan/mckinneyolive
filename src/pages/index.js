@@ -44,7 +44,7 @@ const Index = ({ data }) => {
   return (
     <Layout>
       <Seo title="Home" />
-      <Hero image={data.hero.childImageSharp} alt="McKinney and Olive" />
+      <Hero image={data.hero} alt="McKinney and Olive" />
       {activeAnnouncement && (
         <Modal id="announcement-modal">
           <ModalContent onClick={() => setAnnouncement(null)}>
@@ -58,7 +58,7 @@ const Index = ({ data }) => {
             ) : (
               <ModalImage bg="primary">
                 <GatsbyImage
-                  image={getImage(data.defaultImage.childImageSharp)}
+                  image={getImage(data.defaultImage)}
                   alt="McKinney and Olive"
                 />
               </ModalImage>
@@ -105,7 +105,7 @@ const Index = ({ data }) => {
         <HomeContent
           onClick={setAnnouncement}
           home={home}
-          bg={data.bg.childImageSharp}
+          bg={data.bg}
           announcement={announcements}
           title={home.announcement.title}
           announcementContent={home.announcement.content}
@@ -177,20 +177,20 @@ export const query = graphql`
         }
       }
     }
-    hero: file(relativePath: { eq: "home_hero.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "home_hero" }) {
+      id
+      title
+      gatsbyImageData(placeholder: BLURRED)
     }
-    bg: file(relativePath: { eq: "bg_place.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    bg: contentfulAsset(title: { eq: "bg_place" }) {
+      id
+      title
+      gatsbyImageData(placeholder: BLURRED)
     }
-    defaultImage: file(relativePath: { eq: "default-image.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    defaultImage: contentfulAsset(title: { eq: "default_image" }) {
+      id
+      title
+      gatsbyImageData(placeholder: BLURRED)
     }
     allContentfulAnnouncements(sort: { order: ASC, fields: date }) {
       edges {
