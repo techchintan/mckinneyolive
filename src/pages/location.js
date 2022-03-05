@@ -16,10 +16,7 @@ const Location = ({ data }) => {
   return (
     <Layout>
       <Seo title="Location" />
-      <Hero
-        image={getImage(data.hero.childImageSharp)}
-        alt="McKinney and Olive"
-      />
+      <Hero image={getImage(data.hero)} alt="McKinney and Olive" />
       <Container>
         <Box
           pt={[5, 6]}
@@ -66,10 +63,8 @@ const Location = ({ data }) => {
 
 export const query = graphql`
   {
-    hero: file(relativePath: { eq: "hero_locations.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "hero_locations" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
     pagesJson {
       location {

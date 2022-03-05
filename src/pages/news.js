@@ -45,7 +45,7 @@ const News = ({ data }) => {
     const _resNews = getActiveItems(allContentfulNews.edges)
     setActiveNews(_resNews)
 
-    const filteredAnnounce = announcements.filter(item => {
+    const filteredAnnounce = announcements.filter((item) => {
       return item.node.announcementDateTimestamp >= new Date().getTime()
     })
     setFilteredAnnounce(filteredAnnounce)
@@ -54,10 +54,7 @@ const News = ({ data }) => {
   return (
     <Layout>
       <Seo title="News" />
-      <Hero
-        image={getImage(data.hero.childImageSharp)}
-        alt="McKinney and Olive"
-      />
+      <Hero image={getImage(data.hero)} alt="McKinney and Olive" />
       {openNounce && (
         <Modal id="announcement-modal">
           <ModalContent onClick={() => setOpenNounce(null)}>
@@ -71,7 +68,7 @@ const News = ({ data }) => {
             ) : (
               <ModalImage bg="primary">
                 <GatsbyImage
-                  image={getImage(data.defaultImage.childImageSharp)}
+                  image={getImage(data.defaultImage)}
                   alt="McKinney and Olive"
                 />
               </ModalImage>
@@ -169,15 +166,11 @@ const News = ({ data }) => {
 
 export const query = graphql`
   {
-    hero: file(relativePath: { eq: "hero_news.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "hero_news" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    defaultImage: file(relativePath: { eq: "default-image.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    defaultImage: contentfulAsset(title: { eq: "default_image" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
     allContentfulYearCategories(sort: { order: DESC, fields: title }) {
       edges {

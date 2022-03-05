@@ -35,7 +35,7 @@ const About = ({ data }) => {
   return (
     <Layout>
       <Seo title="About" />
-      <Hero image={data.hero.childImageSharp} alt="Mckinney and Olive" />
+      <Hero image={data.hero} alt="Mckinney and Olive" />
       <Container>
         <Box
           display="flex"
@@ -62,7 +62,7 @@ const About = ({ data }) => {
       <Box overflow="hidden" mb={[4, 0]}>
         <ContentImage>
           <Image
-            image={getImage(data.theCrescentImage.childImageSharp)}
+            image={getImage(data.theCrescentImage)}
             alt="McKinney and Olive"
           />
           <Content>
@@ -111,10 +111,7 @@ const About = ({ data }) => {
           <Box>{customerService.content}</Box>
         </Box>
       </Container>
-      <GatsbyImage
-        image={getImage(data.teamHero.childImageSharp)}
-        alt="McKinney and Olive"
-      />
+      <GatsbyImage image={getImage(data.teamHero)} alt="McKinney and Olive" />
       <Container id="management">
         <Box py={5}>
           <Heading as="h2" mb={0} fontSize={[4, '36px']}>
@@ -126,7 +123,7 @@ const About = ({ data }) => {
       <Box id="sustainability" overflow="hidden" mb={[4, 0]}>
         <ContentImage flexDirection="row-reverse">
           <Image
-            image={getImage(data.contentOneImage.childImageSharp)}
+            image={getImage(data.contentOneImage)}
             alt="McKinney and Olive"
           />
           <Content>
@@ -161,9 +158,11 @@ const About = ({ data }) => {
                 0,
                 null,
                 null,
-                `-${((beesContentBoxDimensions.height * 16) / 9 -
-                  beesContentBoxDimensions.width) /
-                  2}px`,
+                `-${
+                  ((beesContentBoxDimensions.height * 16) / 9 -
+                    beesContentBoxDimensions.width) /
+                  2
+                }px`,
               ]}
               width={[
                 '100%',
@@ -190,7 +189,7 @@ const About = ({ data }) => {
             </Box>
           </Box>
           <Content
-            ref={div =>
+            ref={(div) =>
               div &&
               ((div.clientHeight &&
                 div.clientHeight > beesContentBoxDimensions.height) ||
@@ -215,7 +214,7 @@ const About = ({ data }) => {
       <Box id="community" overflow="hidden">
         <ContentImage flexDirection="row-reverse">
           <Image
-            image={getImage(data.contentTwoImage.childImageSharp)}
+            image={getImage(data.contentTwoImage)}
             alt="McKinney and Olive"
           />
           <Content>
@@ -323,31 +322,33 @@ export const query = graphql`
         }
       }
     }
-    hero: file(relativePath: { eq: "about_hero.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "about_hero" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    teamHero: file(relativePath: { eq: "the_team.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    teamHero: contentfulAsset(title: { eq: "the_team" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    contentOneImage: file(relativePath: { eq: "think_sustainable.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    contentOneImage: contentfulAsset(title: { eq: "think_sustainable" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    contentTwoImage: file(relativePath: { eq: "thank_you.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    contentTwoImage: contentfulAsset(title: { eq: "thank_you" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    theCrescentImage: file(
-      relativePath: { eq: "image_content_placeholder.jpg" }
+    theCrescentImage: contentfulAsset(
+      title: { eq: "image_content_placeholder" }
     ) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
+      gatsbyImageData(placeholder: BLURRED)
+    }
+    aboutBrochure: contentfulAsset(title: { eq: "About Brochure" }) {
+      file {
+        url
+      }
+    }
+    leedCaseStudy: contentfulAsset(
+      title: { eq: "McKinney & Olive LEED Case Study" }
+    ) {
+      file {
+        url
       }
     }
     management: allContentfulTeams(
@@ -365,19 +366,6 @@ export const query = graphql`
             ...Image
           }
         }
-      }
-    }
-    aboutBrochure: contentfulAsset(title: { eq: "About Brochure" }) {
-      file {
-        url
-      }
-    }
-
-    leedCaseStudy: contentfulAsset(
-      title: { eq: "McKinney & Olive LEED Case Study" }
-    ) {
-      file {
-        url
       }
     }
   }

@@ -6,10 +6,8 @@ import TeamCard from '../../components/TeamCard'
 function TeamList({ teams, ...rest }) {
   const data = useStaticQuery(graphql`
     {
-      noImage: file(relativePath: { eq: "no_image.png" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: BLURRED)
-        }
+      noImage: contentfulAsset(title: { eq: "no_image" }) {
+        gatsbyImageData(placeholder: BLURRED)
       }
     }
   `)

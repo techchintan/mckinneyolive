@@ -13,10 +13,7 @@ const SingleNews = ({ data }) => {
   return (
     <Layout>
       <Seo title={`${contentfulNews.title} - News`} />
-      <Hero
-        image={getImage(data.hero.childImageSharp)}
-        alt={contentfulNews.title}
-      />
+      <Hero image={getImage(data.hero)} alt={contentfulNews.title} />
       <Box id="content-start" py={[5, '100px']}>
         <Container>
           <Box as="h1" mt="0" mb={5}>
@@ -30,7 +27,7 @@ const SingleNews = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     contentfulNews(slug: { eq: $slug }) {
       id
       title
@@ -38,10 +35,8 @@ export const query = graphql`
         raw
       }
     }
-    hero: file(relativePath: { eq: "hero_news.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "hero_news" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
   }
 `

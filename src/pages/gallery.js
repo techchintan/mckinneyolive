@@ -15,10 +15,7 @@ const Gallery = ({ data }) => {
   return (
     <Layout>
       <Seo title="Gallery" />
-      <Hero
-        image={getImage(data.hero.childImageSharp)}
-        alt="McKinney and Olive"
-      />
+      <Hero image={getImage(data.hero)} alt="McKinney and Olive" />
       <Container>
         <Box py={[5, '100px']}>
           <Heading fontSize={[4, '36px']}>
@@ -33,10 +30,8 @@ const Gallery = ({ data }) => {
 
 export const query = graphql`
   {
-    hero: file(relativePath: { eq: "hero_gallery.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "hero_gallery" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
     gallery: contentfulGallery(title: { eq: "Photo Gallery" }) {
       images {

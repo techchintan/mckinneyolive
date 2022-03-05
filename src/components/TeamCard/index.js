@@ -8,7 +8,7 @@ import { Image, Position } from './styles'
 function TeamCard({ name, position, email, phone, image, noImage, ...rest }) {
   let fluid
   if (!isNull(image)) fluid = image
-  else fluid = noImage.childImageSharp
+  else fluid = noImage
 
   return (
     <Box {...rest}>

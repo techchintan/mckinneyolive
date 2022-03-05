@@ -26,10 +26,7 @@ const Leasing = ({ data }) => {
   return (
     <Layout>
       <Seo title="Leasing" />
-      <Hero
-        image={getImage(data.hero.childImageSharp)}
-        alt="McKinney and Olive"
-      />
+      <Hero image={getImage(data.hero)} alt="McKinney and Olive" />
       <Box mt="10px">
         <ContentImage alignItems="center">
           <SliderWrapper>
@@ -78,7 +75,7 @@ const Leasing = ({ data }) => {
             {allContentfulBuildings.edges.length > 1 && (
               <THead>
                 <Tr>
-                  {allContentfulBuildings.edges.map(item => {
+                  {allContentfulBuildings.edges.map((item) => {
                     const { title, id } = item.node
                     let color = id === active.node.id ? `primary` : `grays.0`
                     return (
@@ -113,7 +110,7 @@ const Leasing = ({ data }) => {
                             color="white"
                             target="_blank"
                             rel="noopener noreferrer"
-                            href={floorPlan.file.url}
+                            href={`https://${floorPlan.file.url}`}
                           >
                             Download
                           </Box>
@@ -157,75 +154,29 @@ export const query = graphql`
         ctaText
       }
     }
-    contentImage: file(relativePath: { eq: "content_image.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    hero: contentfulAsset(title: { eq: "hero_leasing" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    hero: file(relativePath: { eq: "hero_leasing.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    contentImage: contentfulAsset(title: { eq: "content_image" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    leasing1: file(relativePath: { eq: "leasing-1.jpg" }) {
-      id
-      childImageSharp {
-        original {
-          width
-          height
-        }
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    leasing1: contentfulAsset(title: { eq: "leasing_1" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    leasing2: file(relativePath: { eq: "leasing-2.jpg" }) {
-      id
-      childImageSharp {
-        original {
-          width
-          height
-        }
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    leasing2: contentfulAsset(title: { eq: "leasing_2" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    leasing3: file(relativePath: { eq: "leasing-3.jpg" }) {
-      id
-      childImageSharp {
-        original {
-          width
-          height
-        }
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    leasing3: contentfulAsset(title: { eq: "leasing_3" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    leasing4: file(relativePath: { eq: "leasing-4.jpg" }) {
-      id
-      childImageSharp {
-        original {
-          width
-          height
-        }
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    leasing4: contentfulAsset(title: { eq: "leasing_4" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    leasing5: file(relativePath: { eq: "leasing-5.jpg" }) {
-      id
-      childImageSharp {
-        original {
-          width
-          height
-        }
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    leasing5: contentfulAsset(title: { eq: "leasing_5" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
-    leasing6: file(relativePath: { eq: "leasing-6.jpg" }) {
-      id
-      childImageSharp {
-        original {
-          width
-          height
-        }
-        gatsbyImageData(placeholder: BLURRED)
-      }
+    leasing6: contentfulAsset(title: { eq: "leasing_6" }) {
+      gatsbyImageData(placeholder: BLURRED)
     }
     allContentfulBuildings(sort: { fields: createdAt }) {
       edges {

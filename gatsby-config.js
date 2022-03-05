@@ -97,5 +97,6 @@ module.exports = {
         update: false,
       },
     },
+    `gatsby-plugin-netlify`,
   ],
 }
