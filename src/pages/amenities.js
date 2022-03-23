@@ -235,14 +235,26 @@ const Amenities = ({ data }) => {
                 </TBody>
               </Table>
             </Box>
-            <Button
-              mt={4}
-              as="a"
-              href={`https://${data.conferenceCenterBrochure.file.url}`}
-              target="_blank"
-            >
-              {contentOne.ctaText}
-            </Button>
+            <div>
+              <Button
+                mt={4}
+                as="a"
+                href={data.conferenceCenterBrochure.file.url}
+                target="_blank"
+              >
+                {contentOne.ctaText}
+              </Button>
+            </div>
+            <div>
+              <Button
+                mt={4}
+                as="a"
+                href={data.conferenceCenterBrochureSocialDistancing.file.url}
+                target="_blank"
+              >
+                {contentOne.ctaTextSocialDistancing}
+              </Button>
+            </div>
           </Content>
         </ContentImage>
       </Box>
