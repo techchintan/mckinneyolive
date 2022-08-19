@@ -28,6 +28,7 @@
     "gatsby-source-contentful": "^7.7.1",
     "gatsby-source-filesystem": "^4.9.0",
     "gatsby-transformer-json": "^4.9.0",
+    "gatsby-transformer-remark": "^5.21.0",
     "gatsby-transformer-sharp": "^4.9.0",
     "gbimage-bridge": "^0.2.1",
     "lodash": "^4.17.21",
