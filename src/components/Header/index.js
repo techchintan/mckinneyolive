@@ -52,17 +52,18 @@ const Header = () => {
             slug
             text
           }
-          parking {
-            title
-            content
-            tenantsTitle
+        }
+      }
+      parkingRate: contentfulMarkdown(slug: { eq: "parking-rates" }) {
+        copy {
+          childMarkdownRemark {
+            html
           }
         }
       }
       sitemap: contentfulAsset(title: { eq: "sitemap" }) {
         gatsbyImageData(placeholder: BLURRED)
       }
-
       validateOfficeTowerGarageParking: contentfulAsset(
         title: { eq: "Validate Office Tower Garage Parking" }
       ) {
@@ -80,7 +81,8 @@ const Header = () => {
     }
   `)
 
-  const { social, copyright, privacy, parking } = data.pagesJson.home
+  const { social, copyright, privacy } = data.pagesJson.home
+  const { parkingRate } = data
   const { nav } = data.site.siteMetadata
   const [open, set] = useState(false)
   const [openModal, setModal] = useState(false)
@@ -92,25 +94,20 @@ const Header = () => {
           <ModalContent onClick={() => setModal(false)}>
             <ModalImage>
               <GatsbyImage
+                style={{ height: '100%' }}
                 image={getImage(data.sitemap)}
                 alt="McKinney and Olive"
               />
             </ModalImage>
             <ModalBody>
               <Box as="h2" mt={0} color="primary">
-                {parking.title}
+                PARKING AT MCKINNEY & OLIVE
               </Box>
-              <Box mt={4}>
-                <Box
-                  mt={4}
-                  dangerouslySetInnerHTML={{ __html: parking.content }}
-                />
-              </Box>
-              <Box as="h3" mt={4} color="primary" textAlign="center">
-                {parking.tenantsTitle}
+              <Box as="h3" color="primary" textAlign="left">
+                Parking Validation for Tenants of McKinney & Olive
               </Box>
               <ParkingButtonsWrapper>
-                <Box mt={3}>
+                <Box>
                   <Button
                     width={[250, 400]}
                     as="a"
@@ -141,6 +138,14 @@ const Header = () => {
                   </Button>
                 </Box>
               </ParkingButtonsWrapper>
+              <Box mt={4}>
+                <Box
+                  mt={4}
+                  dangerouslySetInnerHTML={{
+                    __html: parkingRate?.copy?.childMarkdownRemark.html,
+                  }}
+                />
+              </Box>
             </ModalBody>
           </ModalContent>
         </Modal>

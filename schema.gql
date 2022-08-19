@@ -1,4 +1,4 @@
-### Type definitions saved at 2022-03-05T04:18:21.350Z ###
+### Type definitions saved at 2022-08-19T02:38:33.922Z ###
 
 type File implements Node @dontInfer {
   sourceInstanceName: String!
@@ -135,6 +135,43 @@ type SitePlugin implements Node @dontInfer {
 
 type SiteBuildMetadata implements Node @dontInfer {
   buildTime: Date @dateformat
+}
+
+type MarkdownHeading {
+  id: String
+  value: String
+  depth: Int
+}
+
+enum MarkdownHeadingLevels {
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+}
+
+enum MarkdownExcerptFormats {
+  PLAIN
+  HTML
+  MARKDOWN
+}
+
+type MarkdownWordCount {
+  paragraphs: Int
+  sentences: Int
+  words: Int
+}
+
+type MarkdownRemark implements Node @childOf(mimeTypes: ["text/markdown", "text/x-markdown"], types: ["contentfulMarkdownCopyTextNode"]) @derivedTypes @dontInfer {
+  frontmatter: MarkdownRemarkFrontmatter
+  excerpt: String
+  rawMarkdownBody: String
+}
+
+type MarkdownRemarkFrontmatter {
+  title: String
 }
 
 enum GatsbyImageFormat {
@@ -290,10 +327,10 @@ input AVIFOptions {
 }
 
 input TransformOptions {
-  grayscale: Boolean = false
+  grayscale: Boolean
   duotone: DuotoneGradient
-  rotate: Int = 0
-  trim: Float = 0
+  rotate: Int
+  trim: Float
   cropFocus: ImageCropFocus = ATTENTION
   fit: ImageFit = COVER
 }
@@ -314,12 +351,12 @@ type ImageSharpResize {
 }
 
 type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
-  fixed(width: Int, height: Int, base64Width: Int, jpegProgressive: Boolean = true, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, traceSVG: Potrace, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, toFormat: ImageFormat = AUTO, toFormatBase64: ImageFormat = AUTO, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpFixed
+  fixed(width: Int, height: Int, base64Width: Int, jpegProgressive: Boolean = true, pngCompressionSpeed: Int = 4, grayscale: Boolean, duotone: DuotoneGradient, traceSVG: Potrace, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, toFormat: ImageFormat, toFormatBase64: ImageFormat, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int, trim: Float): ImageSharpFixed
   fluid(
     maxWidth: Int
     maxHeight: Int
     base64Width: Int
-    grayscale: Boolean = false
+    grayscale: Boolean
     jpegProgressive: Boolean = true
     pngCompressionSpeed: Int = 4
     duotone: DuotoneGradient
@@ -328,14 +365,14 @@ type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
     jpegQuality: Int
     pngQuality: Int
     webpQuality: Int
-    toFormat: ImageFormat = AUTO
-    toFormatBase64: ImageFormat = AUTO
+    toFormat: ImageFormat
+    toFormatBase64: ImageFormat
     cropFocus: ImageCropFocus = ATTENTION
     fit: ImageFit = COVER
     background: String = "rgba(0,0,0,1)"
-    rotate: Int = 0
-    trim: Float = 0
-    sizes: String = ""
+    rotate: Int
+    trim: Float
+    sizes: String
 
     """
     A list of image widths to be generated. Example: [ 200, 340, 520, 890 ]
@@ -459,7 +496,7 @@ type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
     backgroundColor: String
   ): JSON!
   original: ImageSharpOriginal
-  resize(width: Int, height: Int, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, jpegProgressive: Boolean = true, pngCompressionLevel: Int = 9, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, base64: Boolean = false, traceSVG: Potrace, toFormat: ImageFormat = AUTO, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpResize
+  resize(width: Int, height: Int, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, jpegProgressive: Boolean = true, pngCompressionLevel: Int = 9, pngCompressionSpeed: Int = 4, grayscale: Boolean, duotone: DuotoneGradient, base64: Boolean, traceSVG: Potrace, toFormat: ImageFormat, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int, trim: Float): ImageSharpResize
 }
 
 interface ContentfulEntry implements Node {
@@ -907,6 +944,43 @@ type ContentfulPdfSysContentTypeSys {
   id: String
 }
 
+type ContentfulMarkdown implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  slug: String
+  copy: contentfulMarkdownCopyTextNode @link(by: "id", from: "copy___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulMarkdownSys
+}
+
+type contentfulMarkdownCopyTextNode implements Node @derivedTypes @childOf(types: ["ContentfulMarkdown"]) @dontInfer {
+  copy: String
+  sys: contentfulMarkdownCopyTextNodeSys
+}
+
+type contentfulMarkdownCopyTextNodeSys {
+  type: String
+}
+
+type ContentfulMarkdownSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulMarkdownSysContentType
+}
+
+type ContentfulMarkdownSysContentType @derivedTypes {
+  sys: ContentfulMarkdownSysContentTypeSys
+}
+
+type ContentfulMarkdownSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
 type PagesJson implements Node @derivedTypes @childOf(types: ["File"]) @dontInfer {
   home: PagesJsonHome
   about: PagesJsonAbout
@@ -1125,7 +1199,7 @@ type PagesJsonPolicy {
   title: String
 }
 
-type InstaNode implements Node @derivedTypes @dontInfer {
+type InstaNode implements Node @dontInfer {
   type: String
   username: String
   likes: Int
@@ -1136,14 +1210,6 @@ type InstaNode implements Node @derivedTypes @dontInfer {
   timestamp: Int
   comments: Int
   permalink: String
-  carouselImages: [InstaNodeCarouselImages]
-  localFile: File @link(by: "id", from: "localFile___NODE")
-}
-
-type InstaNodeCarouselImages {
-  preview: String
-  media_url: String
-  id: String
   localFile: File @link(by: "id", from: "localFile___NODE")
 }
 
