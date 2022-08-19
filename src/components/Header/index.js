@@ -21,7 +21,6 @@ import {
   StyledUserTie,
   Hamburger,
   Privacy,
-  ParkingButtonsWrapper,
 } from './styles'
 // import LogoPath from './LogoPath'
 import logo from '../../images/logo.svg'
@@ -94,7 +93,7 @@ const Header = () => {
           <ModalContent onClick={() => setModal(false)}>
             <ModalImage>
               <GatsbyImage
-                style={{ height: '100%' }}
+                style={{ height: '100%', width: '100%' }}
                 image={getImage(data.sitemap)}
                 alt="McKinney and Olive"
               />
@@ -106,10 +105,10 @@ const Header = () => {
               <Box as="h3" color="primary" textAlign="left">
                 Parking Validation for Tenants of McKinney & Olive
               </Box>
-              <ParkingButtonsWrapper>
-                <Box>
+              <div>
+                <Box width={['100%', 400, null, '100%']}>
                   <Button
-                    width={[250, 400]}
+                    width="100%"
                     as="a"
                     href="https://ev.smsvalet.com/Web/WebSite/Login.aspx"
                     target="_blank"
@@ -117,9 +116,9 @@ const Header = () => {
                     Validate Valet Parking
                   </Button>
                 </Box>
-                <Box mt={3}>
+                <Box mt={3} width={['100%', 400, null, '100%']}>
                   <Button
-                    width={[250, 400]}
+                    width="100%"
                     as="a"
                     href={data.valetParkingValidationInstructions.file.url}
                     target="_blank"
@@ -127,9 +126,9 @@ const Header = () => {
                     Valet Parking Validation Instructions
                   </Button>
                 </Box>
-                <Box mt={3}>
+                <Box mt={3} width={['100%', 400, null, '100%']}>
                   <Button
-                    width={[250, 400]}
+                    width="100%"
                     as="a"
                     href={data.validateOfficeTowerGarageParking.file.url}
                     target="_blank"
@@ -137,7 +136,7 @@ const Header = () => {
                     Validate Office Tower Garage Parking
                   </Button>
                 </Box>
-              </ParkingButtonsWrapper>
+              </div>
               <Box mt={4}>
                 <Box
                   mt={4}
