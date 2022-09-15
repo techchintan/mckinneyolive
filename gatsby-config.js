@@ -3,11 +3,6 @@ require('dotenv').config({
 })
 
 module.exports = {
-  flags: {
-    FAST_DEV: true,
-    PARALLEL_SOURCING: true,
-    PRESERVE_FILE_DOWNLOAD_CACHE: true,
-  },
   siteMetadata: {
     title: `McKinney & Olive`,
     description: `An address of distinction`,
@@ -44,15 +39,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `mckinneyolive`,
+        short_name: `mckinneyolive`,
         start_url: `/`,
         background_color: `#005586`,
         theme_color: `#005586`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`,
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {

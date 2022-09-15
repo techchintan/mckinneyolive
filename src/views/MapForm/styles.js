@@ -3,12 +3,12 @@ import styled, { css } from 'styled-components'
 import { Search } from '@styled-icons/boxicons-regular/Search'
 import { Dollar } from '@styled-icons/boxicons-regular/Dollar'
 import { Building } from '@styled-icons/fa-regular/Building'
-import { Parking } from '@styled-icons/fa-solid/Parking'
+import { Parking } from '@styled-icons/boxicons-solid'
 import { Restaurant } from '@styled-icons/boxicons-regular/Restaurant'
-import { Coffee } from '@styled-icons/fa-solid/Coffee'
+import { Coffee } from '@styled-icons/boxicons-solid'
 
 export const Input = styled.input`
-  border: 3px solid ${props => props.theme.colors.grays[2]};
+  border: 3px solid ${(props) => props.theme.colors.grays[2]};
   font-size: 1.25rem;
   padding: 1.125rem 1.125rem 1.125rem 3.5rem;
   width: 100%;
@@ -25,7 +25,7 @@ export const SearchResult = styled(Search)`
 `
 
 export const SearchIcon = styled(Search)`
-  color: ${props => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
   position: absolute;
   top: 50%;
   left: 1.125rem;
@@ -33,7 +33,7 @@ export const SearchIcon = styled(Search)`
 `
 
 const iconStyles = css`
-  color: ${props => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
   flex: none;
   width: 1rem;
   margin-right: 1rem;
