@@ -8,16 +8,17 @@ const Text = ({ children }) => <p>{children}</p>
 
 const options = {
   renderMark: {
-    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
   },
 }
 
-const RichText = ({ content }) => (
-  <Wrapper>{renderRichText(content, options)}</Wrapper>
-)
+const RichText = ({ content }) => {
+  if (content) return <Wrapper>{renderRichText(content, options)}</Wrapper>
+  return null
+}
 
 export const Wrapper = styled.div`
   p span,

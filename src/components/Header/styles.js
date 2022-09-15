@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FacebookF, VimeoV, Instagram } from '@styled-icons/fa-brands'
-import { Parking } from '@styled-icons/fa-solid/Parking'
+import { Parking } from '@styled-icons/boxicons-solid'
 import { UserTie } from '@styled-icons/icomoon/UserTie'
 import { color } from 'styled-system'
 

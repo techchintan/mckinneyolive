@@ -29,10 +29,9 @@ const Index = ({ data }) => {
   useEffect(() => {
     const filteredAnnounce = allContentfulAnnouncements.edges
       .filter((item) => {
-        return (
-          !item.node.announcementDateTimestamp ||
-          item.node.announcementDateTimestamp >= new Date().getTime()
-        )
+        if (item.node.announcementDateTimestamp >= new Date().getTime())
+          return true
+        return false
       })
       .sort(
         (a, b) =>
