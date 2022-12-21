@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
 import { Container } from 'styled-bootstrap-grid'
 import ReactPlayer from 'react-player'
 // Components
@@ -25,7 +25,7 @@ const About = ({ data }) => {
     contentOne,
     contentTwo,
     contentThree,
-    customerService,
+    // customerService,
     links,
     team,
     mckinneyOlive,
@@ -97,7 +97,7 @@ const About = ({ data }) => {
           </Content>
         </ContentImage>
       </Box>
-      <Container>
+      {/* <Container>
         <Box
           display="flex"
           flexWrap="wrap"
@@ -111,9 +111,9 @@ const About = ({ data }) => {
           <Box>{customerService.content}</Box>
         </Box>
       </Container>
-      {/* <GatsbyImage image={getImage(data.teamHero)} alt="McKinney and Olive" /> */}
+      <GatsbyImage image={getImage(data.teamHero)} alt="McKinney and Olive" /> */}
       <Container id="management">
-        <Box py={5}>
+        <Box pb={5}>
           <Heading as="h2" mb={0} fontSize={[4, '36px']}>
             <div dangerouslySetInnerHTML={{ __html: team.title }} />
           </Heading>
