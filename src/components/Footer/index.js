@@ -12,7 +12,7 @@ import {
   StyledInstagram,
 } from './styles'
 
-import logoIconWhite from './logo_icon_type.svg'
+import logoIconWhite from './granite-logo-white.png'
 import logoWhite from '../../images/logo-white.svg'
 
 const Footer = () => {
@@ -63,7 +63,7 @@ const Footer = () => {
               </Link>
             </Box>
             <Box as="ul" p={0} m={0} display={[null, 'flex']}>
-              {nav.map(item => (
+              {nav.map((item) => (
                 <Box
                   key={item.slug}
                   as="li"
@@ -77,14 +77,14 @@ const Footer = () => {
               ))}
             </Box>
             <Box width={[210, 210, 180]} mt={[4, null, 0]}>
-              <a
+              {/* <a
                 href="https://crescent.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'inline-block' }}
-              >
-                <Box width={1} as="img" src={logoIconWhite} />
-              </a>
+              > */}
+              <Box width={1} as="img" src={logoIconWhite} />
+              {/* </a> */}
             </Box>
           </Box>
         </Container>

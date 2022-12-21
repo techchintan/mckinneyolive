@@ -111,7 +111,7 @@ const About = ({ data }) => {
           <Box>{customerService.content}</Box>
         </Box>
       </Container>
-      <GatsbyImage image={getImage(data.teamHero)} alt="McKinney and Olive" />
+      {/* <GatsbyImage image={getImage(data.teamHero)} alt="McKinney and Olive" /> */}
       <Container id="management">
         <Box py={5}>
           <Heading as="h2" mb={0} fontSize={[4, '36px']}>
