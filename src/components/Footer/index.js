@@ -45,7 +45,11 @@ const Footer = () => {
     }
   `)
 
-  const { social, copyright, privacy } = data.pagesJson.home
+  const {
+    social,
+    copyright,
+    // privacy
+  } = data.pagesJson.home
   const { nav } = data.site.siteMetadata
 
   return (
@@ -97,11 +101,11 @@ const Footer = () => {
             justifyContent="space-between"
             flexWrap="wrap"
           >
-            <Box>
+            {/* <Box>
               <StyledLink color="grays.0" to={privacy.slug}>
                 {privacy.text}
               </StyledLink>
-            </Box>
+            </Box> */}
             <Box>
               <Social>
                 <SocialItem href={social.facebook} target="_blank">

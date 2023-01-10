@@ -25,7 +25,7 @@ const Policy = ({ data }) => {
           </Heading>
         </Box>
         <Box pb={4}>
-          {pages.map(title => (
+          {pages.map((title) => (
             <Button
               key={title}
               onClick={() => setActive(title)}

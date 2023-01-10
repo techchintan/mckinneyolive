@@ -9,13 +9,13 @@ const StyledSocialItem = styled.a`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: 0 10px;
+  margin-right: 10px;
   width: 44px;
   height: 44px;
 `
 
-const Social = props => <StyledSocial>{props.children}</StyledSocial>
-const SocialItem = props => (
+const Social = (props) => <StyledSocial>{props.children}</StyledSocial>
+const SocialItem = (props) => (
   <StyledSocialItem {...props}>{props.children}</StyledSocialItem>
 )
 
