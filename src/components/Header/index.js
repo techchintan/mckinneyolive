@@ -20,7 +20,7 @@ import {
   StyledParking,
   StyledUserTie,
   Hamburger,
-  Privacy,
+  // Privacy,
 } from './styles'
 // import LogoPath from './LogoPath'
 import logo from '../../images/logo.svg'
@@ -80,7 +80,11 @@ const Header = () => {
     }
   `)
 
-  const { social, copyright, privacy } = data.pagesJson.home
+  const {
+    social,
+    copyright,
+    // privacy
+  } = data.pagesJson.home
   const { parkingRate } = data
   const { nav } = data.site.siteMetadata
   const [open, set] = useState(false)
@@ -196,7 +200,7 @@ const Header = () => {
                 <Box mr={[null, 0, 4]}>
                   <IconText
                     as="a"
-                    href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=250278&WebsiteName=Main"
+                    href="https://www.ng1.angus.mrisoftware.com/Tenant/default.aspx?CompanyName=Granite&WebsiteName=granite"
                     target="_blank"
                   >
                     <Icon>
@@ -246,7 +250,7 @@ const Header = () => {
                 <ANormal
                   as="a"
                   fontSize={[3, '36px']}
-                  href="https://www.ng1.angusanywhere.com/Tenant/default.aspx?CompanyName=250278&WebsiteName=Main"
+                  href="https://www.ng1.angus.mrisoftware.com/Tenant/default.aspx?CompanyName=Granite&WebsiteName=granite"
                   target="_blank"
                 >
                   Customer Service
@@ -274,9 +278,9 @@ const Header = () => {
         <Box pt={[4]} px={2} width={1}>
           <Container>
             <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-              <Privacy to={privacy.slug} color="white">
+              {/* <Privacy to={privacy.slug} color="white">
                 {privacy.text}
-              </Privacy>
+              </Privacy> */}
               <Box color="white">
                 {copyright.text} {new Date().getFullYear()}
               </Box>
