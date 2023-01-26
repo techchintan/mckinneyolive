@@ -96,30 +96,31 @@ const Leasing = ({ data }) => {
                   FLOOR PLAN
                 </Td>
               </Tr>
-              {active.node.specifications.map(
-                ({ floor, rsf, suite, floorPlan }, index) => {
-                  return (
-                    <Tr key={index} bg="primary">
-                      <Td style={{ opacity: 0.8 }}>{floor}</Td>
-                      <Td style={{ opacity: 0.8 }}>{rsf}</Td>
-                      <Td style={{ opacity: 0.8 }}>{suite}</Td>
-                      <Td style={{ opacity: 0.8 }}>
-                        {isNull(floorPlan) ? null : (
-                          <Box
-                            as="a"
-                            color="white"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={`https://${floorPlan.file.url}`}
-                          >
-                            Download
-                          </Box>
-                        )}
-                      </Td>
-                    </Tr>
-                  )
-                }
-              )}
+              {active &&
+                active.node.specifications.map(
+                  ({ floor, rsf, suite, floorPlan }, index) => {
+                    return (
+                      <Tr key={index} bg="primary">
+                        <Td style={{ opacity: 0.8 }}>{floor}</Td>
+                        <Td style={{ opacity: 0.8 }}>{rsf}</Td>
+                        <Td style={{ opacity: 0.8 }}>{suite}</Td>
+                        <Td style={{ opacity: 0.8 }}>
+                          {isNull(floorPlan) ? null : (
+                            <Box
+                              as="a"
+                              color="white"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              href={`https://${floorPlan.file.url}`}
+                            >
+                              Download
+                            </Box>
+                          )}
+                        </Td>
+                      </Tr>
+                    )
+                  }
+                )}
             </TBody>
           </Table>
         </Box>
