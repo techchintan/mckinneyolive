@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import BGImage from 'gatsby-background-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import { getImage } from 'gatsby-plugin-image'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { isEmpty } from 'lodash'
 import moment from 'moment'
@@ -33,19 +33,20 @@ const HomeContent = ({
   const image = getImage(bg)
   const bgImage = convertToBgImage(image)
 
-  const { conciergeNewsletter } = useStaticQuery(graphql`
-    {
-      conciergeNewsletter: contentfulPdf(
-        pdfId: { eq: "concierge-newsletter" }
-      ) {
-        pdf {
-          file {
-            url
-          }
-        }
-      }
-    }
-  `)
+  // const { conciergeNewsletter } = useStaticQuery(graphql`
+  //   {
+  //     conciergeNewsletter: contentfulPdf(
+  //       pdfId: { eq: "concierge-newsletter" }
+  //     ) {
+  //       pdf {
+  //         file {
+  //           url
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+
   return (
     <Box position="relative">
       <Box position="absolute" top="0" left="0" height="100%" width={1}>
@@ -73,7 +74,7 @@ const HomeContent = ({
             <Row>
               <Col col={12} xl={10} xlOffset={1}>
                 <Row>
-                  <Col xl={5}>
+                  <Col md={6} mdOffset={3}>
                     <Heading
                       color="white"
                       fontSize={[4, '36px']}
@@ -157,15 +158,15 @@ const HomeContent = ({
                       </Row>
                     </Box>
                   </Col>
-                  <Col xl={1}>
+                  {/* <Col xl={1}>
                     <Box
                       display={['none', null, null, 'block']}
                       borderLeft="1px solid"
                       borderColor="white"
                       height="100%"
                     />
-                  </Col>
-                  <Col xl={6}>
+                  </Col> */}
+                  {/* <Col xl={6}>
                     <Heading
                       color="white"
                       fontSize={[4, '36px']}
@@ -186,7 +187,7 @@ const HomeContent = ({
                     >
                       {home.concierge.ctaText}
                     </Button>
-                  </Col>
+                  </Col> */}
                 </Row>
               </Col>
             </Row>

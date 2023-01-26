@@ -239,20 +239,11 @@ const Amenities = ({ data }) => {
               <Button
                 mt={4}
                 as="a"
-                href={data.conferenceCenterBrochure.file.url}
+                href={`https:${data.conferenceCenterBrochure.file.url}`}
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 {contentOne.ctaText}
-              </Button>
-            </div>
-            <div>
-              <Button
-                mt={4}
-                as="a"
-                href={data.conferenceCenterBrochureSocialDistancing.file.url}
-                target="_blank"
-              >
-                {contentOne.ctaTextSocialDistancing}
               </Button>
             </div>
           </Content>
@@ -297,8 +288,9 @@ const Amenities = ({ data }) => {
               <Button
                 mt={3}
                 as="a"
-                href={`https://${data.fitnessStudioBrochure.file.url}`}
+                href={`https:${data.fitnessStudioBrochure.file.url}`}
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 {contentThree.ctaText2}
               </Button>
@@ -467,7 +459,7 @@ export const query = graphql`
       gatsbyImageData(placeholder: BLURRED)
     }
     conferenceCenterBrochure: contentfulAsset(
-      title: { eq: "Conference Center Brochure" }
+      title: { eq: "conference-center-brochure" }
     ) {
       file {
         url
@@ -481,7 +473,7 @@ export const query = graphql`
       }
     }
     fitnessStudioBrochure: contentfulAsset(
-      title: { eq: "Fitness Studio Brochure" }
+      title: { eq: "fitness-studio-brochure" }
     ) {
       file {
         url
