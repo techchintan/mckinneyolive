@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import { getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Container } from 'styled-bootstrap-grid'
 import ReactPlayer from 'react-player'
 // Components
@@ -70,7 +70,13 @@ const About = ({ data }) => {
               <div dangerouslySetInnerHTML={{ __html: mckinneyOlive.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: mckinneyOlive.content }} />
-            <Button mt={4} as="a" href={data.aboutBrochure.file.url}>
+            <Button
+              mt={4}
+              as="a"
+              target="_blank"
+              rel="noreferrer noopener"
+              href={`https:${data.aboutBrochure.file.url}`}
+            >
               {mckinneyOlive.ctaText}
             </Button>
           </Content>
@@ -110,8 +116,10 @@ const About = ({ data }) => {
           </Heading>
           <Box>{customerService.content}</Box>
         </Box>
-      </Container>
-      <GatsbyImage image={getImage(data.teamHero)} alt="McKinney and Olive" /> */}
+      </Container> */}
+      <Box mb={6}>
+        <GatsbyImage image={getImage(data.teamHero)} alt="McKinney and Olive" />
+      </Box>
       <Container id="management">
         <Box pb={5}>
           <Heading as="h2" mb={0} fontSize={[4, '36px']}>
@@ -134,8 +142,9 @@ const About = ({ data }) => {
             <Button
               mt={4}
               as="a"
-              href={data.leedCaseStudy.file.url}
+              href={`https:${data.leedCaseStudy.file.url}`}
               target="_blank"
+              rel="noreferrer noopener"
             >
               {contentOne.cta.text}
             </Button>
@@ -143,8 +152,12 @@ const About = ({ data }) => {
         </ContentImage>
       </Box>
       <Box id="bees" overflow="hidden" mb={[4, 0]}>
-        <ContentImage alignItems={['center']}>
-          <Box
+        <ContentImage>
+          <Image
+            image={getImage(data.mooBeeImage)}
+            alt={data.mooBeeImage?.title}
+          />
+          {/* <Box
             position="relative"
             width={['100%', null, null, '50%']}
             alignSelf={['center', null, null, 'stretch']}
@@ -187,7 +200,7 @@ const About = ({ data }) => {
                 loop={true}
               />
             </Box>
-          </Box>
+          </Box> */}
           <Content
             ref={(div) =>
               div &&
@@ -325,7 +338,7 @@ export const query = graphql`
     hero: contentfulAsset(title: { eq: "about_hero" }) {
       gatsbyImageData(placeholder: BLURRED)
     }
-    teamHero: contentfulAsset(title: { eq: "the_team" }) {
+    teamHero: contentfulAsset(title: { eq: "the-team" }) {
       gatsbyImageData(placeholder: BLURRED)
     }
     contentOneImage: contentfulAsset(title: { eq: "think_sustainable" }) {
@@ -339,17 +352,19 @@ export const query = graphql`
     ) {
       gatsbyImageData(placeholder: BLURRED)
     }
-    aboutBrochure: contentfulAsset(title: { eq: "About Brochure" }) {
+    aboutBrochure: contentfulAsset(title: { eq: "about-brochure" }) {
       file {
         url
       }
     }
-    leedCaseStudy: contentfulAsset(
-      title: { eq: "McKinney & Olive LEED Case Study" }
-    ) {
+    leedCaseStudy: contentfulAsset(title: { eq: "leed-case-study" }) {
       file {
         url
       }
+    }
+    mooBeeImage: contentfulAsset(title: { eq: "moo-bee-about" }) {
+      title
+      gatsbyImageData(placeholder: BLURRED)
     }
     management: allContentfulTeams(
       sort: { order: ASC, fields: order }

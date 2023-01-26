@@ -154,7 +154,7 @@ export const query = graphql`
         ctaText
       }
     }
-    hero: contentfulAsset(title: { eq: "hero_leasing" }) {
+    hero: contentfulAsset(title: { eq: "hero-leasing" }) {
       gatsbyImageData(placeholder: BLURRED)
     }
     contentImage: contentfulAsset(title: { eq: "content_image" }) {
