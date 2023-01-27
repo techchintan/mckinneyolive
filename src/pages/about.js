@@ -235,7 +235,7 @@ const About = ({ data }) => {
               <div dangerouslySetInnerHTML={{ __html: contentThree.title }} />
             </Heading>
             <Box dangerouslySetInnerHTML={{ __html: contentThree.content }} />
-            <Box pt={4}>
+            {/* <Box pt={4}>
               <form
                 action="https://www.paypal.com/cgi-bin/webscr"
                 method="post"
@@ -263,7 +263,7 @@ const About = ({ data }) => {
                   height="1"
                 />
               </form>
-            </Box>
+            </Box> */}
           </Content>
         </ContentImage>
       </Box>
@@ -344,7 +344,7 @@ export const query = graphql`
     contentOneImage: contentfulAsset(title: { eq: "think_sustainable" }) {
       gatsbyImageData(placeholder: BLURRED)
     }
-    contentTwoImage: contentfulAsset(title: { eq: "thank_you" }) {
+    contentTwoImage: contentfulAsset(title: { eq: "twg-summer" }) {
       gatsbyImageData(placeholder: BLURRED)
     }
     theCrescentImage: contentfulAsset(
