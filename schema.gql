@@ -1,4 +1,4 @@
-### Type definitions saved at 2022-09-15T01:19:40.169Z ###
+### Type definitions saved at 2023-02-02T03:51:23.457Z ###
 
 enum RemoteFileFit {
   COVER
@@ -255,12 +255,11 @@ type Directory implements Node @dontInfer {
   birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
 }
 
-type Site implements Node @derivedTypes @dontInfer {
+type Site implements Node @dontInfer {
   buildTime: Date @dateformat
   siteMetadata: SiteSiteMetadata
   port: Int
   host: String
-  flags: SiteFlags
   polyfill: Boolean
   pathPrefix: String
   jsxRuntime: String
@@ -278,12 +277,6 @@ type SiteSiteMetadata @derivedTypes {
 type SiteSiteMetadataNav {
   text: String
   slug: String
-}
-
-type SiteFlags {
-  FAST_DEV: Boolean
-  PARALLEL_SOURCING: Boolean
-  PRESERVE_FILE_DOWNLOAD_CACHE: Boolean
 }
 
 type SiteFunction implements Node @dontInfer {
@@ -1502,11 +1495,18 @@ type PagesJsonAmenitiesBottomContent {
   ctaText: String
 }
 
-type PagesJsonLeasing {
+type PagesJsonLeasing @derivedTypes {
   title: String
   content: String
   address: String
   ctaText: String
+  addresses: [PagesJsonLeasingAddresses]
+}
+
+type PagesJsonLeasingAddresses {
+  name: String
+  phone: String
+  email: String
 }
 
 type PagesJsonLocation {
@@ -1519,7 +1519,7 @@ type PagesJsonPolicy {
   title: String
 }
 
-type InstaNode implements Node @dontInfer {
+type InstaNode implements Node @derivedTypes @dontInfer {
   type: String
   username: String
   likes: Int
@@ -1530,6 +1530,14 @@ type InstaNode implements Node @dontInfer {
   timestamp: Int
   comments: Int
   permalink: String
+  carouselImages: [InstaNodeCarouselImages]
+  localFile: File @link(by: "id", from: "localFile___NODE")
+}
+
+type InstaNodeCarouselImages {
+  preview: String
+  media_url: String
+  id: String
   localFile: File @link(by: "id", from: "localFile___NODE")
 }
 

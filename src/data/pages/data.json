@@ -239,7 +239,24 @@
     "title": "DESIGNED FOR THE<br/><span>MODERN PROFESSIONAL</span>",
     "content": "McKinney & Olive offers world-class architecture and amenities, including ultra-efficient floor plates, the latest building technology, state-of-the-art security, destination elevators, Canyon Ranch-designed fitness studio, conference center, and an outdoor terrace. These, combined with Crescent’s award-winning customer service, provide our customers with the ability to work effectively and efficiently and recruit and retain talent in today’s competitive market.",
     "address": "LEASING INFO<br><p>Robert Jimenez<br>972-731-2354<br>rjimenez@graniteprop.com</p><p>Burson Holman<br>972-731-2364<br>bholman@graniteprop.com</p><p>Elizabeth Fortado<br>972-731-2354<br>efortado@graniteprop.com</p>",
-    "ctaText": "Download Leasing Brochure"
+    "ctaText": "Download Leasing Brochure",
+    "addresses": [
+      {
+        "name": "Robert Jimenez",
+        "phone": "972-731-2354",
+        "email": "rjimenez@graniteprop.com"
+      },
+      {
+        "name": "Burson Holman",
+        "phone": "972-731-2364",
+        "email": "bholman@graniteprop.com"
+      },
+      {
+        "name": "Elizabeth Fortado",
+        "phone": "972-731-2354",
+        "email": "efortado@graniteprop.com"
+      }
+    ]
   },
   "location": {
     "contentOne": "Located in vibrant Uptown Dallas, McKinney & Olive occupies 3.1 acres in the heart of Uptown Dallas. It sits directly across from The Ritz-Carlton Hotel and Residences, Dallas, near downtown’s Dallas Arts District, Klyde Warren Park, and close to the largest concentration of restaurants, trendsetting retail shops, upscale hotels, and high-end residential developments in DFW.",
