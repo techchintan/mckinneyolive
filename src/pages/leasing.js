@@ -125,29 +125,27 @@ const Leasing = ({ data }) => {
           </Table>
         </Box>
       </Container>
-      <Box
-        bg="primary"
-        mb={2}
-        px={3}
-        py={[5, 6]}
-        display={[null, null, 'flex']}
-        justifyContent="center"
-      >
-        {addresses.map((item, index) => (
-          <Box
-            key={index}
-            fontWeight={700}
-            p={[3, 4]}
-            textAlign="center"
-            color="white"
-          >
-            <Box fontSize={[4, '24px']}>{item.name}</Box>
-            <Box fontSize={2}>
-              <div>{item.phone}</div>
-              <div>{item.email}</div>
+      <Box bg="primary" mb={2} px={3} py={[5, 6]}>
+        <Box fontWeight={700} textAlign="center" color="white" fontSize={5}>
+          LEASING INFO
+        </Box>
+        <Box display={[null, null, 'flex']} justifyContent="center">
+          {addresses.map((item, index) => (
+            <Box
+              key={index}
+              fontWeight={700}
+              p={[3, 4]}
+              textAlign="center"
+              color="white"
+            >
+              <Box fontSize={[4, '24px']}>{item.name}</Box>
+              <Box fontSize={2}>
+                <div>{item.phone}</div>
+                <div>{item.email}</div>
+              </Box>
             </Box>
-          </Box>
-        ))}
+          ))}
+        </Box>
       </Box>
     </Layout>
   )
