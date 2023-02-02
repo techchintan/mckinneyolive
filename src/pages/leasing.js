@@ -18,7 +18,7 @@ import Table, { THead, TBody, Th, Tr, Td } from '../compound/Table'
 import { getImage } from 'gatsby-plugin-image'
 
 const Leasing = ({ data }) => {
-  const { title, content, address, ctaText } = data.pagesJson.leasing
+  const { title, content, ctaText, addresses } = data.pagesJson.leasing
   const { allContentfulBuildings } = data
   const firstItem = allContentfulBuildings.edges[0]
   const [active, setActive] = useState(firstItem)
@@ -97,7 +97,7 @@ const Leasing = ({ data }) => {
                 </Td>
               </Tr>
               {active &&
-                active.node.specifications.map(
+                active.node?.specifications?.map(
                   ({ floor, rsf, suite, floorPlan }, index) => {
                     return (
                       <Tr key={index} bg="primary">
@@ -130,16 +130,24 @@ const Leasing = ({ data }) => {
         mb={2}
         px={3}
         py={[5, 6]}
-        display="flex"
+        display={[null, null, 'flex']}
         justifyContent="center"
       >
-        <Box
-          fontSize={[4, '36px']}
-          fontWeight={700}
-          textAlign="center"
-          color="white"
-          dangerouslySetInnerHTML={{ __html: address }}
-        />
+        {addresses.map((item, index) => (
+          <Box
+            key={index}
+            fontWeight={700}
+            p={[3, 4]}
+            textAlign="center"
+            color="white"
+          >
+            <Box fontSize={[4, '24px']}>{item.name}</Box>
+            <Box fontSize={2}>
+              <div>{item.phone}</div>
+              <div>{item.email}</div>
+            </Box>
+          </Box>
+        ))}
       </Box>
     </Layout>
   )
@@ -153,6 +161,11 @@ export const query = graphql`
         title
         address
         ctaText
+        addresses {
+          name
+          phone
+          email
+        }
       }
     }
     hero: contentfulAsset(title: { eq: "hero-leasing" }) {
