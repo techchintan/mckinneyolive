@@ -27,7 +27,7 @@ const Leasing = ({ data }) => {
     <Layout>
       <Seo title="Leasing" />
       <Hero image={getImage(data.hero)} alt="McKinney and Olive" />
-      <Box mt={[100, null, null, 0]} mb={[50, null, 0]}>
+      <Box mt={100} mb={50}>
         <ContentImage alignItems="center">
           <SliderWrapper>
             <ImageSlider
