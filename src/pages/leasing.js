@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import isNull from 'lodash/isNull'
+import { isEmpty, isNull } from 'lodash'
 import { graphql } from 'gatsby'
 import { Container } from 'styled-bootstrap-grid'
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack'
@@ -58,7 +58,7 @@ const Leasing = ({ data }) => {
           </Content>
         </ContentImage>
       </Box>
-      {allContentfulBuildings && (
+      {!isEmpty(allContentfulBuildings.edges) && (
         <Container>
           <Box
             display={['flex', null, 'none']}
@@ -198,7 +198,7 @@ export const query = graphql`
       id
       gatsbyImageData(placeholder: BLURRED)
     }
-    allContentfulBuildings(sort: { fields: createdAt }) {
+    allContentfulBuildings {
       edges {
         node {
           id
