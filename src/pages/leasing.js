@@ -58,73 +58,75 @@ const Leasing = ({ data }) => {
           </Content>
         </ContentImage>
       </Box>
-      <Container>
-        <Box
-          display={['flex', null, 'none']}
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          <ArrowBack size="24" />
-          <Box color="grays.0" fontWeight={600}>
-            SWIPE
+      {allContentfulBuildings && (
+        <Container>
+          <Box
+            display={['flex', null, 'none']}
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <ArrowBack size="24" />
+            <Box color="grays.0" fontWeight={600}>
+              SWIPE
+            </Box>
+            <ArrowForward size="24" />
           </Box>
-          <ArrowForward size="24" />
-        </Box>
-        <Box overflowY="auto" mt={[3, 4, 6]} mb={[5, 6]}>
-          <Table width={1}>
-            {allContentfulBuildings.edges.length > 1 && (
-              <THead>
-                <Tr>
-                  {allContentfulBuildings.edges.map((item) => {
-                    const { title, id } = item.node
-                    let color = id === active.node.id ? `primary` : `grays.0`
-                    return (
-                      <Th onClick={() => setActive(item)} bg={color} key={id}>
-                        {title}
-                      </Th>
-                    )
-                  })}
+          <Box overflowY="auto" mt={[3, 4, 6]} mb={[5, 6]}>
+            <Table width={1}>
+              {allContentfulBuildings.edges.length > 1 && (
+                <THead>
+                  <Tr>
+                    {allContentfulBuildings.edges.map((item) => {
+                      const { title, id } = item.node
+                      let color = id === active.node.id ? `primary` : `grays.0`
+                      return (
+                        <Th onClick={() => setActive(item)} bg={color} key={id}>
+                          {title}
+                        </Th>
+                      )
+                    })}
+                  </Tr>
+                </THead>
+              )}
+              <TBody>
+                <Tr bg="primary">
+                  <Td style={{ fontWeight: 600, fontSize: '18px' }}>FLOOR</Td>
+                  <Td style={{ fontWeight: 600, fontSize: '18px' }}>RSF</Td>
+                  <Td style={{ fontWeight: 600, fontSize: '18px' }}>SUITE</Td>
+                  <Td style={{ fontWeight: 600, fontSize: '18px' }}>
+                    FLOOR PLAN
+                  </Td>
                 </Tr>
-              </THead>
-            )}
-            <TBody>
-              <Tr bg="primary">
-                <Td style={{ fontWeight: 600, fontSize: '18px' }}>FLOOR</Td>
-                <Td style={{ fontWeight: 600, fontSize: '18px' }}>RSF</Td>
-                <Td style={{ fontWeight: 600, fontSize: '18px' }}>SUITE</Td>
-                <Td style={{ fontWeight: 600, fontSize: '18px' }}>
-                  FLOOR PLAN
-                </Td>
-              </Tr>
-              {active &&
-                active.node?.specifications?.map(
-                  ({ floor, rsf, suite, floorPlan }, index) => {
-                    return (
-                      <Tr key={index} bg="primary">
-                        <Td style={{ opacity: 0.8 }}>{floor}</Td>
-                        <Td style={{ opacity: 0.8 }}>{rsf}</Td>
-                        <Td style={{ opacity: 0.8 }}>{suite}</Td>
-                        <Td style={{ opacity: 0.8 }}>
-                          {isNull(floorPlan) ? null : (
-                            <Box
-                              as="a"
-                              color="white"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              href={`https://${floorPlan.file.url}`}
-                            >
-                              Download
-                            </Box>
-                          )}
-                        </Td>
-                      </Tr>
-                    )
-                  }
-                )}
-            </TBody>
-          </Table>
-        </Box>
-      </Container>
+                {active &&
+                  active.node?.specifications?.map(
+                    ({ floor, rsf, suite, floorPlan }, index) => {
+                      return (
+                        <Tr key={index} bg="primary">
+                          <Td style={{ opacity: 0.8 }}>{floor}</Td>
+                          <Td style={{ opacity: 0.8 }}>{rsf}</Td>
+                          <Td style={{ opacity: 0.8 }}>{suite}</Td>
+                          <Td style={{ opacity: 0.8 }}>
+                            {isNull(floorPlan) ? null : (
+                              <Box
+                                as="a"
+                                color="white"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`https://${floorPlan.file.url}`}
+                              >
+                                Download
+                              </Box>
+                            )}
+                          </Td>
+                        </Tr>
+                      )
+                    }
+                  )}
+              </TBody>
+            </Table>
+          </Box>
+        </Container>
+      )}
       <Box bg="primary" mb={2} px={3} py={[5, 6]}>
         <Box fontWeight={700} textAlign="center" color="white" fontSize={5}>
           LEASING INFO

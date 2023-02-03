@@ -35,7 +35,7 @@ const Amenities = ({ data }) => {
   } = data
   const {
     links,
-    bottomContent,
+    // bottomContent,
     content,
     contentFeatured,
     contentOne,
@@ -314,7 +314,7 @@ const Amenities = ({ data }) => {
           <CardSlider data={hotel.edges} />
         </Box>
       </Container>
-      <Box
+      {/* <Box
         bg="primary"
         my={2}
         px={3}
@@ -338,7 +338,7 @@ const Amenities = ({ data }) => {
             {bottomContent.ctaText}
           </Button>
         </Box>
-      </Box>
+      </Box> */}
     </Layout>
   )
 }
