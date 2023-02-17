@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `McKinney & Olive`,
     description: `An address of distinction`,
-    author: `@leomanlapera`,
+    author: `June Leoman Lapera <leomanlapera@gmail.com>`,
     siteUrl: `https://www.mckinneyandolive.com/`,
     nav: [
       { text: 'About', slug: '/about' },
@@ -24,6 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
+        host: `https://www.mckinneyandolive.com/`,
         sitemap: 'https://www.mckinneyandolive.com/sitemap.xml',
       },
     },
