@@ -7,6 +7,7 @@ module.exports = {
     title: `McKinney & Olive`,
     description: `An address of distinction`,
     author: `@leomanlapera`,
+    siteUrl: `https://www.mckinneyandolive.com/`,
     nav: [
       { text: 'About', slug: '/about' },
       { text: 'Amenities', slug: '/amenities' },
@@ -20,6 +21,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        sitemap: 'https://www.mckinneyandolive.com/sitemap.xml',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
