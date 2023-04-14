@@ -198,6 +198,15 @@ export const query = graphql`
           title
           content {
             raw
+            references {
+              ... on ContentfulAsset {
+                contentful_id
+                __typename
+                file {
+                  url
+                }
+              }
+            }
           }
           time
           location
