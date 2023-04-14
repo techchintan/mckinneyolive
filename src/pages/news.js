@@ -196,13 +196,22 @@ export const query = graphql`
         }
       }
     }
-    allContentfulAnnouncements(sort: { fields: date, order: ASC }) {
+    allContentfulAnnouncements(sort: { date: ASC }) {
       edges {
         node {
           id
           title
           content {
             raw
+            references {
+              ... on ContentfulAsset {
+                contentful_id
+                __typename
+                file {
+                  url
+                }
+              }
+            }
           }
           time
           location
