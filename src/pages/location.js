@@ -40,7 +40,9 @@ const Location = ({ data }) => {
           {contentTwo}
         </Box>
       </Container>
-      <MapForm />
+      <Box mb={[4, null, null, 6]}>
+        <MapForm />
+      </Box>
       <Box
         bg="primary"
         my={2}

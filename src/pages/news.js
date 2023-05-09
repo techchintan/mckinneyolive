@@ -165,14 +165,14 @@ const News = ({ data }) => {
 }
 
 export const query = graphql`
-  {
+  query NewsQuery {
     hero: contentfulAsset(title: { eq: "hero_news" }) {
       gatsbyImageData(placeholder: BLURRED)
     }
     defaultImage: contentfulAsset(title: { eq: "default_image" }) {
       gatsbyImageData(placeholder: BLURRED)
     }
-    allContentfulYearCategories(sort: { order: DESC, fields: title }) {
+    allContentfulYearCategories(sort: { title: DESC }) {
       edges {
         node {
           id
@@ -180,7 +180,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulNews(sort: { fields: date, order: DESC }) {
+    allContentfulNews(sort: { date: DESC }) {
       edges {
         node {
           id
@@ -223,7 +223,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulAwards(sort: { fields: date, order: DESC }) {
+    allContentfulAwards(sort: { date: DESC }) {
       edges {
         node {
           id

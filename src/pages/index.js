@@ -143,7 +143,7 @@ const Index = ({ data }) => {
 }
 
 export const query = graphql`
-  {
+  query IndexQuery {
     pagesJson {
       home {
         announcement {
@@ -191,7 +191,7 @@ export const query = graphql`
       title
       gatsbyImageData(placeholder: BLURRED)
     }
-    allContentfulAnnouncements(sort: { order: ASC, fields: date }) {
+    allContentfulAnnouncements(sort: { date: ASC }) {
       edges {
         node {
           id
@@ -219,7 +219,7 @@ export const query = graphql`
       }
     }
     allInstaNode(
-      sort: { order: DESC, fields: timestamp }
+      sort: { timestamp: DESC }
       filter: { username: { in: ["3291151658", "mckinneyandolive"] } }
       limit: 12
     ) {
