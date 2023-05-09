@@ -288,7 +288,7 @@ const About = ({ data }) => {
 }
 
 export const query = graphql`
-  {
+  query AboutQuery {
     pagesJson {
       about {
         address
@@ -367,7 +367,7 @@ export const query = graphql`
       gatsbyImageData(placeholder: BLURRED)
     }
     management: allContentfulTeams(
-      sort: { order: ASC, fields: order }
+      sort: { order: ASC }
       filter: { category: { title: { eq: "Management" } } }
     ) {
       edges {

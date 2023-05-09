@@ -344,7 +344,7 @@ const Amenities = ({ data }) => {
 }
 
 export const query = graphql`
-  {
+  query AmenitiesQuery {
     pagesJson {
       amenities {
         links {
@@ -404,7 +404,7 @@ export const query = graphql`
     }
     restaurant: allContentfulAmenities(
       filter: { category: { elemMatch: { name: { eq: "Restaurant" } } } }
-      sort: { order: ASC, fields: order }
+      sort: { order: ASC }
     ) {
       edges {
         node {
@@ -426,7 +426,7 @@ export const query = graphql`
     }
     hotel: allContentfulAmenities(
       filter: { category: { elemMatch: { name: { eq: "Hotel" } } } }
-      sort: { order: ASC, fields: order }
+      sort: { order: ASC }
     ) {
       edges {
         node {
