@@ -16,6 +16,7 @@
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-google-analytics": "^5.9.0",
+    "gatsby-plugin-google-tagmanager": "^5.10.0",
     "gatsby-plugin-image": "^3.9.0",
     "gatsby-plugin-manifest": "^5.9.0",
     "gatsby-plugin-netlify": "^5.1.0",
