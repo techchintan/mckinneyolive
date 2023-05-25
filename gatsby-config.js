@@ -86,6 +86,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: `G-57VQH6XMQE`,
+      },
+    },
+    {
       resolve: `instagram-source-plugin`,
       options: {
         username: `3291151658`,
