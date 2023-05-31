@@ -24,7 +24,7 @@ const Index = ({ data }) => {
   const [activeAnnouncement, setAnnouncement] = useState(null)
   const { allContentfulAnnouncements } = data
   const [announcements, setFilteredAnnounce] = useState(null)
-  const { allInstaNode } = data
+  // const { allInstaNode } = data
 
   useEffect(() => {
     const filteredAnnounce = allContentfulAnnouncements.edges
@@ -121,7 +121,7 @@ const Index = ({ data }) => {
           />
         </div>
       </Box>
-      <Container>
+      {/* <Container>
         <Heading as="h2" mb={0} pt={5} fontSize={[5, '36px']}>
           <div dangerouslySetInnerHTML={{ __html: home.social.title }} />
         </Heading>
@@ -136,8 +136,8 @@ const Index = ({ data }) => {
             #mckinneyandolive on Instagram
           </Box>
         </Box>
-      </Container>
-      {allInstaNode && <InstagramGallery allInstaNode={allInstaNode} />}
+      </Container> */}
+      {/* {allInstaNode && <InstagramGallery allInstaNode={allInstaNode} />} */}
     </Layout>
   )
 }
@@ -218,24 +218,24 @@ export const query = graphql`
         }
       }
     }
-    allInstaNode(
-      sort: { timestamp: DESC }
-      filter: { username: { in: ["3291151658", "mckinneyandolive"] } }
-      limit: 12
-    ) {
-      edges {
-        node {
-          id
-          username
-          caption
-          localFile {
-            childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
-            }
-          }
-        }
-      }
-    }
+    # allInstaNode(
+    #   sort: { timestamp: DESC }
+    #   filter: { username: { in: ["3291151658", "mckinneyandolive"] } }
+    #   limit: 12
+    # ) {
+    #   edges {
+    #     node {
+    #       id
+    #       username
+    #       caption
+    #       localFile {
+    #         childImageSharp {
+    #           gatsbyImageData(placeholder: BLURRED)
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 
