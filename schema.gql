@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-05-31T03:34:48.541Z ###
+### Type definitions saved at 2023-06-01T02:38:50.961Z ###
 
 enum RemoteFileFit {
   COVER
@@ -1520,26 +1520,28 @@ type PagesJsonPolicy {
   title: String
 }
 
-type InstaNode implements Node @derivedTypes @dontInfer {
-  type: String
-  username: String
-  likes: Int
-  caption: String
-  mediaType: String
-  preview: String
-  original: String
-  timestamp: Int
-  comments: Int
+type InstagramContent implements Node @derivedTypes @dontInfer {
+  media_url: String
+  media_type: String
   permalink: String
-  carouselImages: [InstaNodeCarouselImages]
+  timestamp: Date @dateformat
+  caption: String
+  username: String
+  album: [InstagramContentAlbum]
+  media_id: String
+  localImage: File @link(by: "id", from: "localImage___NODE")
   localFile: File @link(by: "id", from: "localFile___NODE")
+  thumbnail_url: String
 }
 
-type InstaNodeCarouselImages {
-  preview: String
-  media_url: String
+type InstagramContentAlbum {
   id: String
+  media_url: String
+  media_type: String
+  timestamp: Date @dateformat
+  localImage: File @link(by: "id", from: "localImage___NODE")
   localFile: File @link(by: "id", from: "localFile___NODE")
+  thumbnail_url: String
 }
 
 type ContentfulContentType implements Node @derivedTypes @dontInfer {

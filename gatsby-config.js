@@ -91,22 +91,12 @@ module.exports = {
         id: `G-57VQH6XMQE`,
       },
     },
-    // {
-    //   resolve: `instagram-source-plugin`,
-    //   options: {
-    //     username: `3291151658`,
-    //     access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
-    //     instagram_id: `17841403349761393`,
-    //     paginate: 1,
-    //     maxPosts: 12,
-    //   },
-    // },
-    // {
-    //   resolve: `gatsby-source-instagram-all`,
-    //   options: {
-    //     access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
