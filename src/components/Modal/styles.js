@@ -11,7 +11,7 @@ export const modalContent = css`
   z-index: 9999;
 
   &::before {
-    background-color: ${props => props.theme.colors.black};
+    background-color: ${(props) => props.theme.colors.black};
     content: '';
     display: block;
     position: fixed;
@@ -24,7 +24,7 @@ export const modalContent = css`
 `
 
 export const modalWrap = css`
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
   position: fixed;
   width: 100%;
   height: 100%;
@@ -41,7 +41,7 @@ export const modalWrap = css`
 `
 
 export const close = css`
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -52,8 +52,12 @@ export const close = css`
 `
 
 export const img = css`
+  background-color: #005586;
   width: 100%;
   overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   ${mediaQuery.minDesktop} {
     width: 50%;
   }
@@ -62,7 +66,7 @@ export const img = css`
 export const body = css`
   padding: 20px;
   width: 100%;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${(props) => props.theme.colors.white};
   ${mediaQuery.minDesktop} {
     padding: 30px;
     width: 50%;
