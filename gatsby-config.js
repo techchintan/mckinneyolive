@@ -91,12 +91,12 @@ module.exports = {
         id: `G-57VQH6XMQE`,
       },
     },
-    {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-instagram-all`,
+    //   options: {
+    //     access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
