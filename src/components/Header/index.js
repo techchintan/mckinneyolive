@@ -15,7 +15,7 @@ import Modal, {
 } from '../ParkingValidationModal'
 import {
   StyledFacebookF,
-  StyledVimeoV,
+  // StyledVimeoV,
   StyledInstagram,
   StyledParking,
   StyledUserTie,
@@ -190,9 +190,9 @@ const Header = () => {
                 <SocialItem href={social.instagram} target="_blank">
                   <StyledInstagram color={open ? `white` : `primary`} />
                 </SocialItem>
-                <SocialItem href={social.vimeo} target="_blank">
+                {/* <SocialItem href={social.vimeo} target="_blank">
                   <StyledVimeoV color={open ? `white` : `primary`} />
-                </SocialItem>
+                </SocialItem> */}
               </Social>
             </Box>
             <Box display="flex">
@@ -268,9 +268,9 @@ const Header = () => {
                 <SocialItem href={social.instagram} target="_blank">
                   <StyledInstagram color={open ? `white` : `primary`} />
                 </SocialItem>
-                <SocialItem href={social.vimeo} target="_blank">
+                {/* <SocialItem href={social.vimeo} target="_blank">
                   <StyledVimeoV color={open ? `white` : `primary`} />
-                </SocialItem>
+                </SocialItem> */}
               </Box>
             </MobileTabletOnly>
           </List>
