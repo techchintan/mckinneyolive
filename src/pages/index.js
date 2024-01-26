@@ -7,13 +7,13 @@ import { Container } from 'styled-bootstrap-grid'
 import { Map } from '@styled-icons/boxicons-solid/Map'
 import { Time } from '@styled-icons/boxicons-regular/Time'
 import { CalendarAlt } from '@styled-icons/boxicons-regular/CalendarAlt'
-import ReactPlayer from 'react-player'
+// import ReactPlayer from 'react-player'
 import Layout from '../components/Layout'
 import Seo from '../components/seo'
 import Box from '../components/Box'
 import Hero from '../components/Hero'
 import Heading from '../components/Heading'
-import InstagramGallery from '../views/InstagramGallery'
+// import InstagramGallery from '../views/InstagramGallery'
 import HeaderLinks from '../views/HeaderLinks'
 import HomeContent from '../views/HomeContent'
 import RichTextContentful from '../components/RichTextContentful'
@@ -24,7 +24,7 @@ const Index = ({ data }) => {
   const [activeAnnouncement, setAnnouncement] = useState(null)
   const { allContentfulAnnouncements } = data
   const [announcements, setFilteredAnnounce] = useState(null)
-  const { allInstagramContent } = data
+  // const { allInstagramContent } = data
 
   useEffect(() => {
     const filteredAnnounce = allContentfulAnnouncements.edges
@@ -110,7 +110,7 @@ const Index = ({ data }) => {
           announcementContent={home.announcement.content}
         />
       )}
-      <Box width="100%">
+      {/* <Box width="100%">
         <div className="react-player-wrapper">
           <ReactPlayer
             className="react-player-video"
@@ -120,7 +120,7 @@ const Index = ({ data }) => {
             height="100%"
           />
         </div>
-      </Box>
+      </Box> */}
       <Container>
         <Heading as="h2" mb={0} pt={5} fontSize={[5, '36px']}>
           <div dangerouslySetInnerHTML={{ __html: home.social.title }} />
@@ -128,18 +128,28 @@ const Index = ({ data }) => {
         <Box pb={5}>
           <Box
             as="a"
+            mr={2}
             color="grays.0"
             href={home.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
           >
-            #mckinneyandolive on Instagram
+            @mckinneyandolive on Instagram
+          </Box>
+          <Box
+            as="a"
+            color="grays.0"
+            href={home.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @mckinneyandolive on Facebook
           </Box>
         </Box>
       </Container>
-      {allInstagramContent && (
+      {/* {allInstagramContent && (
         <InstagramGallery allInstaNode={allInstagramContent} />
-      )}
+      )} */}
     </Layout>
   )
 }

@@ -8,7 +8,7 @@ import { Social, SocialItem } from '../Social'
 import {
   StyledLink,
   StyledFacebookF,
-  StyledVimeoV,
+  // StyledVimeoV,
   StyledInstagram,
 } from './styles'
 
@@ -114,9 +114,9 @@ const Footer = () => {
                 <SocialItem href={social.instagram} target="_blank">
                   <StyledInstagram color="grays.1" />
                 </SocialItem>
-                <SocialItem href={social.vimeo} target="_blank">
+                {/* <SocialItem href={social.vimeo} target="_blank">
                   <StyledVimeoV color="grays.1" />
-                </SocialItem>
+                </SocialItem> */}
               </Social>
             </Box>
             <Box color="grays.0">
