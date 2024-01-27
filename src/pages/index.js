@@ -13,7 +13,7 @@ import Seo from '../components/seo'
 import Box from '../components/Box'
 import Hero from '../components/Hero'
 import Heading from '../components/Heading'
-// import InstagramGallery from '../views/InstagramGallery'
+import InstagramGallery from '../views/InstagramGallery'
 import HeaderLinks from '../views/HeaderLinks'
 import HomeContent from '../views/HomeContent'
 import RichTextContentful from '../components/RichTextContentful'
@@ -24,7 +24,7 @@ const Index = ({ data }) => {
   const [activeAnnouncement, setAnnouncement] = useState(null)
   const { allContentfulAnnouncements } = data
   const [announcements, setFilteredAnnounce] = useState(null)
-  // const { allInstagramContent } = data
+  const { allInstaNode } = data
 
   useEffect(() => {
     const filteredAnnounce = allContentfulAnnouncements.edges
@@ -136,20 +136,9 @@ const Index = ({ data }) => {
           >
             @mckinneyandolive on Instagram
           </Box>
-          <Box
-            as="a"
-            color="grays.0"
-            href={home.social.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @mckinneyandolive on Facebook
-          </Box>
         </Box>
       </Container>
-      {/* {allInstagramContent && (
-        <InstagramGallery allInstaNode={allInstagramContent} />
-      )} */}
+      {allInstaNode && <InstagramGallery allInstaNode={allInstaNode} />}
     </Layout>
   )
 }
@@ -230,19 +219,37 @@ export const query = graphql`
         }
       }
     }
-    allInstagramContent(sort: { timestamp: DESC }, limit: 12) {
+    allInstaNode(
+      sort: { timestamp: DESC }
+      filter: { username: { in: ["3291151658", "mckinneyandolive"] } }
+      limit: 12
+    ) {
       edges {
         node {
+          id
+          username
           caption
-          permalink
           localFile {
             childImageSharp {
-              gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
         }
       }
     }
+    # allInstagramContent(sort: { timestamp: DESC }, limit: 12) {
+    #   edges {
+    #     node {
+    #       caption
+    #       permalink
+    #       localFile {
+    #         childImageSharp {
+    #           gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 

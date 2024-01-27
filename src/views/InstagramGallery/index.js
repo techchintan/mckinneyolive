@@ -8,7 +8,7 @@ const InstagramGallery = ({ allInstaNode }) => {
       {allInstaNode.edges.map(({ node }) => {
         return (
           <a
-            href={node.permalink}
+            href={`https://www.instagram.com/p/${node.id}/`}
             target="_blank"
             rel="noopener noreferrer"
             key={node.id}

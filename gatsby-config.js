@@ -98,6 +98,16 @@ module.exports = {
     //   },
     // },
     {
+      resolve: `instagram-source-plugin`,
+      options: {
+        username: `3291151658`,
+        access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
+        // instagram_id: `17841403333501385`,
+        paginate: 1,
+        maxPosts: 12,
+      },
+    },
+    {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
         path: `schema.gql`,
