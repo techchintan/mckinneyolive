@@ -216,7 +216,7 @@ export const query = graphql`
         }
       }
     }
-    leasingBrochure: contentfulAsset(title: { eq: "Leasing Brochure" }) {
+    leasingBrochure: contentfulAsset(title: { eq: "leasing-brochure" }) {
       file {
         url
       }
