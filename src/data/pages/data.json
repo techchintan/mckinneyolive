@@ -2,26 +2,13 @@
   "home": {
     "heading": "There’s <span>only one</span>",
     "links": [
-      {
-        "slug": "/about",
-        "label": "About"
-      },
-      {
-        "slug": "/#announcement",
-        "label": "Announcements"
-      },
-      {
-        "slug": "/amenities#dine-with-us",
-        "label": "Restaurants"
-      },
-      {
-        "slug": "/amenities#retail",
-        "label": "Retail"
-      },
-      {
-        "slug": "/leasing",
-        "label": "Leasing"
-      }
+      { "label": "About", "slug": "/about" },
+      { "label": "What's Happening", "slug": "/#whats-happening" },
+      { "label": "Amenities", "slug": "/amenities" },
+      { "label": "Leasing", "slug": "/leasing" },
+      { "label": "Location", "slug": "/location" },
+      { "label": "Gallery", "slug": "/gallery" },
+      { "label": "News", "slug": "/news" }
     ],
     "content": "McKinney & Olive is a one-of-a-kind, 20-story Class AA office building, designed by world-renowned architect Cesar Pelli offering world-class architecture, premier office space, and exclusive restaurant and retail in the vibrant, pedestrian-oriented neighborhood of Uptown Dallas.",
     "concierge": {
@@ -36,7 +23,7 @@
       "instagram": "https://www.instagram.com/mckinneyandolive"
     },
     "announcement": {
-      "title": "Announcements",
+      "title": "What’s Happening",
       "content": "Stay up to date on our latest news and events by signing up for our weekly email. <a href=\"https://visitor.r20.constantcontact.com/manage/optin?v=001L49yr9Lj8LPo5uMOidNbx_JRM5Yy2COjHqC9jCsCB3FRlCy-GJwn1z8wmJobtOEz0sMoG2Hm4ZsU9rfBUmhgRHHRyLVBkReI35tfOzQLRAA%3D\" target=\"_blank\" style=\"color: white; text-decoration: underline;\">Sign up here</a>."
     },
     "copyright": {

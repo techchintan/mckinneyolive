@@ -10,6 +10,7 @@ module.exports = {
     siteUrl: `https://www.mckinneyandolive.com/`,
     nav: [
       { text: 'About', slug: '/about' },
+      { text: "What's Happening", slug: '/#whats-happening' },
       { text: 'Amenities', slug: '/amenities' },
       { text: 'Leasing', slug: '/leasing' },
       { text: 'Location', slug: '/location' },
@@ -91,18 +92,11 @@ module.exports = {
         id: `G-57VQH6XMQE`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-instagram-all`,
-    //   options: {
-    //     access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
-    //   },
-    // },
     {
       resolve: `instagram-source-plugin`,
       options: {
         username: `3291151658`,
         access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
-        // instagram_id: `17841403333501385`,
         paginate: 1,
         maxPosts: 12,
       },
@@ -115,5 +109,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
+    {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -100,
+      },
+    },
   ],
 }

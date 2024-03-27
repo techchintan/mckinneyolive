@@ -15,14 +15,11 @@ import Modal, {
 } from '../ParkingValidationModal'
 import {
   StyledFacebookF,
-  // StyledVimeoV,
   StyledInstagram,
   StyledParking,
   StyledUserTie,
   Hamburger,
-  // Privacy,
 } from './styles'
-// import LogoPath from './LogoPath'
 import logo from '../../images/logo.svg'
 import logoWhite from '../../images/logo-white.svg'
 
@@ -80,11 +77,7 @@ const Header = () => {
     }
   `)
 
-  const {
-    social,
-    copyright,
-    // privacy
-  } = data.pagesJson.home
+  const { social, copyright } = data.pagesJson.home
   const { parkingRate } = data
   const { nav } = data.site.siteMetadata
   const [open, set] = useState(false)
@@ -171,9 +164,6 @@ const Header = () => {
             justifyContent="space-between"
           >
             <Link to="/" onClick={() => set(false)}>
-              {/* <Box as="svg" width="240px" viewBox="0 0 471 55">
-                <LogoPath open={open} />
-              </Box> */}
               <Box width={[180, 240]}>
                 {open ? (
                   <img src={logoWhite} alt="logo" />
@@ -190,9 +180,6 @@ const Header = () => {
                 <SocialItem href={social.instagram} target="_blank">
                   <StyledInstagram color={open ? `white` : `primary`} />
                 </SocialItem>
-                {/* <SocialItem href={social.vimeo} target="_blank">
-                  <StyledVimeoV color={open ? `white` : `primary`} />
-                </SocialItem> */}
               </Social>
             </Box>
             <Box display="flex">
@@ -268,9 +255,6 @@ const Header = () => {
                 <SocialItem href={social.instagram} target="_blank">
                   <StyledInstagram color={open ? `white` : `primary`} />
                 </SocialItem>
-                {/* <SocialItem href={social.vimeo} target="_blank">
-                  <StyledVimeoV color={open ? `white` : `primary`} />
-                </SocialItem> */}
               </Box>
             </MobileTabletOnly>
           </List>
@@ -278,9 +262,6 @@ const Header = () => {
         <Box pt={[4]} px={2} width={1}>
           <Container>
             <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-              {/* <Privacy to={privacy.slug} color="white">
-                {privacy.text}
-              </Privacy> */}
               <Box color="white">
                 {copyright.text} {new Date().getFullYear()}
               </Box>

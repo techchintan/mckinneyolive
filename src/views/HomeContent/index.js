@@ -33,20 +33,6 @@ const HomeContent = ({
   const image = getImage(bg)
   const bgImage = convertToBgImage(image)
 
-  // const { conciergeNewsletter } = useStaticQuery(graphql`
-  //   {
-  //     conciergeNewsletter: contentfulPdf(
-  //       pdfId: { eq: "concierge-newsletter" }
-  //     ) {
-  //       pdf {
-  //         file {
-  //           url
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-
   return (
     <Box position="relative">
       <Box position="absolute" top="0" left="0" height="100%" width={1}>
@@ -66,7 +52,7 @@ const HomeContent = ({
           </Box>
         </Container>
         <Box
-          id="announcement"
+          id="whats-happening"
           backgroundColor="rgba(48,126,175, 0.79)"
           py={[5, '100px']}
         >
@@ -158,36 +144,6 @@ const HomeContent = ({
                       </Row>
                     </Box>
                   </Col>
-                  {/* <Col xl={1}>
-                    <Box
-                      display={['none', null, null, 'block']}
-                      borderLeft="1px solid"
-                      borderColor="white"
-                      height="100%"
-                    />
-                  </Col> */}
-                  {/* <Col xl={6}>
-                    <Heading
-                      color="white"
-                      fontSize={[4, '36px']}
-                      mb={[3, '40px']}
-                      mt={[4, 4, 4, 0]}
-                      lineHeight={1}
-                    >
-                      {home.concierge.title}
-                    </Heading>
-                    <Box color="white">{home.concierge.content}</Box>
-                    <Button
-                      color="white"
-                      width={[1, 'auto']}
-                      mt={4}
-                      as="a"
-                      target="_blank"
-                      href={conciergeNewsletter.pdf.file.url}
-                    >
-                      {home.concierge.ctaText}
-                    </Button>
-                  </Col> */}
                 </Row>
               </Col>
             </Row>

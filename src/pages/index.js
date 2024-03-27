@@ -110,17 +110,6 @@ const Index = ({ data }) => {
           announcementContent={home.announcement.content}
         />
       )}
-      {/* <Box width="100%">
-        <div className="react-player-wrapper">
-          <ReactPlayer
-            className="react-player-video"
-            url="https://player.vimeo.com/video/371457760?title=0&byline=0&portrait=0"
-            controls
-            width="100%"
-            height="100%"
-          />
-        </div>
-      </Box> */}
       <Container>
         <Heading as="h2" mb={0} pt={5} fontSize={[5, '36px']}>
           <div dangerouslySetInnerHTML={{ __html: home.social.title }} />

@@ -27,9 +27,9 @@ const HeaderLinks = ({ home }) => (
         backgroundColor="white"
       >
         {home.links.map(({ slug, label }) => (
-          <Box key={slug} width={[1, 'auto']} my={2} px={[2, 3]}>
+          <Box key={slug} width={[1, 'auto']} my={2} px={2}>
             <StyledLink to={slug}>
-              <Button px={4} width={[1, 186]}>
+              <Button px={4} width={[1, 'auto']}>
                 {label}
               </Button>
             </StyledLink>

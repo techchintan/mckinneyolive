@@ -5,12 +5,7 @@ import { Container } from 'styled-bootstrap-grid'
 import Box from '../Box'
 import { Social, SocialItem } from '../Social'
 
-import {
-  StyledLink,
-  StyledFacebookF,
-  // StyledVimeoV,
-  StyledInstagram,
-} from './styles'
+import { StyledLink, StyledFacebookF, StyledInstagram } from './styles'
 
 import logoIconWhite from './granite-logo-white.png'
 import logoWhite from '../../images/logo-white.svg'
@@ -45,11 +40,7 @@ const Footer = () => {
     }
   `)
 
-  const {
-    social,
-    copyright,
-    // privacy
-  } = data.pagesJson.home
+  const { social, copyright } = data.pagesJson.home
   const { nav } = data.site.siteMetadata
 
   return (
@@ -61,7 +52,7 @@ const Footer = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box width={[220, 220, 240]} mb={[4, null, 0]}>
+            <Box width={200} mb={[4, null, 0]}>
               <Link to="/" style={{ display: 'inline-block' }}>
                 <Box width={1} as="img" src={logoWhite} />
               </Link>
@@ -80,15 +71,8 @@ const Footer = () => {
                 </Box>
               ))}
             </Box>
-            <Box width={[210, 210, 180]} mt={[4, null, 0]}>
-              {/* <a
-                href="https://crescent.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: 'inline-block' }}
-              > */}
-              <Box width={1} as="img" src={logoIconWhite} />
-              {/* </a> */}
+            <Box width={140} mt={[4, null, 0]}>
+              <Box as="img" src={logoIconWhite} />
             </Box>
           </Box>
         </Container>
@@ -98,15 +82,10 @@ const Footer = () => {
           <Box
             display="flex"
             alignItems="center"
-            justifyContent="space-between"
+            justifyContent={['center', 'space-between']}
             flexWrap="wrap"
           >
-            {/* <Box>
-              <StyledLink color="grays.0" to={privacy.slug}>
-                {privacy.text}
-              </StyledLink>
-            </Box> */}
-            <Box>
+            <Box mb={[2, 0]}>
               <Social>
                 <SocialItem href={social.facebook} target="_blank">
                   <StyledFacebookF color="grays.1" />
@@ -114,12 +93,9 @@ const Footer = () => {
                 <SocialItem href={social.instagram} target="_blank">
                   <StyledInstagram color="grays.1" />
                 </SocialItem>
-                {/* <SocialItem href={social.vimeo} target="_blank">
-                  <StyledVimeoV color="grays.1" />
-                </SocialItem> */}
               </Social>
             </Box>
-            <Box color="grays.0">
+            <Box color="grays.0" fontSize="14px">
               {copyright.text} {new Date().getFullYear()}
             </Box>
           </Box>
