@@ -51,11 +51,7 @@ const HomeContent = ({
             {home.content}
           </Box>
         </Container>
-        <Box
-          id="whats-happening"
-          backgroundColor="rgba(48,126,175, 0.79)"
-          py={[5, '100px']}
-        >
+        <Box backgroundColor="rgba(48,126,175, 0.79)" py={[5, '100px']}>
           <Container>
             <Row>
               <Col col={12} xl={10} xlOffset={1}>

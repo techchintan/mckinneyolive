@@ -100,16 +100,18 @@ const Index = ({ data }) => {
         </Modal>
       )}
       <HeaderLinks home={home} />
-      {announcements && (
-        <HomeContent
-          onClick={setAnnouncement}
-          home={home}
-          bg={data.bg}
-          announcement={announcements}
-          title={home.announcement.title}
-          announcementContent={home.announcement.content}
-        />
-      )}
+      <div id="whats-happening">
+        {announcements && (
+          <HomeContent
+            onClick={setAnnouncement}
+            home={home}
+            bg={data.bg}
+            announcement={announcements}
+            title={home.announcement.title}
+            announcementContent={home.announcement.content}
+          />
+        )}
+      </div>
       <Container>
         <Heading as="h2" mb={0} pt={5} fontSize={[5, '36px']}>
           <div dangerouslySetInnerHTML={{ __html: home.social.title }} />
