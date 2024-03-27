@@ -48,11 +48,11 @@ const Footer = () => {
       <Box bg="secondary" py={5}>
         <Container>
           <Box
-            display={[null, null, 'flex']}
+            display={[null, null, null, 'flex']}
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box width={200} mb={[4, null, 0]}>
+            <Box width={200} mb={[4, null, null, 0]}>
               <Link to="/" style={{ display: 'inline-block' }}>
                 <Box width={1} as="img" src={logoWhite} />
               </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
                 </Box>
               ))}
             </Box>
-            <Box width={140} mt={[4, null, 0]}>
+            <Box width={140} mt={[4, null, null, 0]}>
               <Box as="img" src={logoIconWhite} />
             </Box>
           </Box>
@@ -85,7 +85,7 @@ const Footer = () => {
             justifyContent={['center', 'space-between']}
             flexWrap="wrap"
           >
-            <Box mb={[2, 0]}>
+            <Box mb={[2, 0]} mr={4}>
               <Social>
                 <SocialItem href={social.facebook} target="_blank">
                   <StyledFacebookF color="grays.1" />
