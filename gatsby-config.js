@@ -109,11 +109,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-    {
-      resolve: 'gatsby-plugin-anchor-links',
-      options: {
-        offset: -100,
-      },
-    },
+    `gatsby-plugin-anchor-links`,
   ],
 }
