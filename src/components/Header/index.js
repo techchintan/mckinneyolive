@@ -261,7 +261,11 @@ const Header = () => {
         </Menu>
         <Box pt={[4]} px={2} width={1}>
           <Container>
-            <Box display="flex" flexWrap="wrap" justifyContent="space-between">
+            <Box
+              display="flex"
+              flexWrap="wrap"
+              justifyContent={['center', null, 'space-between']}
+            >
               <Box color="white">
                 {copyright.text} {new Date().getFullYear()}
               </Box>
