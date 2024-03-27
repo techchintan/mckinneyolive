@@ -38,7 +38,7 @@ export const Item = styled.li`
 
 const link = css`
   ${typography};
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   display: block;
   font-weight: 700;
   text-align: center;

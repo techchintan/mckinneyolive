@@ -8,15 +8,20 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${props => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.secondary};
     font-family: "Archivo", sans-serif;
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
     margin: 0;
   }
+  
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
 
   a {
-    color: ${props => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
     text-decoration: none;
   }
 

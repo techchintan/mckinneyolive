@@ -9,9 +9,8 @@ const StyledSocialItem = styled.a`
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-right: 10px;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
 `
 
 const Social = (props) => <StyledSocial>{props.children}</StyledSocial>

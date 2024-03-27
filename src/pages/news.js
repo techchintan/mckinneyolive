@@ -138,7 +138,7 @@ const News = ({ data }) => {
                   </Col>
                   <Col xl={5}>
                     <Heading lineHeight="1" fontSize={[4, '36px']} mb={4}>
-                      <span>Announcements</span>
+                      <span>{`What’s Happening`}</span>
                     </Heading>
                     {!_.isEmpty(filteredAnnouncements) && (
                       <AnnouncementList
