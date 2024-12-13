@@ -1,4 +1,4 @@
-### Type definitions saved at 2024-12-13T07:17:12.450Z ###
+### Type definitions saved at 2024-12-13T07:23:02.313Z ###
 
 enum RemoteFileFit {
   COVER
@@ -883,99 +883,16 @@ type ContentfulBuildings implements ContentfulReference & ContentfulEntry & Node
   contentful_id: String!
   node_locale: String!
   title: String
-  specifications: [ContentfulBuildingsSpecifications]
+  specifications: [ContentfulBuildingSpecification] @link(by: "id", from: "specifications___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulBuildingsSys
 }
 
-type ContentfulBuildingsSpecifications @derivedTypes {
-  sys: ContentfulBuildingsSpecificationsSys
-  fields: ContentfulBuildingsSpecificationsFields
-}
-
-type ContentfulBuildingsSpecificationsSys @derivedTypes {
-  space: ContentfulBuildingsSpecificationsSysSpace
-  type: String
-  id: String
-  contentType: ContentfulBuildingsSpecificationsSysContentType
-  revision: Int
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  environment: ContentfulBuildingsSpecificationsSysEnvironment
-}
-
-type ContentfulBuildingsSpecificationsSysSpace @derivedTypes {
-  sys: ContentfulBuildingsSpecificationsSysSpaceSys
-}
-
-type ContentfulBuildingsSpecificationsSysSpaceSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulBuildingsSpecificationsSysContentType @derivedTypes {
-  sys: ContentfulBuildingsSpecificationsSysContentTypeSys
-}
-
-type ContentfulBuildingsSpecificationsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulBuildingsSpecificationsSysEnvironment @derivedTypes {
-  sys: ContentfulBuildingsSpecificationsSysEnvironmentSys
-}
-
-type ContentfulBuildingsSpecificationsSysEnvironmentSys {
-  id: String
-  type: String
-  linkType: String
-}
-
-type ContentfulBuildingsSpecificationsFields @derivedTypes {
-  name: ContentfulBuildingsSpecificationsFieldsName
-  suite: ContentfulBuildingsSpecificationsFieldsSuite
-  floor: ContentfulBuildingsSpecificationsFieldsFloor
-  rsf: ContentfulBuildingsSpecificationsFieldsRsf
-  floorPlan: ContentfulBuildingsSpecificationsFieldsFloorPlan
-}
-
-type ContentfulBuildingsSpecificationsFieldsName {
-  en_US: String @proxy(from: "en-US")
-}
-
-type ContentfulBuildingsSpecificationsFieldsSuite {
-  en_US: String @proxy(from: "en-US")
-}
-
-type ContentfulBuildingsSpecificationsFieldsFloor {
-  en_US: String @proxy(from: "en-US")
-}
-
-type ContentfulBuildingsSpecificationsFieldsRsf {
-  en_US: String @proxy(from: "en-US")
-}
-
-type ContentfulBuildingsSpecificationsFieldsFloorPlan @derivedTypes {
-  en_US: ContentfulBuildingsSpecificationsFieldsFloorPlanEn_US @proxy(from: "en-US")
-}
-
-type ContentfulBuildingsSpecificationsFieldsFloorPlanEn_US @derivedTypes {
-  sys: ContentfulBuildingsSpecificationsFieldsFloorPlanEn_USSys
-}
-
-type ContentfulBuildingsSpecificationsFieldsFloorPlanEn_USSys {
-  type: String
-  linkType: String
-  id: String
-}
-
 type ContentfulBuildingsSys @derivedTypes {
   type: String
+  revision: Int
   contentType: ContentfulBuildingsSysContentType
 }
 
@@ -991,6 +908,7 @@ type ContentfulBuildingsSysContentTypeSys {
 
 type ContentfulBuildingSpecificationSys @derivedTypes {
   type: String
+  revision: Int
   contentType: ContentfulBuildingSpecificationSysContentType
 }
 
