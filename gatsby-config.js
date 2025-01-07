@@ -92,15 +92,15 @@ module.exports = {
         id: `G-57VQH6XMQE`,
       },
     },
-    // {
-    //   resolve: `instagram-source-plugin`,
-    //   options: {
-    //     username: `3291151658`,
-    //     access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
-    //     paginate: 1,
-    //     maxPosts: 12,
-    //   },
-    // },
+    {
+      resolve: `instagram-source-plugin`,
+      options: {
+        username: `3291151658`,
+        access_token: process.env.FACEBOOK_GRAPH_API_TOKEN,
+        paginate: 1,
+        maxPosts: 12,
+      },
+    },
     {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {

@@ -13,7 +13,7 @@ import Seo from '../components/seo'
 import Box from '../components/Box'
 import Hero from '../components/Hero'
 import Heading from '../components/Heading'
-// import InstagramGallery from '../views/InstagramGallery'
+import InstagramGallery from '../views/InstagramGallery'
 import HeaderLinks from '../views/HeaderLinks'
 import HomeContent from '../views/HomeContent'
 import RichTextContentful from '../components/RichTextContentful'
@@ -24,7 +24,7 @@ const Index = ({ data }) => {
   const [activeAnnouncement, setAnnouncement] = useState(null)
   const { allContentfulAnnouncements } = data
   const [announcements, setFilteredAnnounce] = useState(null)
-  // const { allInstaNode } = data
+  const { allInstaNode } = data
 
   useEffect(() => {
     const filteredAnnounce = allContentfulAnnouncements.edges
@@ -129,7 +129,7 @@ const Index = ({ data }) => {
           </Box>
         </Box>
       </Container>
-      {/* {allInstaNode && <InstagramGallery allInstaNode={allInstaNode} />} */}
+      {allInstaNode && <InstagramGallery allInstaNode={allInstaNode} />}
     </Layout>
   )
 }
@@ -210,24 +210,24 @@ export const query = graphql`
         }
       }
     }
-    # allInstaNode(
-    #   sort: { timestamp: DESC }
-    #   filter: { username: { in: ["3291151658", "mckinneyandolive"] } }
-    #   limit: 12
-    # ) {
-    #   edges {
-    #     node {
-    #       id
-    #       username
-    #       caption
-    #       localFile {
-    #         childImageSharp {
-    #           gatsbyImageData(placeholder: BLURRED)
-    #         }
-    #       }
-    #     }
-    #   }
-    # }
+    allInstaNode(
+      sort: { timestamp: DESC }
+      filter: { username: { in: ["3291151658", "mckinneyandolive"] } }
+      limit: 12
+    ) {
+      edges {
+        node {
+          id
+          username
+          caption
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
+        }
+      }
+    }
     # allInstagramContent(sort: { timestamp: DESC }, limit: 12) {
     #   edges {
     #     node {
