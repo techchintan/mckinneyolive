@@ -1,4 +1,4 @@
-### Type definitions saved at 2024-12-13T07:23:02.313Z ###
+### Type definitions saved at 2025-01-08T02:30:19.191Z ###
 
 enum RemoteFileFit {
   COVER
@@ -218,6 +218,7 @@ type File implements Node @dontInfer {
   birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
   blksize: Int
   blocks: Int
+  url: String
 }
 
 type Directory implements Node @dontInfer {
@@ -864,19 +865,40 @@ type ContentfulAssetSys {
   revision: Int
 }
 
-type ContentfulBuildingSpecification implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+type ContentfulAnnouncements implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
-  name: String
-  suite: String
-  floor: String
-  rsf: String
-  floorPlan: ContentfulAsset @link(by: "id", from: "floorPlan___NODE")
-  buildings: [ContentfulBuildings] @link(by: "id", from: "buildings___NODE")
+  title: String
+  date: Date @dateformat
+  time: String
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
-  sys: ContentfulBuildingSpecificationSys
+  sys: ContentfulAnnouncementsSys
+  content: ContentfulAnnouncementsContent
+  location: String
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+}
+
+type ContentfulAnnouncementsSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAnnouncementsSysContentType
+}
+
+type ContentfulAnnouncementsSysContentType @derivedTypes {
+  sys: ContentfulAnnouncementsSysContentTypeSys
+}
+
+type ContentfulAnnouncementsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulAnnouncementsContent {
+  raw: String
+  references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
 }
 
 type ContentfulBuildings implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -890,20 +912,19 @@ type ContentfulBuildings implements ContentfulReference & ContentfulEntry & Node
   sys: ContentfulBuildingsSys
 }
 
-type ContentfulBuildingsSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulBuildingsSysContentType
-}
-
-type ContentfulBuildingsSysContentType @derivedTypes {
-  sys: ContentfulBuildingsSysContentTypeSys
-}
-
-type ContentfulBuildingsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
+type ContentfulBuildingSpecification implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  name: String
+  suite: String
+  floor: String
+  rsf: String
+  floorPlan: ContentfulAsset @link(by: "id", from: "floorPlan___NODE")
+  buildings: [ContentfulBuildings] @link(by: "id", from: "buildings___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulBuildingSpecificationSys
 }
 
 type ContentfulBuildingSpecificationSys @derivedTypes {
@@ -922,12 +943,96 @@ type ContentfulBuildingSpecificationSysContentTypeSys {
   id: String
 }
 
+type ContentfulBuildingsSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulBuildingsSysContentType
+}
+
+type ContentfulBuildingsSysContentType @derivedTypes {
+  sys: ContentfulBuildingsSysContentTypeSys
+}
+
+type ContentfulBuildingsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulAmenitiesCategory implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  name: String
+  amenities: [ContentfulAmenities] @link(by: "id", from: "amenities___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAmenitiesCategorySys
+}
+
+type ContentfulAmenities implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  content: ContentfulAmenitiesContent
+  address: String
+  order: Int
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  category: [ContentfulAmenitiesCategory] @link(by: "id", from: "category___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAmenitiesSys
+  schedule: String
+  phone: String
+  website: String
+  url: String
+}
+
+type ContentfulAmenitiesContent {
+  raw: String
+}
+
+type ContentfulAmenitiesSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAmenitiesSysContentType
+}
+
+type ContentfulAmenitiesSysContentType @derivedTypes {
+  sys: ContentfulAmenitiesSysContentTypeSys
+}
+
+type ContentfulAmenitiesSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulAmenitiesCategorySys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulAmenitiesCategorySysContentType
+}
+
+type ContentfulAmenitiesCategorySysContentType @derivedTypes {
+  sys: ContentfulAmenitiesCategorySysContentTypeSys
+}
+
+type ContentfulAmenitiesCategorySysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
 type ContentfulTeams implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
   title: String
   name: String
   position: String
+  email: String
+  phone: String
   order: Int
   category: ContentfulTeamCategory @link(by: "id", from: "category___NODE")
   image: ContentfulAsset @link(by: "id", from: "image___NODE")
@@ -935,25 +1040,23 @@ type ContentfulTeams implements ContentfulReference & ContentfulEntry & Node @de
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulTeamsSys
-  email: String
-  phone: String
 }
 
 type ContentfulTeamCategory implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
-  title: String
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulTeamCategorySys
+  title: String
   teams: [ContentfulTeams] @link(by: "id", from: "teams___NODE")
 }
 
 type ContentfulTeamCategorySys @derivedTypes {
   type: String
-  revision: Int
   contentType: ContentfulTeamCategorySysContentType
+  revision: Int
 }
 
 type ContentfulTeamCategorySysContentType @derivedTypes {
@@ -977,233 +1080,6 @@ type ContentfulTeamsSysContentType @derivedTypes {
 }
 
 type ContentfulTeamsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulAmenities implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  content: ContentfulAmenitiesContent
-  address: String
-  website: String
-  url: String
-  order: Int
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  category: [ContentfulAmenitiesCategory] @link(by: "id", from: "category___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulAmenitiesSys
-  phone: String
-  schedule: String
-}
-
-type ContentfulAmenitiesContent {
-  raw: String
-}
-
-type ContentfulAmenitiesCategory implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  name: String
-  amenities: [ContentfulAmenities] @link(by: "id", from: "amenities___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulAmenitiesCategorySys
-}
-
-type ContentfulAmenitiesCategorySys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulAmenitiesCategorySysContentType
-}
-
-type ContentfulAmenitiesCategorySysContentType @derivedTypes {
-  sys: ContentfulAmenitiesCategorySysContentTypeSys
-}
-
-type ContentfulAmenitiesCategorySysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulAmenitiesSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulAmenitiesSysContentType
-}
-
-type ContentfulAmenitiesSysContentType @derivedTypes {
-  sys: ContentfulAmenitiesSysContentTypeSys
-}
-
-type ContentfulAmenitiesSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulAnnouncements implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  content: ContentfulAnnouncementsContent
-  location: String
-  date: Date @dateformat
-  time: String
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulAnnouncementsSys
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
-}
-
-type ContentfulAnnouncementsContent {
-  raw: String
-}
-
-type ContentfulAnnouncementsSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulAnnouncementsSysContentType
-}
-
-type ContentfulAnnouncementsSysContentType @derivedTypes {
-  sys: ContentfulAnnouncementsSysContentTypeSys
-}
-
-type ContentfulAnnouncementsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulMarkdown implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  slug: String
-  copy: contentfulMarkdownCopyTextNode @link(by: "id", from: "copy___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulMarkdownSys
-}
-
-type contentfulMarkdownCopyTextNode implements Node @derivedTypes @childOf(types: ["ContentfulMarkdown"]) @dontInfer {
-  copy: String
-  sys: contentfulMarkdownCopyTextNodeSys
-}
-
-type contentfulMarkdownCopyTextNodeSys {
-  type: String
-}
-
-type ContentfulMarkdownSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulMarkdownSysContentType
-}
-
-type ContentfulMarkdownSysContentType @derivedTypes {
-  sys: ContentfulMarkdownSysContentTypeSys
-}
-
-type ContentfulMarkdownSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulNews implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  slug: String
-  content: ContentfulNewsContent
-  date: Date @dateformat
-  category: ContentfulYearCategories @link(by: "id", from: "category___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulNewsSys
-}
-
-type ContentfulNewsContent {
-  raw: String
-}
-
-type ContentfulYearCategories implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: Date @dateformat
-  news: [ContentfulNews] @link(by: "id", from: "news___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulYearCategoriesSys
-}
-
-type ContentfulYearCategoriesSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulYearCategoriesSysContentType
-}
-
-type ContentfulYearCategoriesSysContentType @derivedTypes {
-  sys: ContentfulYearCategoriesSysContentTypeSys
-}
-
-type ContentfulYearCategoriesSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulNewsSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulNewsSysContentType
-}
-
-type ContentfulNewsSysContentType @derivedTypes {
-  sys: ContentfulNewsSysContentTypeSys
-}
-
-type ContentfulNewsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulPdf implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  internalName: String
-  pdfId: String
-  pdf: ContentfulAsset @link(by: "id", from: "pdf___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulPdfSys
-}
-
-type ContentfulPdfSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulPdfSysContentType
-}
-
-type ContentfulPdfSysContentType @derivedTypes {
-  sys: ContentfulPdfSysContentTypeSys
-}
-
-type ContentfulPdfSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -1236,6 +1112,67 @@ type ContentfulPagesSysContentType @derivedTypes {
 }
 
 type ContentfulPagesSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulYearCategories implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: Date @dateformat
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulYearCategoriesSys
+  news: [ContentfulNews] @link(by: "id", from: "news___NODE")
+}
+
+type ContentfulYearCategoriesSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulYearCategoriesSysContentType
+}
+
+type ContentfulYearCategoriesSysContentType @derivedTypes {
+  sys: ContentfulYearCategoriesSysContentTypeSys
+}
+
+type ContentfulYearCategoriesSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulNews implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  slug: String
+  content: ContentfulNewsContent
+  date: Date @dateformat
+  category: ContentfulYearCategories @link(by: "id", from: "category___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulNewsSys
+}
+
+type ContentfulNewsContent {
+  raw: String
+}
+
+type ContentfulNewsSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulNewsSysContentType
+}
+
+type ContentfulNewsSysContentType @derivedTypes {
+  sys: ContentfulNewsSysContentTypeSys
+}
+
+type ContentfulNewsSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -1295,6 +1232,71 @@ type ContentfulGallerySysContentType @derivedTypes {
 }
 
 type ContentfulGallerySysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulPdf implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  internalName: String
+  pdfId: String
+  pdf: ContentfulAsset @link(by: "id", from: "pdf___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPdfSys
+}
+
+type ContentfulPdfSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulPdfSysContentType
+}
+
+type ContentfulPdfSysContentType @derivedTypes {
+  sys: ContentfulPdfSysContentTypeSys
+}
+
+type ContentfulPdfSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulMarkdown implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  slug: String
+  copy: contentfulMarkdownCopyTextNode @link(by: "id", from: "copy___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulMarkdownSys
+}
+
+type contentfulMarkdownCopyTextNode implements Node @derivedTypes @childOf(types: ["ContentfulMarkdown"]) @dontInfer {
+  copy: String
+  sys: contentfulMarkdownCopyTextNodeSys
+}
+
+type contentfulMarkdownCopyTextNodeSys {
+  type: String
+}
+
+type ContentfulMarkdownSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulMarkdownSysContentType
+}
+
+type ContentfulMarkdownSysContentType @derivedTypes {
+  sys: ContentfulMarkdownSysContentTypeSys
+}
+
+type ContentfulMarkdownSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -1516,6 +1518,32 @@ type PagesJsonLocation {
 
 type PagesJsonPolicy {
   title: String
+}
+
+type InstaNode implements Node @derivedTypes @dontInfer {
+  type: String
+  username: String
+  likes: Int
+  caption: String
+  thumbnails: [InstaNodeThumbnails]
+  mediaType: String
+  preview: String
+  original: String
+  timestamp: Int
+  dimensions: InstaNodeDimensions
+  comments: Int
+  localFile: File @link(by: "id", from: "localFile___NODE")
+}
+
+type InstaNodeThumbnails {
+  src: String
+  config_width: Int
+  config_height: Int
+}
+
+type InstaNodeDimensions {
+  height: Int
+  width: Int
 }
 
 type ContentfulContentType implements Node @derivedTypes @dontInfer {
