@@ -15,7 +15,7 @@
     "@styled-icons/boxicons-regular": "^10.47.0",
     "@styled-icons/boxicons-solid": "^10.47.0",
     "@styled-icons/fa-brands": "^10.47.0",
-    "@styled-icons/icomoon": "^10.47.0",
+    "@styled-icons/fa-regular": "^10.47.0",
     "@styled-icons/material": "^10.47.0",
     "contentful": "^10.15.1",
     "date-fns": "^3.6.0",
